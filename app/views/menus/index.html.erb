@@ -1,0 +1,24 @@
+<h1>Listing Menu</h1>
+
+<table>
+<% @menus.each do |menu| %>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td>
+<%= image_tag(menu.image_url, class: 'list_image') %>
+</td>
+<td class="list_description">
+<dl>
+<dt>
+<%=menu.foodItem%>
+</dt>
+<dd><%=truncate(strip_tags(menu.description),length:80)%>
+</dd>
+</dl>
+</td>
+<td class="list_actions">
+	<%=link_to'Show', menu %><br/><%=link_to'Edit',edit_menu_path(menu)%>
+	<br/><%= link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
+</td>
+</tr>
+<%end%>
+</table><br/><%= link_to 'New Menu', new_menu_path %>

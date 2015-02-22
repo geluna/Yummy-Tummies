@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  menuID: 
+  foodItem: MyString
+  description: MyText
+  image_url: MyString
+  school: MyString
+  franOwner: MyString
+  price: 9.99
+
+two:
+  menuID: 
+  foodItem: MyString
+  description: MyText
+  image_url: MyString
+  school: MyString
+  franOwner: MyString
+  price: 9.99
