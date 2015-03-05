@@ -7,9 +7,12 @@
 <% @menus.each do |menu| %>
 <% cache ['entry', menu] do %>
 	<div class="entry">
+		<%= image_tag(menu.image_url) %>
+		<h3> <%=menu.foodItem %></h3>
 		<%= sanitize(menu.description) %>
 		<div class="price_line">
 			<span class="price"><%= number_to_currency(menu.price) %></span>
+				<%= button_to 'Add to Cart', line_items_path(menu_id: menu) %>
 				</div>
 			</div>
 		<% end %>
