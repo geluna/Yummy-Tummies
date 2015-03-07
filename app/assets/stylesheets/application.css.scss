@@ -13,52 +13,46 @@
  *= require_tree .
  *= require_self
  */
-#banner {
-  background: #9c9;
-  padding: 10px;
-  border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
-  color: #282;
-  text-align: center;
+#header {
+  background: url("/images/banner2.jpg") 
+  no-repeat bottom center; 
+}
+#headerimg  {
+  margin: 7px 9px 0; 
+  height: 192px; 
+  width: 740px; }
 
-  img {
-    float: left;
-  }
+#nav{
+    width: 550px;
+    height: 35px;
+    font-size: 16px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 2px 3px #333333;
+    background-image: url("banner.png");
+      background-repeat: no-repeat;
+    border-radius: 8px;
+ 
+}
+#nav ul{
+  height: auto;
+  padding:8px 0px;
+  margin: 0px;
+}
+#nav li {
+display: inline;
+padding: 20px;
 }
 
-#notice {
-  color: #000 !important;
-  border: 2px solid red;
-  padding: 1em;
-  margin-bottom: 2em;
-  background-color: #f0f0f0;
-  font: bold smaller sans-serif;
+#nav a {
+    text-decoration: none;
+    color: #00F;
+    padding: 8px 8px 8px 8px;
 }
 
-#columns {
-  background: #141;
-
-  #main {
-    margin-left: 17em;
-    padding: 1em;
-    background: white;
-  }
-
-  #side {
-    float: left;
-    padding: 1em 2em;
-    width: 13em;
-    background: #141;
-	
-    ul {
-      padding: 0;
-      li {
-        list-style: none;
-        a {
-          color: #bfb;
-          font-size: small;
-        }
-      }
-    }
-  }
+#nav a:hover {
+    color: #F90;
+    background-color: #FFF;
 }
+
