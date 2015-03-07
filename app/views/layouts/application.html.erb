@@ -25,5 +25,12 @@
 					<%= yield %>
  				</div>
  	</div>
+ 	
+<div id="cart">
+<% if @cart %>
+<%= render @cart %>
+<% end %>
+</div>
+ 	
  </body>
  </html>

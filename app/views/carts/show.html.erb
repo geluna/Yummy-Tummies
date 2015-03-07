@@ -2,7 +2,11 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h2> Your Food Cart </h2>
+
+
+<%= render(@cart.line_items) %>
+
+
 <ul>
 	<%@cart.line_items.each do |item| %>
 	<li><%= item.quantity %> &times; <%= item.menu.foodItem%></li>
