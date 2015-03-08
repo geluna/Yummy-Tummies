@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 	<html>
+		
 		<head>
-			<div id="nav">
-			<ul>
-			<li><a href="http://www....">Home</a></li>
-			<li><a href="http://www..../faq">Questions</a></li>
-			<li><a href="http://www..../news">About Us</a></li>
-			<li><a href="http://www..../contact">Contact</a></li>
-			</ul>
-		</div>
   			<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
  			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
  			<%= csrf_meta_tags %>
  			<div id="header">
-			<%= image_tag("banner2.jpg") %>
+				<img src="/assets/banner2.jpg" class="img-responsive center-block">
 			</div>
 		</head>
 
 <body class="<%= controller.controller_name %>">
-	
+	<nav class="navbar navbar-inverse">		
+		<div class="container-fluid">
+    		<div class="navbar-header">
+      			<a class="navbar-brand" href="/store/index"><%= t('.Yummy Tummie') %></a>
+    		</div>
+    		<div>
+      			<ul class="nav navbar-nav">
+			        <li class="active"><%= link_to 'Menu', store_index_url %></li>
+			        <li><%= link_to 'My cart', store_index_url %></li>
+			        <li><%= link_to 'Contact', store_index_url %></li> 
+			        <li><%= link_to 'About us', store_index_url %></li> 
+		  	    </ul>
+		    </div>
+		 </div>
+	</nav>
+
+
 	<div id="columns">
-		
-				<div id="main">
-					<%= yield %>
- 				</div>
+		<div id="main">
+			<%= yield %>
+		</div>
  	</div>
+ 	<% if session[:user_id] %>
+ 	<ul>
+	 <li><%= link_to 'Orders', orders_path %></li>
+	 <li><%= link_to 'Products', menus_path %></li>
+	 <li><%= link_to 'Users', users_path %></li>
+ 	</ul>
+	 <%= button_to 'Logout', logout_path, method: :delete %>
+	 <% end %>
  	
 <div id="cart">
 <% if @cart %>

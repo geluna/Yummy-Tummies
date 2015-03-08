@@ -13,25 +13,23 @@
  *= require_tree .
  *= require_self
  */
-#header {
-  background: url("/images/banner2.jpg") 
-  no-repeat bottom center; 
-}
+
 #headerimg  {
   margin: 7px 9px 0; 
   height: 192px; 
-  width: 740px; }
+  width: 740px; 
+}
 
 #nav{
-    width: 550px;
+    width: 990px;
     height: 35px;
     font-size: 16px;
     font-family: Tahoma, Geneva, sans-serif;
     font-weight: bold;
     text-align: center;
     text-shadow: 3px 2px 3px #333333;
-    background-image: url("banner.png");
-      background-repeat: no-repeat;
+    background-image: url("");
+    background-repeat: no-repeat;
     border-radius: 8px;
  
 }
