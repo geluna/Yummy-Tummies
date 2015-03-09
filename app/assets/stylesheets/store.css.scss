@@ -8,6 +8,7 @@
     font:  150% sans-serif;
     color: #226;
     border-bottom: 3px dotted #77d;
+    text-align: center;
   }
 
   /* An entry in the store catalog */
@@ -16,9 +17,12 @@
     margin-top: 1em;
     border-bottom: 1px dotted #77d;
     min-height: 100px;
+    display: block;
+  margin-left: 10em;
+  margin-right: 10em;
 
     img {
-      width: 80px;
+      width: 120px;
       margin-right: 5px;
       margin-bottom: 5px;
       position: absolute;
@@ -27,16 +31,16 @@
     h3 {
       font-size: 120%;
       font-family: sans-serif;
-      margin-left: 100px;
+      margin-left: 150px;
       margin-top: 0;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
       color: #227;
     }
 
     p, div.price_line {
-      margin-left: 100px;
+      margin-left: 150px;
       margin-top: 0.5em; 
-      margin-bottom: 0.8em; 
+      margin-bottom: 1.2em; 
       
       form, div {
         display: inline;
@@ -44,9 +48,10 @@
     }
 
     .price {
-      color: #44a;
+      color: #212155;
       font-weight: bold;
       margin-right: 3em;
     }
   }
 }
+

@@ -2,18 +2,22 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
+
 <h1> Our Lunch Menu trays</h1>
+
 <% cache ['store', Menu.latest] do %>
-<% @menus.each do |menu| %>
-<% cache ['entry', menu] do %>
-	<div class="entry">
-		<%= image_tag(menu.image_url) %>
-		<h3> <%=menu.foodItem %></h3>
-		<%= sanitize(menu.description) %>
-		<div class="price_line">
-			<span class="price"><%= number_to_currency(menu.price) %></span>
-				<%= button_to 'Add to Cart', line_items_path(menu_id: menu) %>
+	<% @menus.each do |menu| %>
+		<% cache ['entry', menu] do %>
+			<div class="entry">
+				<%= image_tag(menu.image_url) %>
+				 <p><%=menu.foodItem %></p>
+				<%= sanitize(menu.description) %>
+				
+				<div class="price_line">
+					<span class="price"><%= number_to_currency(menu.price) %></span>
+					<%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %>
 				</div>
+				
 			</div>
 		<% end %>
 	<% end %>
