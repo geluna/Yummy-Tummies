@@ -17,6 +17,22 @@
 			        	<li><%= link_to 'Logout', logout_path, method: :delete %></li>
 			        <% end %>
 		  	    </ul>
+				<ul class="nav navbar-nav navbar-right">
+					<% if not logged_in? %>
+			        	<li><%= link_to 'Login', login_url %></li>
+					<% else %>
+				       <li class="dropdown">
+				         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
+				         <ul class="dropdown-menu" role="menu">
+				           <li><a href="#">My Menu</a></li>
+				           <li><a href="#">My profile</a></li>
+				           <li><a href="#">Payment History</a></li>
+				           <li class="divider"></li>
+				           <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+				         </ul>
+				       </li>
+					<% end %>
+			     </ul>
 		    </div>
 		 </div>
 	</nav>
@@ -28,8 +44,7 @@
 				<img src="/assets/banner2.jpg" class="img-responsive center-block">
 			</div>
 		</head>
-
-<body class="<%= controller.controller_name %>">
+<body>
 
 
 
@@ -38,19 +53,10 @@
 			<%= yield %>
 		</div>
  	</div>
- 	<% if session[:user_id] %>
- 	<ul>
-	 <li><%= link_to 'Orders', orders_path %></li>
-	 <li><%= link_to 'Products', menus_path %></li>
-	 <li><%= link_to 'Users', users_path %></li>
- 	</ul>
-	 <%= button_to 'Logout', logout_path, method: :delete, :class => "btn btn-primary btn-sm" %>
-	 <% end %>
- 	
 <div id="cart">
-<% if @cart %>
-<%= render @cart %>
-<% end %>
+	<% if @cart %>
+	<%= render @cart %>
+	<% end %>
 </div>
  	
  </body>
