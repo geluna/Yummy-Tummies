@@ -1,24 +1,40 @@
-<h1>Listing Menu</h1>
+<div class="container">
+	<h1>Listing Menu</h1>
+  <table class="table table-hover">
+	<thead>
+      <tr>
+        <th>Menu</th>
+        <th>Ingredients</th>
+        <th>Price</th>
+        <th>Admin</th>
+      </tr>
+    </thead>
+	<% cache ['store', Menu.latest] do %>
+		<% @menus.each do |menu| %>
+			<% cache ['entry', menu] do %>
+			<tbody>
+				<tr>
+					<th><%= image_tag(menu.image_url, :size => "140x110") %>
+						<p><%=menu.foodItem %></p>
+					</th>
+					<th><%= sanitize(menu.description) %></th>
+					<th>
+						<span class="price"><%= number_to_currency(menu.price) %></span>
+						<%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %>
+					</th>
+		<th class="list_actions">
+			<%=link_to'Show', menu %><br/>
+			<%=link_to'Edit',edit_menu_path(menu)%><br/>
+			<%= link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
+		</th>
+				</tr>
+			<tbody>					
+			<% end %>
+		<% end %>
+	<% end %>
 
-<table>
-<% @menus.each do |menu| %>
-<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-<td>
-<%= image_tag(menu.image_url, class: 'list_image') %>
-</td>
-<td class="list_description">
-<dl>
-<dt>
-<%=menu.foodItem%>
-</dt>
-<dd><%=truncate(strip_tags(menu.description),length:80)%>
-</dd>
-</dl>
-</td>
-<td class="list_actions">
-	<%=link_to'Show', menu %><br/><%=link_to'Edit',edit_menu_path(menu)%>
-	<br/><%= link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
-</td>
-</tr>
-<%end%>
-</table><br/><%= link_to 'New Menu', new_menu_path %>
+	</div>
+</div>
+</table>
+
+	<%= link_to 'New Menu', new_menu_path %>
