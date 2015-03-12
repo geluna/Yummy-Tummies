@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<table >
 <p>
   <strong>menuid:</strong>
   <%= @menu.menuID %>
@@ -35,5 +36,21 @@
   <%= @menu.price %>
 </p>
 
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.id %></td>
+    <td><%= order.name %></td>
+    <td><%= order.address %></td>
+    <td><%= order.email %></td>
+    <td><%= order.pay_type %></td>
+    <% order.line_items.each do |line_item|%>
+      <% if (@menu.id == line_item.menu_id)%>
+        <td><%= line_item.quantity %></td>
+      <%end%>
+    <%end%>
+  </tr>
+<%end%>
+
+</table>
 <%= link_to 'Edit', edit_menu_path(@menu) %> |
 <%= link_to 'Back', menus_path %>
