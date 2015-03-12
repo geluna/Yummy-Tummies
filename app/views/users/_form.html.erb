@@ -1,48 +1,51 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :role %><br>
-	<div class="dropdown">
-	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-	    Role
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-	  </ul>
+<div class="container">
+	<h1 class="text-center login-title">New User</h1>
+	<div class="row">
+		<div class="col-sm-6 col-md-4 col-md-offset-4">
+			<%= form_for(@user) do |f| %>
+				<% if @user.errors.any? %>
+					<div id="error_explanation">
+		  				<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+		  				<ul>
+							<% @user.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+							<% end %>
+						</ul>
+					</div>
+				<% end %>
+				<div>
+					<%= f.label :name %><br>
+					<%= f.text_field :name, :class => "form-control"%>
+				</div>
+				<div>
+					<%= f.label :password %><br>
+					<%= f.password_field :password, :class => "form-control" %>
+				</div>
+				<div>
+					<%= f.label :password_confirmation %><br>
+					<%= f.password_field :password_confirmation, :class => "form-control" %>
+				</div>
+				<div>
+					<%= f.label :role %><br>
+				</div>
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+					Role<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Parent</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">School</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Franchise Owner</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Customer</a></li>
+					</ul><%= f.submit "Submit", :class => 'btn btn-primary pull-right custombtnblock'%>
+				</div>
+		  	</div>
+			<% end %>
+		</div>
 	</div>
+</div>
 
-  </div>
-  
-  
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<!--              This    is      the      line             -->
+<!--              This    is      the      line             -->
+<!--              This    is      the      line             -->
+
