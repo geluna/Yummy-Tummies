@@ -5,15 +5,17 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   
- 
-  
   def index
-    @carts = Cart.all
+    @cart = Cart.all
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
+    if @cart.id != session[:cart_id]
+      flash[:notice] = "You can not access cart #{@cart.id}"
+      redirect_to store_url 
+    end
   end
 
   # GET /carts/new

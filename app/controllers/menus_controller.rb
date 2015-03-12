@@ -4,6 +4,7 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.json
   def index
+    #@menus = Menu.where(:user_id => session[:user_id])
     @menus = Menu.all
   end
 
