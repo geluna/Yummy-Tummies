@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<table>
+<table border="1">
 <p>
   <strong>Name:</strong>
   <%= @order.name %>
@@ -20,12 +20,12 @@
   <strong>Pay type:</strong>
   <%= @order.pay_type %>
 </p>
-<% @products.each do |product| %>
+<% @menus.each do |menu| %>
 	
 	<tr>
-		<td><%= product.title %></td>
-		<td><%= image_tag(product.image_url, :width => 80) if product.image_url.present? %></td>
-		<td><%= number_to_currency(product.price) %></td>
+		<td><%= menu.foodItem %></td>
+		<td><%= image_tag(menu.image_url, :width => 80) if menu.image_url.present? %></td>
+		<td><%= number_to_currency(menu.price) %></td>
 			
 		<% @order.line_items.each do |line_item|%>
 			<% if (menu.id == line_item.menu_id)%>
