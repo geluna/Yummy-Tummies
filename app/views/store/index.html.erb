@@ -2,6 +2,42 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-
-<h1> Our Lunch Menu trays</h1>
+<h2>
+    	About the Franchise Owners, </br>
+    					<blockquote><p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The frachise owners that prepare the food are local people living in your community! Each franchise owner is selected through a selective application processes which 
+    						takes experience and culinary education into consideration. Ingrediants are gathered daily to ensure freshness
+    						</p></blockquote>
+    </h2>
+         <div class="span8 welcome-image">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: 0 auto;">
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                                <div class="active item">
+                                        <%= link_to image_tag("carousel_img1.jpg", :size => "518x343", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %> </a>
+                                </div>
+                                
+                                <div class="item">
+                                        <%= link_to image_tag("carousel_img2.jpeg", :size => "518x343", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>  </a>
+                                </div>
+                                
+                                <div class="item">
+                                       <%= link_to image_tag("carousel_img3.jpg", :size => "518x343", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
+                                </div>
+                                
+                                <div class="item">
+                                        <%= link_to image_tag("carousel_img4.jpg", :size => "518x343", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %> </a>
+                                </div>
+                                
+                                <div class="item">
+                                        <%= link_to image_tag("carousel_img5.jpg", :size => "518x343", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %> </a>
+                                </div>
+                        </div>
+                        <!-- Carousel nav -->
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div>
+                
+                <script> 
+                $(function(){ $('#myCarousel').carousel(); }); 
+                </script> 
 
