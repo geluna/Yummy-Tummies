@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  @orders = Order.all
+
 
   # GET /orders
   # GET /orders.json
@@ -13,6 +15,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @menus = @order.menus
   end
 
   # GET /orders/new
