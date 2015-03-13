@@ -6,13 +6,10 @@ gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
 
 
-gem 'sqlite3'
-
-
-group :production do
-
-  gem 'rails_12factor', '0.0.2'
+group :development do
+  gem 'sqlite3'
 end
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -43,6 +40,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
+end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
