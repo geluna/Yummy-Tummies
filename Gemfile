@@ -53,4 +53,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bcrypt-ruby', '~>3.1.2'
 
 gem 'bootstrap-sass', '~> 3.3.3'
+
+gem 'devise'
+
 gem 'autoprefixer-rails'
