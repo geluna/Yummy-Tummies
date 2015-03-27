@@ -5,8 +5,6 @@ class Ability
     user ||=User.new
       if user.admin?
          can :manage, :all
-      elsif user.regular?
-        can :read, Menu
       else 
         can :read, Menu
       end
