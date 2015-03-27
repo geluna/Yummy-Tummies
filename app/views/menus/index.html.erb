@@ -36,5 +36,6 @@
 	</div>
 </div>
 </table>
-
+   <% if can? :create, Menu %>
 	<%= link_to 'New Menu', new_menu_path %>
+	<% end %>
