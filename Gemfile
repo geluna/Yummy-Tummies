@@ -10,6 +10,8 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'high_voltage', '~> 2.2.1'
+
 gem 'cancancan', '~> 1.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
