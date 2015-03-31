@@ -22,4 +22,8 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.for(:sign_in) << :attribute
   # end
+  def user_params
+      params.require(:user).permit(:email, :password, :password_confirmation, :admin)
+  end
+  
 end

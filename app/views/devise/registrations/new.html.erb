@@ -23,8 +23,11 @@
 	</div>
 	<br/>
 	<div class="field">
-		<%= f.label :admin %><br />
-		<%= f.admin_field :admin, autocomplete: "off" %>
+<%= f.input :admin, 
+            :as => :select, 
+            :collection => [['false',0],['true',1]], 
+            :include_blank => false, 
+            :label => "admin?" %>
 	</div>
 	<br/>
 	<div class="actions">
