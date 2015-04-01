@@ -23,11 +23,10 @@
 	</div>
 	<br/>
 	<div class="field">
-<%= f.input :admin, 
+<%= f.input :category, 
             :as => :select, 
-            :collection => [['false',0],['true',1]], 
-            :include_blank => false, 
-            :label => "admin?" %>
+            :collection => [['Institution', 1],['Regular User', 2], ['Franchise Owner', 3]],  
+            :label => "User Type:" %>
 	</div>
 	<br/>
 	<div class="actions">
