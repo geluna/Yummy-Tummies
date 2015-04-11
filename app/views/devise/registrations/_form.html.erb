@@ -75,6 +75,19 @@ Create an Account
 	<div id="franchise" class="group" >
 		franchise info..
 	</div>
+	
+	<div class="field">
+		<%= f.label 'Address' %><br />
+		<%= f.text_field :address, autocomplete: "off" %>
+	</div>
+	
+	<br />
+	<div class="field">
+		<%= f.input :category, 
+		            :as => :select, 
+		            :collection => [['Institution', 1],['Regular User', 2], ['Franchise Owner', 3]],
+		            :label => "User Type:" %>
+	</div>
 
 
 	<br/>
