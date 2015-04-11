@@ -4050,10 +4050,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-top-right-radius: 0;
 }
 .navbar {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
+  	position: absolute;
+	top:0px;
+	z-index: 10;
+	background: transparent;
+	width:100%;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -6047,8 +6048,11 @@ button.close {
   border-right-width: 0;
   border-left-color: #fff;
 }
+
 .carousel {
-  position: relative;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .carousel-inner {
   position: relative;
