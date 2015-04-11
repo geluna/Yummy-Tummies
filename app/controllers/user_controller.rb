@@ -1,7 +1,14 @@
 class UserController < ApplicationController
   def index
-    @users = User.all
+    #@users = User.all
+
+    if params[:search].present?
+    	@users = User.near(params[:search], 50, :order => :distance)
+  	else
+    	@users = User.all
+  	end
   end
+  
   
   private
   def user_params
