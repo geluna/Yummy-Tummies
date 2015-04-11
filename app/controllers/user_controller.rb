@@ -8,7 +8,10 @@ class UserController < ApplicationController
     	@users = User.all
   	end
   end
-  
+
+  def show
+  	
+  end
   
   private
   def user_params

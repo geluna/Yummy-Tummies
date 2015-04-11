@@ -1,6 +1,7 @@
 <% content_for :title do %>My Profile<% end %>
 <div class="page-header">
 <h1 calss >Welcome to your profile!</h1>
+
 </div>
 </br>
 <table>
@@ -19,8 +20,16 @@
         <td><%= user.address %></td>
         <td><%= user.latitude %></td>
         <td><%= user.longitude %></td>
-       
+       	<td> <%= link_to 'show'%></td>
       </tr>
     <% end %>
   </tbody>
+  	<tbody>
+	  <h3>Nearby franchise</h3>
+		<% @users.each do |user| %>
+  		<% user.nearbys(10).each do |near_user| %>
+    	<li><%= link_to near_user.address, near_user %> (<%= near_user.distance.round(2) %> miles)</li>
+ 		 <% end %>
+		<% end %>
+	</tbody>
 </table>
