@@ -4049,11 +4049,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
 .navbar {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
+  	position: absolute;
+	top:0px;
+	z-index: 10;
+	background: #ffffff;
+	width:100%;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -4063,7 +4065,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
-  }
+     }
+}
+ .navbar.transparent.navbar-inverse .navbar-inner {
+   background: rgba(0,0,0,0.4);
 }
 .navbar-collapse {
   padding-right: 15px;
@@ -4250,6 +4255,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     padding-top: 15px;
     padding-bottom: 15px;
   }
+}
+.navbar.transparent.navbar-inverse .navbar-inner {
+   background: rgba(0,0,0,0.4);
 }
 .navbar-form {
   padding: 10px 15px;
@@ -6047,8 +6055,11 @@ button.close {
   border-right-width: 0;
   border-left-color: #fff;
 }
+
 .carousel {
-  position: relative;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .carousel-inner {
   position: relative;
