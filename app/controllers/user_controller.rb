@@ -7,10 +7,11 @@ class UserController < ApplicationController
   	else
     	@users = User.all
   	end
+  	
   end
 
   def show
-  	
+
   end
   
   private
