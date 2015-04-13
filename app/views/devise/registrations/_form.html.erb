@@ -37,34 +37,70 @@ Create an Account
 		<%= f.label :password_confirmation %><br />
 		<%= f.password_field :password_confirmation, autocomplete: "off" %>
 	</div>
-	<br/>
-		<div class="field">
-		<%= f.label 'first name' %><br />
-		<%= f.text_field :fname, autocomplete: "off" %>
-	</div>
-		<div class="field">
-		<%= f.label 'last name'%><br />
-		<%= f.text_field :lname, autocomplete: "off" %>
-	</div>
-		<div class="field">
-		<%= f.label 'childs first name' %><br />
-		<%= f.text_field :childfname, autocomplete: "off" %>
-	</div>
-		<div class="field">
-		<%= f.label 'childs last name' %><br />
-		<%= f.text_field :childlname, autocomplete: "off" %>
-	</div>
-		<div class="field">
-		<%= f.label 'Address' %><br />
-		<%= f.text_field :address, autocomplete: "off" %>
-	</div>
+		<br />
 	<br />
-	<div class="field">
-<%= f.input :category, 
-            :as => :select, 
-            :collection => [['Institution', 1],['Regular User', 2], ['Franchise Owner', 3]],
-            :label => "User Type:" %>
+	<!--             dropdown            -->
+
+
+
+	
+	<br/>
+	<select id="selectMe">
+	    <option value="choose">User type</option>
+	    <option value="institution">Institution</option>
+	    <option value="parent">Parent</option>
+	    <option value="franchise">Franchise Owner</option>    
+	</select>
+	
+		<!--             dropdown				-->
+	<br>
+ 	
+ 	<div id="institution" class="group">
+		<br/>
+		<h2>Institution Field</h2>
+		<div class="field">
+			<%= f.label 'Instition Address' %><br />
+			<%= f.text_field :address, autocomplete: "off" %>
+			<p>put 1</p>
+			<%= f.input_field :category %>
+		</div>
 	</div>
+	
+ 	<div id="parent" class="group" >
+ 		<br/>
+ 		<h2>Parent Field</h2>
+ 		<p>put 2</p>
+			<%= f.input_field :category %>
+		<div class="field">
+			<%= f.label 'first name' %><br />
+			<%= f.text_field :fname, autocomplete: "off" %>
+		</div>
+			<div class="field">
+			<%= f.label 'last name'%><br />
+			<%= f.text_field :lname, autocomplete: "off" %>
+		</div>
+			<div class="field">
+			<%= f.label 'childs first name' %><br />
+			<%= f.text_field :childfname, autocomplete: "off" %>
+		</div>
+			<div class="field">
+			<%= f.label 'childs last name' %><br />
+			<%= f.text_field :childlname, autocomplete: "off" %>
+		</div>
+	</div>
+
+	<div id="franchise" class="group" >
+		<br/>
+		<h2>Franchise Owner Field</h2>
+		<div class="field">
+			<%= f.label 'Franchise Address' %><br />
+			<%= f.text_field :address, autocomplete: "off" %>
+		</div>
+		<p>put 3</p>
+			<%= f.input_field :category %>
+	</div>
+	
+	
 	<br/>
 	<div class="actions">
 		<%= f.submit "Sign up" %>
@@ -84,3 +120,15 @@ Create an Account
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function () {
+    $('.group').hide();
+        $('#multiple').show();
+    $('#selectMe').change(function () {
+        $('.group').hide();
+        $('#'+$(this).val()).show();
+    })
+});
+</script>
+

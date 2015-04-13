@@ -1,0 +1,8 @@
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@user.latitude}%2C#{@user.longitude}" %>
+
+<h3>Nearby franchise</h3>
+<ul>
+<% for user in @user.nearbys(10) %>
+  <li><%= link_to user.address, user %> (<%= user.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
