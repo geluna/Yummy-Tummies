@@ -1,19 +1,41 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-
-
+<script>
+$(document).ready(function(){
+    var interval;
+    function animate() {
+        $('#columncarro4').animate({'margin-left':'-3%'}, 500)
+        .animate({'margin-left':'-255px'}, 'slow');
+    }
+    function start() {
+        interval = setInterval(animate, 5000);
+    }
+    $('#columncarro4').click( function() {
+        clearInterval(interval);
+        animate();
+        start();
+    });
+    start();
+})
+</script>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#myCarousel" data-slide-to="1"></li>
 		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+		<li data-target="#myCarousel" data-slide-to="4"></li>
+		<li data-target="#myCarousel" data-slide-to="5"></li>
+		<li data-target="#myCarousel" data-slide-to="6"></li>
 	</ol>
 <div class="carousel-inner">
 	<div class="item active">
 		<%= link_to image_tag("carousel_img1.jpg", :size => "1600x200", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
-		<div class="carousel-caption text-center">
+		<div class="carousel-caption text-justify">
+	<ul id="columncarro4" type="circle" style="">
 			<h4>Community Franchise Owners</h4>
+	</ul>
 		</div>
 	</div>
 <div class="item">
