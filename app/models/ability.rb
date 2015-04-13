@@ -5,8 +5,12 @@ class Ability
     user ||=User.new
       if user.admin?
          can :manage, :all
-      else 
-        can :read, Menu
+      elsif user.franchiseOwner? 
+        can :read, :all
+       elsif user.institution?
+         can :read, :all
+       elsif user.regularUser?
+         can :read, :all
       end
     
     # Define abilities for the passed in user here. For example:

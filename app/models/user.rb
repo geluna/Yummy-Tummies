@@ -13,23 +13,20 @@ class User < ActiveRecord::Base
          false
        end
      end 
-     
-     def regularUser?
+  
+  def franchiseOwner?
        if category == 2
          true
        else
          false
        end
-     end 
-
-     def franchiseOwner?
+     end  
+       
+     def regularUser?
        if category == 3
          true
        else
          false
        end
-     end 
-     
-     
-         
+     end      
 end

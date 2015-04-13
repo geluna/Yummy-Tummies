@@ -53,23 +53,24 @@ Create an Account
 	
 		<!--             dropdown				-->
 	<br>
- 	
+		<div class="field">
+ 			<p>put 3</p>
+			<%= f.input_field :category %>
+		</div>
  	<div id="institution" class="group">
 		<br/>
 		<h2>Institution Field</h2>
 		<div class="field">
 			<%= f.label 'Instition Address' %><br />
 			<%= f.text_field :address, autocomplete: "off" %>
-			<p>put 1</p>
-			<%= f.input_field :category %>
+
 		</div>
 	</div>
 	
  	<div id="parent" class="group" >
  		<br/>
  		<h2>Parent Field</h2>
- 		<p>put 2</p>
-			<%= f.input_field :category %>
+
 		<div class="field">
 			<%= f.label 'first name' %><br />
 			<%= f.text_field :fname, autocomplete: "off" %>
@@ -95,8 +96,7 @@ Create an Account
 			<%= f.label 'Franchise Address' %><br />
 			<%= f.text_field :address, autocomplete: "off" %>
 		</div>
-		<p>put 3</p>
-			<%= f.input_field :category %>
+
 	</div>
 	
 	
