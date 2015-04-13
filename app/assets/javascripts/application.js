@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require bootstrap/carousel
 //= require_tree .
+//= require cocoon
