@@ -63,6 +63,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.4.0)
+    fullcalendar-rails (1.6.4.0)
     geocoder (1.2.7)
     high_voltage (2.2.1)
     hike (1.2.3)
@@ -163,6 +164,7 @@ DEPENDENCIES
   cancancan (~> 1.10)
   coffee-rails (~> 4.0.0)
   devise
+  fullcalendar-rails
   geocoder
   high_voltage (~> 2.2.1)
   jbuilder (~> 2.0)
