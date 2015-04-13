@@ -1,19 +1,12 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-
-
-
-<%= render(@cart.line_items) %>
-
-
 <ul>
-	<%@cart.line_items.each do |item| %>
-	<li><%= item.quantity %> &times; <%= item.menu.foodItem%></li>
-	<% end %>
-	</ul>
-	
-	<%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
-	
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<% @cart.line_items.each do |item| %>
+<li><%= item.menu.foodItem %></li>
+<% end %>
+</ul>
+
+<%= render(@cart) %>
+
+
