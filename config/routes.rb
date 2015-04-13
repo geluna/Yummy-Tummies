@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   #end
 
     root 'store#index', as: 'store'
+
+    
   #get 'sessions/create'
 
   #get 'sessions/destroy'
@@ -27,7 +29,11 @@ Rails.application.routes.draw do
   get 'store/index'
 
   resources :menus
+  resources :users
+
   
+  get 'user/index'
+  get  'user/show'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

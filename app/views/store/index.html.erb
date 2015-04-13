@@ -1,38 +1,76 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-
-<% content_for :title do%>
-Rails Bootstrap
-<% end %>
-<% content_for :description do %>
-Rails Bootstrap Example
-<% end %>
+<script>
+$(document).ready(function(){
+    var interval;
+    function animate() {
+        $('#columncarro4').animate({'margin-left':'-3%'}, 500)
+        .animate({'margin-left':'-255px'}, 'slow');
+    }
+    function start() {
+        interval = setInterval(animate, 5000);
+    }
+    $('#columncarro4').click( function() {
+        clearInterval(interval);
+        animate();
+        start();
+    });
+    start();
+})
+</script>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#myCarousel" data-slide-to="1"></li>
 		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+		<li data-target="#myCarousel" data-slide-to="4"></li>
+		<li data-target="#myCarousel" data-slide-to="5"></li>
+		<li data-target="#myCarousel" data-slide-to="6"></li>
 	</ol>
 <div class="carousel-inner">
 	<div class="item active">
-		<%= link_to image_tag("carousel_img1.jpg", :size => "1600x800", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
-		<div class="carousel-caption text-center">
+		<%= link_to image_tag("carousel_img1.jpg", :size => "1600x200", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
+		<div class="carousel-caption text-justify">
+	<ul id="columncarro4" type="circle" style="">
 			<h4>Community Franchise Owners</h4>
+	</ul>
 		</div>
 	</div>
 <div class="item">
-	<%= link_to image_tag("carousel_img2.jpeg", :size => "1600x800", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
+	<%= link_to image_tag("carousel_img2.jpeg", :size => "1600x200", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
 	<div class="carousel-caption text-center">
-		<h4>Fresh foods</h4>
+		
 	</div>
 </div>
 <div class="item">
-<%= link_to image_tag("carousel_img3.jpg", :size => "1600x800", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
+<%= link_to image_tag("carousel_img3.jpg", :size => "1600x200", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
 	<div class="carousel-caption text-center">
-		<h4>Great food</h4>
+		
 	</div>
 	</div>
+	<div class="item">
+<%= link_to image_tag("carousel_img4.jpg", :size => "1600x200", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
+	<div class="carousel-caption text-center">
+	</div>
+	</div>
+	<div class="item">
+<%= link_to image_tag("carousel_img5.jpg", :size => "1600x200", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
+	<div class="carousel-caption text-center">
+		
+	</div>
+	</div>
+	<div class="item">
+<%= link_to image_tag("carousel_img6.jpg", :size => "1600x200", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
+	<div class="carousel-caption text-center">	
+		</div>
+	</div>
+	<div class="item">
+<%= link_to image_tag("carousel_img7.jpg", :size => "1600x200", :alt => "Slide1"), {:class => "img-responsive center-block", :alt => "Responsive image"} %>
+	<div class="carousel-caption text-center">
+			</div>
+		</div>
 	</div>
 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
 	<span class="glyphicon glyphicon-chevron-left"></span></a>

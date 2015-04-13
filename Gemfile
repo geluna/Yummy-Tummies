@@ -64,6 +64,8 @@ gem 'bootstrap-sass', '~> 3.3.3'
 
 gem 'devise'
 
+gem 'fullcalendar-rails'
+
 gem 'autoprefixer-rails'
 
 gem 'simple_form', '~> 3.0.0.rc'
