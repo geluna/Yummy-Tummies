@@ -1,3 +1,17 @@
+<head>
+	<style>
+		.div-with-border {
+    border: 1px solid silver; 
+    padding-top:15px; 
+    padding-left:15px; 
+    padding-right:15px;
+    padding-bottom:3em; 
+    margin-bottom:3em;
+    margin-right:50em
+}
+
+	</style>
+</head>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success center-block" data-toggle="modal" data-target="#myModal" style="margin-top: 8px;">
 Create an Account
@@ -16,15 +30,12 @@ Create an Account
 
 <div class="container">
 <h2>Create an Account</h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
 	<div class="field">
 		<%= f.label :email %><br />
 		<%= f.email_field :email, autofocus: true %>
 	</div>
-
 	<div class="field">
 		<%= f.label :password %>
 		<% if @validatable %>
@@ -32,33 +43,35 @@ Create an Account
 		<% end %><br />
 		<%= f.password_field :password, autocomplete: "off" %>
 	</div>
-
 	<div class="field">
 		<%= f.label :password_confirmation %><br />
 		<%= f.password_field :password_confirmation, autocomplete: "off" %>
 	</div>
 	<br />
 	<!--             dropdown            -->
-
-
-
-	
-	<br/>
 	<select id="selectMe">
 	    <option value="choose">User type</option>
 	    <option value="institution">Institution</option>
 	    <option value="parent">Parent</option>
 	    <option value="franchise">Franchise Owner</option>    
 	</select>
-	
+	<div class="field">		
+		<p>1=Inst, 2=parent, 3=Fran</p>
+		<%= f.input_field :category %>
+	</div>
 		<!--             dropdown				-->
+
 	<br>
 		<div class="field">
  			<p>put 3</p>
 			<%= f.input_field :category %>
 		</div>
+
+	<br/><br/>
+
+
  	<div id="institution" class="group">
-		<br/>
+	<div class="div-with-border">
 		<h2>Institution Field</h2>
 		<div class="field">
 			<%= f.label 'Instition Address' %><br />
@@ -66,41 +79,53 @@ Create an Account
 
 		</div>
 	</div>
+	</div>
 	
  	<div id="parent" class="group" >
- 		<br/>
+ 	<div class="div-with-border" >	
  		<h2>Parent Field</h2>
 
+
 		<div class="field">
+
+			<div class="field">	
 			<%= f.label 'first name' %><br />
 			<%= f.text_field :fname, autocomplete: "off" %>
-		</div>
+			</div>
 			<div class="field">
 			<%= f.label 'last name'%><br />
 			<%= f.text_field :lname, autocomplete: "off" %>
-		</div>
+			</div>
 			<div class="field">
 			<%= f.label 'childs first name' %><br />
 			<%= f.text_field :childfname, autocomplete: "off" %>
-		</div>
+			</div>
 			<div class="field">
 			<%= f.label 'childs last name' %><br />
 			<%= f.text_field :childlname, autocomplete: "off" %>
+			</div>
+			<div class="links">
+				<div class="links">
+
+	      		</div>
+			</div>
 		</div>
 	</div>
-
-	<div id="franchise" class="group" >
-		<br/>
+	
+	<div id="franchise" class="group">
+ 	<div class="div-with-border" >	
 		<h2>Franchise Owner Field</h2>
 		<div class="field">
 			<%= f.label 'Franchise Address' %><br />
 			<%= f.text_field :address, autocomplete: "off" %>
 		</div>
 
+
+
+	</div>
+
 	</div>
 	
-	
-	<br/>
 	<div class="actions">
 		<%= f.submit "Sign up" %>
 	</div>
