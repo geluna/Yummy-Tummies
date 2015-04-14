@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   resources :students
 
-  get 'user/index'
+  
 
   devise_for :users
   get 'admin' => 'admin#index'
+  get 'users/index'
   #controller :sessions do
   #  get 'login' => :new
   #  post 'login' => :create
@@ -32,8 +33,8 @@ Rails.application.routes.draw do
   resources :users
 
   
-  get 'user/index'
-  get  'user/show'
+  get 'users/index'
+  get  'users/show'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

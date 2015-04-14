@@ -27,14 +27,7 @@
       </tr>
     <% end %>
   </tbody>
-  	<tbody>
-	  <h3>Nearby franchise</h3>
-		<% @users.each do |user| %>
-  		<% user.nearbys(10).each do |near_user| %>
-    	<li><%= link_to near_user.address, near_user %> (<%= near_user.distance.round(2) %> miles)</li>
- 		 <% end %>
-		<% end %>
-	</tbody>
+  	
 </table>
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>

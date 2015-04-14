@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def index
     #@users = User.all
 
@@ -6,9 +6,7 @@ class UserController < ApplicationController
     	@users = User.near(params[:search], 50, :order => :distance)
   	else
     	@users = User.all
-  	end
-
- 
+  	end 
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude
@@ -16,11 +14,27 @@ class UserController < ApplicationController
 end
   	
   end
+  def new
+    @user = User.new
+  end
 
   def show
       @hash = Gmaps4rails.build_markers(@users) do |user, marker|
       marker.lat user.latitude
       end
+  end
+  def create
+    @user = User.new(user_params)
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to users_url}
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
   def update
