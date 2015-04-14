@@ -1,12 +1,15 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+geocoded_by :address
+  after_validation :geocode
+
+has_many :menus
 
 has_many :students, dependent: :destroy
 accepts_nested_attributes_for :students, :allow_destroy => true
 
-  geocoded_by :address
-  after_validation :geocode
+  
 
 
   devise :database_authenticatable, :registerable,

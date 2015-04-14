@@ -16,5 +16,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap/carousel
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 //= require cocoon
