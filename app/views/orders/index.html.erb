@@ -1,61 +1,11 @@
 
 <html>
-<head>
-<script type="text/javascript">
-function altRows(id){<!--from ww w.  j av a 2 s .  c  o m-->
-if(document.getElementsByTagName){
-<form class="form-inline">
-<div class="container container-fluid">
-<h1>Listing orders!!!</h1>
 
-var table = document.getElementById(id);
-var rows = table.getElementsByTagName("tr");
-
-for(i = 0; i < rows.length; i++){
-if(i % 2 == 0){
-rows[i].className = "evenRowColor";
-}else{
-rows[i].className = "oddRowColor";
-}
-}
-}
-}
-window.onload=function(){
-altRows('alternatecolor');
-}
-</script>
-<style type="text/css">
-table.myTableClass {
-font-family: verdana,arial,sans-serif;
-font-size:11px;
-color:#333333;
-border-width: 12px;
-border-color: #a9c6c9;
-border-collapse: collapse;
-}
-table.myTableClass th {
-border-width: 1px;
-padding: 8px;
-border-style: solid;
-border-color: #a9c6c9;
-}
-table.myTableClass td {
-border-width: 1px;
-padding: 8px;
-border-style: solid;
-border-color: #a9c6c9;
-}
-.oddRowColor{
-background-color:#d2e3e2;
-}
-.evenRowColor{
-background-color:#c4dde1;
-}
-</style>
-</head>
+<div class="container">
 <body>
 <h1>Listing orders</h1>
-<table class="myTableClass" id="alternatecolor">
+
+<table class="table table-striped">
 
 <tr>
 <th>Name</th>
@@ -64,11 +14,11 @@ background-color:#c4dde1;
 <th>Pay Type</th>
 <th colspan="3"></th>
 </tr>
-<tbody>
+  <tbody>
 		<% @orders.each do |order| %>
-		<tr>
+		<tr>    
 			<td><%= order.name %></td>
-			<td><%= order.address %></td>
+      <td><%= order.address %></td>
 			<td><%= order.email %></td>
 			<td><%= order.pay_type %></td>
 			<td><%= link_to 'Show', order %></td>
@@ -77,13 +27,14 @@ background-color:#c4dde1;
 		</tr>
 		<% end %>
 			</tbody>
-		</table>
+</table>
+    
 	</body>
 </html>
 <br>
 
 <%= link_to 'New Order', new_order_path %>
-
+</div>
 </div>
 </form>
 

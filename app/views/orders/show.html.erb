@@ -1,59 +1,9 @@
 <html>
-<head>
-<script type="text/javascript">
-function altRows(id){<!--from ww w.  j av a 2 s .  c  o m-->
-if(document.getElementsByTagName){
-
-var table = document.getElementById(id);
-var rows = table.getElementsByTagName("tr");
-
-for(i = 0; i < rows.length; i++){
-if(i % 2 == 0){
-rows[i].className = "evenRowColor";
-}else{
-rows[i].className = "oddRowColor";
-}
-}
-}
-}
-window.onload=function(){
-altRows('alternatecolor');
-}
-</script>
-<style type="text/css">
-table.myTableClass {
-font-family: verdana,arial,sans-serif;
-font-size:11px;
-color:#333333;
-border-width: 12px;
-border-color: #a9c6c9;
-border-collapse: collapse;
-}
-table.myTableClass th {
-border-width: 1px;
-padding: 8px;
-border-style: solid;
-border-color: #a9c6c9;
-}
-table.myTableClass td {
-border-width: 1px;
-padding: 8px;
-border-style: solid;
-border-color: #a9c6c9;
-}
-.oddRowColor{
-background-color:#d2e3e2;
-}
-.evenRowColor{
-background-color:#c4dde1;
-}
-</style>
-</head>
-
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 
-<table border="1">
+<table class="table">
 	<h1>Purchaser information</h1>
 <p>
   <strong>Name:</strong>
@@ -75,14 +25,23 @@ background-color:#c4dde1;
 </p>
 <body>
 <h2>Listing items for selected purchase </h2>
-<table class="myTableClass" id="alternatecolor">
+<table class="table table-striped">
 
 <tr>
-<th>Name of Dish</th>
-<th>Image</th>
-<th>Price</th>
-<th>Qty</th>
-<th>Total Price</th>
+        <th data-field="name" class="col-md-4">Name of Dish</th>
+        <th data-field="image" class="col-md-4">            
+            Image
+        </th>
+        <th data-field="price" class="col-md-2">
+            Price
+        </th>
+        <th data-field="qty" class="col-md-2">
+            Qty
+        </th>
+        <th data-field="total-price" class="col-md-2">
+            Total Price
+        </th>
+
 </tr>
 <tbody>
 <% @menus.each do |menu| %>
@@ -101,23 +60,17 @@ background-color:#c4dde1;
 	</tr>
 
 <%end%>
-		</table>
-	</body>
-	<p>
-		
+  </body>
+</table>
+	<p>		
 	<b>Total Price: <%= number_to_currency(@order.total_price) %></b>
-	
-</p>
+	</p>
 </html>
-
-
 <br>
-
-
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
-
+</div>
 <script>
   $(document).ready(function(){
       // page is now ready, initialize the calendar...
