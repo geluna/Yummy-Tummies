@@ -66,6 +66,7 @@ GEM
     execjs (2.4.0)
     fullcalendar-rails (1.6.4.0)
     geocoder (1.2.7)
+    gmaps4rails (2.1.2)
     high_voltage (2.2.1)
     hike (1.2.3)
     i18n (0.7.0)
@@ -168,6 +169,7 @@ DEPENDENCIES
   devise
   fullcalendar-rails
   geocoder
+  gmaps4rails
   high_voltage (~> 2.2.1)
   jbuilder (~> 2.0)
   jquery-rails
