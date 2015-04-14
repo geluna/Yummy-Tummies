@@ -1,5 +1,7 @@
 
 <!DOCTYPE html>
+
+
 	<html>
 		<head>
   			<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
@@ -48,7 +50,7 @@
 								<li><%= link_to 'Menu', menus_url %></li>
 								<!-- <li><a href="#">My profile</a></li> -->
 
-								<li><%= link_to 'My profile', page_path('../user/index') %></li>
+								<li><%= link_to 'My profile', page_path('../user/index'), 'data-no-turbolink' => true %></li>
 								
 								<li><a href="#">Payment History</a></li>
 								<li class="divider"></li>
