@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'admin' => 'admin#index'
   get 'users/index'
+  get  'users/show'
   #controller :sessions do
   #  get 'login' => :new
   #  post 'login' => :create
@@ -32,9 +33,6 @@ Rails.application.routes.draw do
   resources :menus
   resources :users
 
-  
-  get 'users/index'
-  get  'users/show'
 
   
   # The priority is based upon order of creation: first created -> highest priority.
