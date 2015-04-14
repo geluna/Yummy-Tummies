@@ -47,20 +47,32 @@ Create an Account
 		<%= f.label :password_confirmation %><br />
 		<%= f.password_field :password_confirmation, autocomplete: "off" %>
 	</div>
-	<br />
-	<!--             dropdown            -->
+	<div class="field">
+			<%= f.label 'Instition Address' %><br />
+			<%= f.text_field :address, autocomplete: "off" %>
+
+	</div>
+	<div class="field">
+	<%= f.input :category, 
+            :as => :select, 
+            :collection => [['Institution', 1],['Regular User', 2], ['Franchise Owner', 3]],
+            :label => "User Type:" %>
+	</div>
+	
+		<!--             dropdown            -->
 	<select id="selectMe">
 	    <option value="choose">User type</option>
 	    <option value="institution">Institution</option>
 	    <option value="parent">Parent</option>
 	    <option value="franchise">Franchise Owner</option>    
 	</select>
+	<!--
 	<div class="field">		
 		<p>1=Inst, 2=parent, 3=Fran</p>
 		<%= f.input_field :category %>
-	</div>
+	</div> -->
 		<!--             dropdown				-->
-
+<!--
 	<br>
 		<div class="field">
  			<p>put 3</p>
@@ -68,16 +80,18 @@ Create an Account
 		</div>
 
 	<br/><br/>
-
+-->
 
  	<div id="institution" class="group">
 	<div class="div-with-border">
 		<h2>Institution Field</h2>
+		<!--
 		<div class="field">
 			<%= f.label 'Instition Address' %><br />
 			<%= f.text_field :address, autocomplete: "off" %>
 
 		</div>
+		-->
 	</div>
 	</div>
 	
@@ -111,16 +125,17 @@ Create an Account
 			</div>
 		</div>
 	</div>
+	</div>
 	
 	<div id="franchise" class="group">
  	<div class="div-with-border" >	
 		<h2>Franchise Owner Field</h2>
+		<!--
 		<div class="field">
 			<%= f.label 'Franchise Address' %><br />
 			<%= f.text_field :address, autocomplete: "off" %>
 		</div>
-
-
+		-->
 
 	</div>
 
