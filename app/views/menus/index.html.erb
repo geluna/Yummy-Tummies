@@ -1,7 +1,39 @@
+<!DOCTYPE html>
+		<head>
+			<%= stylesheet_link_tag "menus", media: "all", "data-turbolinks-track" => true%>
+			<%= csrf_meta_tags %>	
+			<script type="text/javascript">
+				function altRows(id)
+				{
+					if(document.getElementsByTagName)
+					{
+						var table = document.getElementById(id);	
+						var rows = table.getElementsByTagName("tr");
+						for(i = 0; i < rows.length; i++)
+						{
+							if(i % 2 == 0)
+							{
+							rows[i].className = "evenRowColor";
+							}
+							else
+							{
+								rows[i].className = "oddRowColor";
+							}
+						}
+					}
+				}
+				window.onload=function()
+				{
+				altRows('alternatecolor');
+				}
+			</script>	
+	</head>
+
 <div class="container">
+	<table border="3">
+		  <table class="myTableClass" id="alternatecolor">
+  			<thead>
 	<h1>Listing Menu</h1>
-  <table class="table table-hover">
-	<thead>
       <tr>
         <th>Menu</th>
         <th>Ingredients</th>
@@ -9,9 +41,9 @@
        <% if can? :manage, User %> <th>Admin</th> <% end %>
       </tr>
     </thead>
-	<% cache ['store', Menu.latest] do %>
+
 		<% @menus.each do |menu| %>
-			<% cache ['entry', menu] do %>
+
 			<tbody>
 				<tr>
 					<th><%= image_tag(menu.image_url, :size => "140x110") %>
@@ -33,13 +65,17 @@
 		</th>
 				</tr>
 			<tbody>					
-			<% end %>
+
 		<% end %>
-	<% end %>
+
 
 	</div>
 </div>
 </table>
+</table>
    <% if can? :create, Menu %>
 	<%= link_to 'New Menu', new_menu_path %>
 	<% end %>
+<br />
+<br />
+<br />

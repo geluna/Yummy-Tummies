@@ -54,3 +54,38 @@ Menu.delete_all
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Student.create!(
+      fname: 'John',
+      lname: 'Jonson',
+      school: 'Valdosta Elementary School'
+      )
+Student.create!(
+      fname: 'Mary',
+      lname: 'Hoppin',
+      school: 'Valdosta Elementary School'
+      )
+Student.create!(
+      fname: 'Kevin',
+      lname: 'Edward',
+      school: 'Valdosta Elementary School'
+      )
+Student.create!(
+      fname: 'Gary',
+      lname: 'Wood',
+      school: 'Albany Elementary School'
+      )
+Student.create!(
+      fname: 'Roy',
+      lname: 'Bailey',
+      school: 'Albany Elementary School'
+      )
+Student.create!(
+      fname: 'Lily',
+      lname: 'Robin',
+      school: 'Baytree Elementary School'
+      )
+Student.create!(
+      fname: 'Louren',
+      lname: 'Clare',
+      school: 'Baytree Elementary School'
+      )
