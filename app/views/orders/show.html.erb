@@ -1,24 +1,30 @@
 <html>
-<head>
-<script type="text/javascript">
-function altRows(id){<!--from ww w.  j av a 2 s .  c  o m-->
-if(document.getElementsByTagName){
+	<head>
+		<script type="text/javascript">
+			function altRows(id)
+			{
+				if(document.getElementsByTagName)
+				{
+					var table = document.getElementById(id);	
+					var rows = table.getElementsByTagName("tr");
+					for(i = 0; i < rows.length; i++)
+					{
+						if(i % 2 == 0)
+						{
+							rows[i].className = "evenRowColor";
+						}
+						else
+						{
+							rows[i].className = "oddRowColor";
+						}
+					}
+				}
+			}
+			window.onload=function()
+			{
+			altRows('alternatecolor');
+			}
 
-var table = document.getElementById(id);
-var rows = table.getElementsByTagName("tr");
-
-for(i = 0; i < rows.length; i++){
-if(i % 2 == 0){
-rows[i].className = "evenRowColor";
-}else{
-rows[i].className = "oddRowColor";
-}
-}
-}
-}
-window.onload=function(){
-altRows('alternatecolor');
-}
 </script>
 
 <style type="text/css">
@@ -54,7 +60,7 @@ background-color:#c4dde1;
 <p id="notice"><%= notice %></p>
 
 
-<table border="1">
+<table class="table">
 	<h1>Purchaser information</h1>
 <p>
   <strong>Name:</strong>
@@ -102,19 +108,13 @@ background-color:#c4dde1;
 	</tr>
 
 <%end%>
-		</table>
-	</body>
-	<p>
-		
+  </body>
+</table>
+	<p>		
 	<b>Total Price: <%= number_to_currency(@order.total_price) %></b>
-	
-</p>
+	</p>
 </html>
-
-
 <br>
-
-
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

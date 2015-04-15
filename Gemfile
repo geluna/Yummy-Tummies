@@ -10,6 +10,7 @@ group :development do
   gem 'sqlite3'
 end
 
+
 gem 'high_voltage', '~> 2.2.1'
 
 gem 'better_errors'

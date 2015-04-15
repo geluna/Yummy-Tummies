@@ -1,3 +1,4 @@
+<html>
 <style type="text/css">
 table.myTableClass {
 font-family: verdana,arial,sans-serif;
@@ -51,8 +52,10 @@ altRows('alternatecolor');
 </script>
 </head>
 
+
 <body>
 <h1>Listing orders</h1>
+
 <table class="myTableClass" id="alternatecolor">
 
 <tr>
@@ -62,11 +65,11 @@ altRows('alternatecolor');
 <th>Pay Type</th>
 <th colspan="3"></th>
 </tr>
-<tbody>
+  <tbody>
 		<% @orders.each do |order| %>
-		<tr>
+		<tr>    
 			<td><%= order.name %></td>
-			<td><%= order.address %></td>
+      <td><%= order.address %></td>
 			<td><%= order.email %></td>
 			<td><%= order.pay_type %></td>
 			<td><%= link_to 'Show', order %></td>
@@ -77,14 +80,15 @@ altRows('alternatecolor');
 		</tr>
 		<% end %>
 			</tbody>
-		</table>
+</table>
+    
 	</body>
 </html>
 <br>
 
 <%= link_to 'New Order', new_order_path %>
-
 </div>
+
 </form>
 
 <br />
