@@ -1,7 +1,63 @@
+<<<<<<< HEAD
 
 <html>
 
 <div class="container">
+=======
+<style type="text/css">
+table.myTableClass {
+font-family: verdana,arial,sans-serif;
+font-size:11px;
+color:#333333;
+border-width: 12px;
+border-color: #a9c6c9;
+border-collapse: collapse;
+}
+table.myTableClass th {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #a9c6c9;
+}
+table.myTableClass td {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #a9c6c9;
+}
+.oddRowColor{
+background-color:#d2e3e2;
+}
+.evenRowColor{
+background-color:#c4dde1;
+}
+</style>
+<html>
+	<head>
+<script type="text/javascript">
+function altRows(id){
+if(document.getElementsByTagName){
+
+var table = document.getElementById(id);
+var rows = table.getElementsByTagName("tr");
+
+for(i = 0; i < rows.length; i++){
+if(i % 2 == 0){
+rows[i].className = "evenRowColor";
+}else{
+rows[i].className = "oddRowColor";
+}
+}
+}
+}
+window.onload=function()
+{
+altRows('alternatecolor');
+}
+</script>
+</head>
+
+>>>>>>> 5f549109a8239a95f769a4b23f351a1a4c63eaae
 <body>
 <h1>Listing orders</h1>
 
@@ -22,8 +78,10 @@
 			<td><%= order.email %></td>
 			<td><%= order.pay_type %></td>
 			<td><%= link_to 'Show', order %></td>
+			<% if can? :manage, Users%>
 			<td><%= link_to 'Edit', edit_order_path(order) %></td>
 			<td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<% end %>
 		</tr>
 		<% end %>
 			</tbody>
@@ -37,48 +95,6 @@
 </div>
 </div>
 </form>
-
-
-<script>
-  $(document).ready(function(){
-      // page is now ready, initialize the calendar...
-      $('#new_event').click(function(event) {
-        event.preventDefault();
-        var url = $(this).attr('href');
-        $.ajax({
-          url: url,
-          beforeSend: function() {
-            $('#loading').show();
-          },
-          complete: function() {
-            $('#loading').hide();
-          },
-          success: function(data) {
-            $('#create_event').replaceWith(data['form']);
-            $('#create_event_dialog').dialog({
-              title: 'New Event',
-              modal: true,
-              width: 500,
-              close: function(event, ui) { $('#create_event_dialog').dialog('destroy') }
-            });
-          }
-        });
-      });
-	  
-      $('#calendar').fullCalendar({
-          editable: true,
-          header: {
-              left: 'prev,next today',
-              center: 'title',
-              right: 'month,agendaWeek,agendaDay'
-          },
-          defaultView: 'month',
-          height: 500,
-          slotMinutes: 15,
-          
-          
-          events: '/events.json',
-         
 
 <br />
 <br />

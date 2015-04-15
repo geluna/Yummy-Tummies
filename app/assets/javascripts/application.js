@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require fullcalendar
-//= require turbolinks
 //= require bootstrap
 //= require bootstrap/carousel
 //= require underscore

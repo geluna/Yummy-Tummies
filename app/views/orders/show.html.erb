@@ -1,5 +1,60 @@
 <html>
+<<<<<<< HEAD
 <div class="container">
+=======
+<head>
+<script type="text/javascript">
+function altRows(id){<!--from ww w.  j av a 2 s .  c  o m-->
+if(document.getElementsByTagName){
+
+var table = document.getElementById(id);
+var rows = table.getElementsByTagName("tr");
+
+for(i = 0; i < rows.length; i++){
+if(i % 2 == 0){
+rows[i].className = "evenRowColor";
+}else{
+rows[i].className = "oddRowColor";
+}
+}
+}
+}
+window.onload=function(){
+altRows('alternatecolor');
+}
+</script>
+
+<style type="text/css">
+table.myTableClass {
+font-family: verdana,arial,sans-serif;
+font-size:11px;
+color:#333333;
+border-width: 12px;
+border-color: #a9c6c9;
+border-collapse: collapse;
+}
+table.myTableClass th {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #a9c6c9;
+}
+table.myTableClass td {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #a9c6c9;
+}
+.oddRowColor{
+background-color:#d2e3e2;
+}
+.evenRowColor{
+background-color:#c4dde1;
+}
+</style>
+</head>
+
+>>>>>>> 5f549109a8239a95f769a4b23f351a1a4c63eaae
 <p id="notice"><%= notice %></p>
 
 
@@ -107,12 +162,9 @@
           defaultView: 'month',
           height: 500,
           slotMinutes: 15,
-          
-          
+                    
           events: '/events.json',
-         
-
-
+ 
           timeFormat: 'h:mm t{ - h:mm t} ',
           dragOpacity: "0.5",
           eventDrop: function(event, dayDelta, minuteDelta, allday, revertFunc){
