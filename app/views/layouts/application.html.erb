@@ -21,7 +21,7 @@
 				<ul class="nav navbar-nav">		
 
 					<li><%= link_to 'Menu', menus_url, style: "color:white"  %></li>
-			        <li><%= link_to 'My Cart', carts_path, style: "color:white"  %></li>
+			        <li><%= link_to 'My Cart', cart_path(session[:cart_id]), style: "color:white"  %></li>
 			        <li><%= link_to 'My Orders', orders_path, style: "color:white"  %></li>
 			        <li><%= link_to 'About', page_path('about'), style: "color:white"  %></li>
 
