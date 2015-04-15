@@ -20,6 +20,7 @@ window.onload=function(){
 altRows('alternatecolor');
 }
 </script>
+
 <style type="text/css">
 table.myTableClass {
 font-family: verdana,arial,sans-serif;
@@ -154,12 +155,9 @@ background-color:#c4dde1;
           defaultView: 'month',
           height: 500,
           slotMinutes: 15,
-          
-          
+                    
           events: '/events.json',
-         
-
-
+ 
           timeFormat: 'h:mm t{ - h:mm t} ',
           dragOpacity: "0.5",
           eventDrop: function(event, dayDelta, minuteDelta, allday, revertFunc){
