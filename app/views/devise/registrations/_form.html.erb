@@ -48,7 +48,7 @@ Create an Account
 		<%= f.password_field :password_confirmation, autocomplete: "off" %>
 	</div>
 	<div class="field">
-			<%= f.label 'Instition Address' %><br />
+			<%= f.label 'Address' %><br />
 			<%= f.text_field :address, autocomplete: "off" %>
 
 	</div>
@@ -59,88 +59,7 @@ Create an Account
             :label => "User Type:" %>
 	</div>
 	
-		<!--             dropdown            -->
-	<select id="selectMe">
-	    <option value="choose">User type</option>
-	    <option value="institution">Institution</option>
-	    <option value="parent">Parent</option>
-	    <option value="franchise">Franchise Owner</option>    
-	</select>
-	<!--
-	<div class="field">		
-		<p>1=Inst, 2=parent, 3=Fran</p>
-		<%= f.input_field :category %>
-	</div> -->
-		<!--             dropdown				-->
-<!--
-	<br>
-		<div class="field">
- 			<p>put 3</p>
-			<%= f.input_field :category %>
-		</div>
 
-	<br/><br/>
--->
-
- 	<div id="institution" class="group">
-	<div class="div-with-border">
-		<h2>Institution Field</h2>
-		<!--
-		<div class="field">
-			<%= f.label 'Instition Address' %><br />
-			<%= f.text_field :address, autocomplete: "off" %>
-
-		</div>
-		-->
-	</div>
-	</div>
-	
- 	<div id="parent" class="group" >
- 	<div class="div-with-border" >	
- 		<h2>Parent Field</h2>
-
-
-		<div class="field">
-
-			<div class="field">	
-			<%= f.label 'first name' %><br />
-			<%= f.text_field :fname, autocomplete: "off" %>
-			</div>
-			<div class="field">
-			<%= f.label 'last name'%><br />
-			<%= f.text_field :lname, autocomplete: "off" %>
-			</div>
-			<div class="field">
-			<%= f.label 'childs first name' %><br />
-			<%= f.text_field :childfname, autocomplete: "off" %>
-			</div>
-			<div class="field">
-			<%= f.label 'childs last name' %><br />
-			<%= f.text_field :childlname, autocomplete: "off" %>
-			</div>
-			<div class="links">
-				<div class="links">
-
-	      		</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	
-	<div id="franchise" class="group">
- 	<div class="div-with-border" >	
-		<h2>Franchise Owner Field</h2>
-		<!--
-		<div class="field">
-			<%= f.label 'Franchise Address' %><br />
-			<%= f.text_field :address, autocomplete: "off" %>
-		</div>
-		-->
-
-	</div>
-
-	</div>
-	
 	<div class="actions">
 		<%= f.submit "Sign up" %>
 	</div>

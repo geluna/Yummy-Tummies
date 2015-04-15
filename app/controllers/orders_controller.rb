@@ -1,11 +1,15 @@
 class OrdersController < ApplicationController
-  skip_before_action :authorize, only: [:new, :create]
+  #skip_before_action :authorize, only: [:new, :create]
+  
+  before_filter :authenticate_user!
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   @orders = Order.all
 
-
+  def resource_name
+    :user
+  end
   # GET /orders
   # GET /orders.json
   def index
@@ -36,6 +40,8 @@ end
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
+    @order.email = current_user.email
+    @order.address = current_user.address
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
