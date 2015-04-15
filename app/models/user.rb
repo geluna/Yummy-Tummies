@@ -5,7 +5,7 @@ geocoded_by :address
   after_validation :geocode
 
 has_many :menus
-
+has_many :orders
 has_many :students, dependent: :destroy
 accepts_nested_attributes_for :students, :allow_destroy => true
 

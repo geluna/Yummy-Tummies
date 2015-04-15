@@ -18,7 +18,8 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+
+    <% @users.each  do |user| %>
       <tr>
         <td><%= user.address %></td>
         <td><%= user.latitude %></td>
@@ -27,6 +28,7 @@
       </tr>
     <% end %>
   </tbody>
+  
   	
 </table>
 <div style='width: 800px;'>

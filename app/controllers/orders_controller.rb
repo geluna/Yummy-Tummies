@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  @orders = Order.all
+  #@orders = Order.all
 
   def resource_name
     :user
@@ -13,7 +13,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.where(email:current_user.email)
+
   end
 
   # GET /orders/1
