@@ -11,9 +11,9 @@
        <% if can? :manage, User %> <th>Admin</th> <% end %>
       </tr>
     </thead>
-	<% cache ['store', Menu.latest] do %>
+
 		<% @menus.each do |menu| %>
-			<% cache ['entry', menu] do %>
+
 			<tbody>
 				<tr>
 					<th><%= image_tag(menu.image_url, :size => "140x110") %>
@@ -35,9 +35,9 @@
 		</th>
 				</tr>
 			<tbody>					
-			<% end %>
+
 		<% end %>
-	<% end %>
+
 
 	</div>
 </div>
