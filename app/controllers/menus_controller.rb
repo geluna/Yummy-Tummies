@@ -5,7 +5,8 @@ class MenusController < ApplicationController
   # GET /menus.json
   def index
     #@menus = Menu.where(:user_id => session[:user_id])
-    @menus = Menu.all
+    #@menus = Menu.all
+    @menus = Menu.all.paginate(page: params[:page], per_page: 3)
   end
 
   # GET /menus/1

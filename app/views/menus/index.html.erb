@@ -73,6 +73,8 @@
 </div>
 </table>
 </table>
+ <%= will_paginate @menus, 'data-no-turbolink' => true %>
+ 
    <% if can? :create, Menu %>
 	<%= link_to 'New Menu', new_menu_path %>
 	<% end %>
