@@ -37,7 +37,7 @@
       <tr>
         <th>Menu</th>
         <th>Ingredients</th>
-        <th>Price</th>
+       <% if can? :read, User%> <th>Price</th><% end %>
        <% if can? :manage, User %> <th>Admin</th> <% end %>
       </tr>
     </thead>
@@ -50,19 +50,15 @@
 						<p><%=menu.foodItem %></p>
 					</th>
 					<th><%= sanitize(menu.description) %></th>
-					<th>
-						<% if can? :read, User%>
-						<span class="price"><%= number_to_currency(menu.price) %></span>
+					<% if can? :read, User%>
+					<th> <span class="price"><%= number_to_currency(menu.price) %></span>
 						<%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %>
-					    <% end %>
-					</th>
-		<th class="list_actions">
-			<% if can? :manage, User %>
+					</th> <% end %>
+		<% if can? :manage, User %><th class="list_actions">
 			<%=link_to'Show', menu %><br/>
 			<%=link_to'Edit',edit_menu_path(menu)%><br/>
 			<%=link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
-			<% end %>
-		</th>
+		</th><% end %>
 				</tr>
 			<tbody>					
 
