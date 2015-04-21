@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
   def index
 
     @students = Student.where(user_id:current_user.id)
-    #@students = Student.where(user_id:current_user.id)
+    
 
     @user = User.all
   end
@@ -17,7 +17,6 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
-    #@students = Student.where(user_id:current_user.id)
     
     respond_with(@student)
 
@@ -31,8 +30,7 @@ class StudentsController < ApplicationController
     
 
     @student = Student.new(student_params)
-    #@students = Student.where(user_id:current_user.id)
-    #@student.save
+   
     @student.update_attributes(user_id:current_user.id)
     respond_to do |format|
       if @student.save
