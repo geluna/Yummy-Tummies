@@ -4,9 +4,8 @@ class StudentsController < ApplicationController
   respond_to :html
 
   def index
-    @students = Student.where(:user_id => session[:user_id])
+    @students = Student.where(user_id:current_user.id)
     @user = User.all
-    respond_with(@students)
   end
 
   def show
@@ -24,7 +23,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     #@student.save
-    @student.update_attributes(:user_id => session[:user_id])
+    @student.update_attributes(user_id:current_user.id)
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, notice: 'Product was successfully created.' }
@@ -52,6 +51,6 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      params.require(:student).permit(:id, :fname, :lname, :school)
+      params.require(:student).permit(:id, :fname, :lname, :school, :user_id)
     end
 end
