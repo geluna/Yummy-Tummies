@@ -1,79 +1,54 @@
 <!DOCTYPE html>
-		<head>
-			<%= stylesheet_link_tag "menus", media: "all", "data-turbolinks-track" => true%>
-			<%= csrf_meta_tags %>	
-			<script type="text/javascript">
-				function altRows(id)
-				{
-					if(document.getElementsByTagName)
-					{
-						var table = document.getElementById(id);	
-						var rows = table.getElementsByTagName("tr");
-						for(i = 0; i < rows.length; i++)
-						{
-							if(i % 2 == 0)
-							{
-							rows[i].className = "evenRowColor";
-							}
-							else
-							{
-								rows[i].className = "oddRowColor";
-							}
-						}
-					}
-				}
-				window.onload=function()
-				{
-				altRows('alternatecolor');
-				}
-			</script>	
+	<head>
+		<%= stylesheet_link_tag "menus", media: "all", "data-turbolinks-track" => true%>
+		<%= csrf_meta_tags %>	
 	</head>
 
 <div class="container">
-	<table border="3">
-		  <table class="myTableClass" id="alternatecolor">
-  			<thead>
 	<h1>Listing Menu</h1>
-      <tr>
-        <th>Menu</th>
-        <th>Ingredients</th>
-       <% if can? :read, User%> <th>Price</th><% end %>
-       <% if can? :manage, User %> <th>Admin</th> <% end %>
-      </tr>
-    </thead>
-
-		<% @menus.each do |menu| %>
-
+	<table border="3">
+		<table class="table table-striped">
+  			<thead>
+	      		<tr>
+	        		<th>Menu</th>
+	        		<th>Ingredients</th>
+	       			<% if can? :read, User%> <th>Price</th><% end %>
+	       			<% if can? :manage, User %> <th>Admin</th> <% end %>
+	      		</tr>
+	    	</thead>
+	    	
 			<tbody>
-				<tr>
-					<th><%= image_tag(menu.image_url, :size => "140x110") %>
-						<p><%=menu.foodItem %></p>
-					</th>
-					<th><%= sanitize(menu.description) %></th>
-					<% if can? :read, User%>
-					<th> <span class="price"><%= number_to_currency(menu.price) %></span>
-						<%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %>
-					</th> <% end %>
-		<% if can? :manage, User %><th class="list_actions">
-			<%=link_to'Show', menu %><br/>
-			<%=link_to'Edit',edit_menu_path(menu)%><br/>
-			<%=link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
-		</th><% end %>
-				</tr>
-			<tbody>					
-
-		<% end %>
-
-
-	</div>
-</div>
-</table>
-</table>
- <%= will_paginate @menus, 'data-no-turbolink' => true %>
- 
-   <% if can? :create, Menu %>
-	<%= link_to 'New Menu', new_menu_path %>
+				<% @menus.each do |menu| %>
+					<tr>
+						<td><%= image_tag(menu.image_url, :size => "140x110") %><p><%=menu.foodItem %></p></td>
+						<td><%= sanitize(menu.description) %></td>
+						<% if can? :read, User%>
+						<td><span class="price"><%= number_to_currency(menu.price) %></span>
+							<%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %>
+						</td>
+						<% end %>
+						<% if can? :manage, User %>
+						<td class="list_actions">
+							<%=link_to'Show', menu %><br/>
+							<%=link_to'Edit',edit_menu_path(menu)%><br/>
+							<%=link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
+						</td>
+						<% end %>
+					</tr>
+				<% end %>
+			</tbody>
+			<%= will_paginate @menus, 'data-no-turbolink' => true %>
+		</table>
+		<%= will_paginate @menus, 'data-no-turbolink' => true %>
+	</table>
+   	<% if can? :create, Menu %>
+		<br/><%= link_to 'New Menu', new_menu_path %>
 	<% end %>
+</div>
+
+ 
+ 
+
 	<br />
 	<script>
   $(document).ready(function(){

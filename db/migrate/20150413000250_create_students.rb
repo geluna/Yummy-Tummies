@@ -6,6 +6,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :school
 
       t.timestamps
+      t.belongs_to :user, index: true
     end
   end
 end

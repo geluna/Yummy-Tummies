@@ -4,7 +4,8 @@ class StudentsController < ApplicationController
   respond_to :html
 
   def index
-    @students = Student.all
+    @students = Student.where(:user_id => session[:user_id])
+    @user = User.all
     respond_with(@students)
   end
 
@@ -22,8 +23,17 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
-    @student.save
-    respond_with(@student)
+    #@student.save
+    @student.update_attributes(:user_id => session[:user_id])
+    respond_to do |format|
+      if @student.save
+        format.html { redirect_to @student, notice: 'Product was successfully created.' }
+        format.json { render :show, status: :created, location: @student }
+      else
+        format.html { render :new }
+        format.json { render json: @student.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update

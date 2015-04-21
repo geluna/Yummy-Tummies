@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   resources :students
 
   
-
-  devise_for :users
+devise_for :users
   get 'admin' => 'admin#index'
   get 'users/index'
   
