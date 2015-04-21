@@ -20,7 +20,6 @@
         <td><%= student.fname %></td>
         <td><%= student.lname %></td>
         <td><%= student.school %></td>
-        <td><%= button_to 'Add', students_path, :class => "btn btn-primary btn-sm" %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>

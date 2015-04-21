@@ -4,10 +4,11 @@ class StudentsController < ApplicationController
   respond_to :html
 
   def index
-    @students = Student.where(id:current_user.id)
+
+    @students = Student.where(user_id:current_user.id)
     #@students = Student.where(user_id:current_user.id)
+
     @user = User.all
-    respond_with(@students)
   end
 
   def show
@@ -60,6 +61,6 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      params.require(:student).permit(:id, :fname, :lname, :school)
+      params.require(:student).permit(:id, :fname, :lname, :school, :user_id)
     end
 end

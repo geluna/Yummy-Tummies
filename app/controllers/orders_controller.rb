@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.where(email:current_user.email)
-
   end
 
   # GET /orders/1
