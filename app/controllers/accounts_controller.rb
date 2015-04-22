@@ -5,7 +5,8 @@ class AccountsController < ApplicationController
   respond_to :html
 
   def index
-    @accounts = Account.where(id:current_user.id)
+    @accounts = Account.all
+    #@accounts = Account.where(id:current_user.id)
     respond_with(@accounts)
   end
 
@@ -39,6 +40,7 @@ class AccountsController < ApplicationController
 
  private
     def set_account
+      #@accounts = Account.where(id:current_user.id)
       @account = Account.find(params[:id])
     end
 
