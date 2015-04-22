@@ -1,0 +1,32 @@
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+
+
+<div class="field">
+    <%= f.label :deposit %><br>
+    <%= f.text_field :deposit, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :pay_type %><br>
+    <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Deposit Funds' %>
+  </div>
+  <% end %>
+
+
+
+

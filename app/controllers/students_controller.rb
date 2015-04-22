@@ -4,7 +4,10 @@ class StudentsController < ApplicationController
   respond_to :html
 
   def index
+
     @students = Student.where(user_id:current_user.id)
+    
+
     @user = User.all
   end
 
@@ -14,15 +17,20 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    
     respond_with(@student)
+
   end
 
   def edit
   end
 
   def create
+
+    
+
     @student = Student.new(student_params)
-    #@student.save
+   
     @student.update_attributes(user_id:current_user.id)
     respond_to do |format|
       if @student.save

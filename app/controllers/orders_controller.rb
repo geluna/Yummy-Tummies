@@ -13,7 +13,12 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
+    if current_user.admin?
+      @orders = Order.all
+    else
+    #@orders = Order.all
     @orders = Order.where(email:current_user.email)
+    end
   end
 
   # GET /orders/1
