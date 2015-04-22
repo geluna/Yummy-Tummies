@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
  # before_action :set_account [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  
   respond_to :html
 
   def index
@@ -36,12 +37,13 @@ class AccountsController < ApplicationController
     respond_with(@account)
   end
 
- 
+ private
     def set_account
       @account = Account.find(params[:id])
     end
 
     def account_params
-      params[:account]
+     # params[:account]
+      params.require(:account).permit(:created_at, :email, :credit, :debit, :acctbal)
     end
 end

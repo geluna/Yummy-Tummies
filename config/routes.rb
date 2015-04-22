@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-
-  resources :students
-
-  
 devise_for :users
   get 'admin' => 'admin#index'
   get 'users/index'
@@ -11,6 +7,7 @@ devise_for :users
   get 'accounts/show'
   
   resources :accounts
+   resources :students
   #controller :sessions do
   #  get 'login' => :new
   #  post 'login' => :create

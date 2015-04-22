@@ -13,15 +13,17 @@
 	        		<th>Add Funds</th>
 	      		</tr>
 	    </thead>
-			<tbody>
-			
+			<tbody>	     
+				 <% @accounts.each do |account| %>    
 					<tr>
-						<td></td>
-						<td></td>		
-						<td></td>	
-						<td></td>
-						<td><%= link_to "Add Funds", new_account_path, method: :get, :class => "btn btn-primary btn-sm" %></td>				
+						<td><%= account.created_at %></td>
+						<td><%= number_to_currency(account.credit) %></td>		
+						<td><%= number_to_currency(account.debit) %></td>	
+						<td><%= number_to_currency(account.acctbal) %></td>	
+						<td><%= link_to "Add Funds", new_account_path, method: :get, :class => "btn btn-primary btn-sm" %></td>	
+								
 					</tr>
+					 <% end %>
 				<tbody>		
 		</table>
 	</table>
