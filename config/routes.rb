@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  resources :accounts
+  
 
-  resources :students
+  
 
   
 devise_for :users
   get 'admin' => 'admin#index'
   get 'users/index'
   get 'accounts/index'
+  #get 'accounts/show'
   
 
   #controller :sessions do
@@ -24,7 +25,8 @@ devise_for :users
   #get 'sessions/destroy'
 
   #resources :users
-
+  resources :students
+  resources :accounts
   resources :orders
 
   resources :line_items
