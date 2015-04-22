@@ -49,7 +49,7 @@ end
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :fname, :lname, :childfname, :childlname, :category,
-    :students_attributes => [:fname, :lanme, :_destroy]
+    :students_attributes => [:fname, :lname, :_destroy]
     )
   end
 end

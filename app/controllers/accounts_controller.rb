@@ -1,10 +1,10 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   respond_to :html
 
   def index
-    @accounts = Account.all
+    @accounts = Account.where(id:current_user.id)
     respond_with(@accounts)
   end
 
@@ -36,7 +36,7 @@ class AccountsController < ApplicationController
     respond_with(@account)
   end
 
-  private
+ 
     def set_account
       @account = Account.find(params[:id])
     end

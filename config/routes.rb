@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 devise_for :users
   get 'admin' => 'admin#index'
   get 'users/index'
+  get 'accounts/index'
   
 
   #controller :sessions do
