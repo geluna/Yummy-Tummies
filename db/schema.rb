@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150416205015) do
     t.datetime "updated_at"
     t.integer  "quantity",    default: 1
     t.integer  "order_id"
-    t.string   "datefor"
+    t.date     "datefor"
     t.string   "dateordered"
   end
 
