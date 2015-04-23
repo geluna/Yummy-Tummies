@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-=======
+
   
 
   
->>>>>>> 514d70b15b2a308646c125f96a97a118eb4e4a7f
+
 
 devise_for :users
   get 'admin' => 'admin#index'
   get 'users/index'
   get 'accounts/index'
-<<<<<<< HEAD
+
   get 'accounts/show'
-=======
+
   #get 'accounts/show'
->>>>>>> 514d70b15b2a308646c125f96a97a118eb4e4a7f
+
   
   resources :accounts
    resources :students

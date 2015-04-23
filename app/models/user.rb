@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   geocoded_by :address
   after_validation :geocode
-  has_many :accounts
+  has_many :accounts 
   has_many :menus
   has_many :orders
   has_many :students, dependent: :destroy

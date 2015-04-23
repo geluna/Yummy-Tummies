@@ -5,12 +5,22 @@ class AccountsController < ApplicationController
   respond_to :html
 
   def index
-    @accounts = Account.all
+   # @accounts = Account.all
     #@accounts = Account.where(id:current_user.id)
+    if current_user.admin?
+      @accounts = Account.all
+    else
+      @accounts = Account.where(email:current_user.email)
+    end
     respond_with(@accounts)
   end
 
   def show
+    if current_user.admin?
+      @accounts = Account.all
+    else
+      @accounts = Account.where(email:current_user.email)
+    end
     respond_with(@account)
   end
 
