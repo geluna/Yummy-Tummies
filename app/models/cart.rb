@@ -3,6 +3,7 @@ has_many :line_items, dependent: :destroy
 
 def add_menu(menu_id)
 current_item = line_items.find_by(menu_id: menu_id)
+datefor = line_items.find_by(datefor: datefor)
 if current_item
   current_item.quantity += 1
 else

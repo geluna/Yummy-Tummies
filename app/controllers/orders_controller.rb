@@ -47,6 +47,7 @@ end
     @order.add_line_items_from_cart(@cart)
     @order.email = current_user.email
     @order.address = current_user.address
+    @order.created at = @line_items.created_at
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])

@@ -29,6 +29,7 @@ class LineItemsController < ApplicationController
   def create
     menu = Menu.find(params[:menu_id])
     @line_item = @cart.add_menu(menu.id)
+    
 
     respond_to do |format|
       if @line_item.save
@@ -73,6 +74,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:menu_id)
+      params.require(:line_item).permit(:menu_id, :datefor)
     end
 end
