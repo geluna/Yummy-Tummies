@@ -36,18 +36,7 @@ class AccountsController < ApplicationController
     #@account = Account.new(account_params)
    # @account.save
    # respond_with(@account)
-    @account = Account.new(account_params)
-    @account.email = current_user.email
-    @account.user_id = current_user.id
-    respond_to do |format|
-      if @account.save
-        format.html { redirect_to accounts_url, notice: 'Thank you and enjoy.' }
-        format.json { render :show, status: :created, location: @account }
-      else
-        format.html { render :new }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
-    end
+   
   end
 
   def update
@@ -59,6 +48,29 @@ class AccountsController < ApplicationController
     @account.destroy
     respond_with(@account)
   end
+  
+  def withdrawl
+    @account = Account.new(account_params)
+    @account.email = current_user.email
+    @account.user_id = current_user.id
+    
+  end
+  
+def deposit
+   @account = Account.new(account_params)
+    @account.email = current_user.email
+    @account.user_id = current_user.id
+    respond_to do |format|
+      if @account.save
+        format.html { redirect_to accounts_url, notice: 'Thank you and enjoy.' }
+       format.json { render :show, status: :created, location: @account }
+      else
+        format.html { render :new }
+        format.json { render json: @account.errors, status: :unprocessable_entity }
+      end
+    end
+end 
+
 
  private
     def set_account

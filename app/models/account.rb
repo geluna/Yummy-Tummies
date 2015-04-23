@@ -5,6 +5,6 @@ class Account < ActiveRecord::Base
   validates :depotype, inclusion: DEPOSIT_TYPES
   
 def final_acct_bal 
-    orders.to_a.sum {|order| order.final_acct_price}
+    accounts.to_a.sum {|account| account.final_acct_price}
   end
 end
