@@ -15,12 +15,12 @@
 
 
 <div class="field">
-    <%= f.label :deposit %><br>
-    <%= f.text_field :deposit, size: 40 %>
+    <%= f.label :credit, "Deposit Amount" %><br>
+    <%= f.text_field :credit, size: 40 %>
   </div>
   <div class="field">
-    <%= f.label :pay_type %><br>
-    <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
+    <%= f.label :depotype, "Select Deposit Method" %><br>
+    <%= f.select :depotype, Account::DEPOSIT_TYPES, prompt: 'Select a deposit method' %>
   </div>
   <div class="actions">
     <%= f.submit 'Deposit Funds' %>
