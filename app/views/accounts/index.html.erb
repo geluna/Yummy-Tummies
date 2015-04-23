@@ -10,25 +10,21 @@
 	        		<th>Credit</th>
 	        		<th>Debit</th>
 	        		<th>Account Balance</th>
-	        		<th>Add Funds</th>
 	      		</tr>
 	    </thead>
 			<tbody>	     
 				 <% @accounts.each do |account| %>   
-				 
-					<tr>
+				 	<tr>
 						<td><%= account.created_at %></td>
-						<td><%= number_to_currency(account.credit) %></td>		
-						<td><%= number_to_currency(account.debit) %></td>	
-						<td><%= number_to_currency(account.acctbal) %></td>	
-						
-						<td><%= link_to "Add Funds", new_account_path, method: :get, :class => "btn btn-primary btn-sm" %></td>	
-								
+						<td><b><font color="green"><%= number_to_currency(account.credit)%></b></td>		
+						<td><b><font color="red"><%= number_to_currency(account.debit)%></font></b></td>	
+						<td><b><%= number_to_currency(account.acctbal)%></b></td>		
 					</tr>
 					 <% end %>
 				<tbody>		
 		</table>
 	</table>
+<%= link_to "Add Funds", new_account_path, method: :get, :class => "btn btn-primary btn-sm" %>
 
 <table>
   <thead>
@@ -36,7 +32,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+<% if can? :manage, Users%>
   <tbody>
     <% @accounts.each do |account| %>
       <tr>
@@ -51,3 +47,4 @@
 <br>
 <%= link_to 'New Account', new_account_path %>
 </div>
+<% end %>
