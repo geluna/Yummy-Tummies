@@ -29,9 +29,13 @@ class LineItemsController < ApplicationController
   def create
     menu = Menu.find(params[:menu_id])
     @line_item = @cart.add_menu(menu.id)
+<<<<<<< HEAD
    
    
 
+=======
+    #@line_item.update_attributes(datefor:menu.datefor)
+>>>>>>> 8915a1f96edd684bfe484cd38e97f989c5edac19
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to menus_url }
@@ -75,6 +79,10 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
+<<<<<<< HEAD
       params.require(:line_item).permit(:menu_id, :datefor)
+=======
+      params.require(:line_item).permit(:datefor, :comment, :student_id)
+>>>>>>> 8915a1f96edd684bfe484cd38e97f989c5edac19
     end
 end

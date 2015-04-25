@@ -24,8 +24,8 @@
     <%= f.text_field :lname %>
   </div>
   <div class="field">
-    <%= f.label :school %><br>
-    <%= f.text_field :school %>
+    <% options = options_from_collection_for_select(@shools, 'id', 'name') %>
+	<%= f.select :school_id,  options %>
   </div>
   <div class="actions">
     <%= f.submit %>

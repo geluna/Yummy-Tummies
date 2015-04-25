@@ -7,6 +7,7 @@ class MenusController < ApplicationController
     #@menus = Menu.where(:user_id => session[:user_id])
     #@menus = Menu.all
     @menus = Menu.all.paginate(page: params[:page], per_page: 3)
+    @line_items = LineItem.all
   end
 
   # GET /menus/1
@@ -28,7 +29,7 @@ class MenusController < ApplicationController
   # POST /menus.json
   def create
     @menu = Menu.new(menu_params)
-
+    @line_items = LineItem.all
     respond_to do |format|
       if @menu.save
         format.html { redirect_to @menu, notice: 'Menu was successfully created.' }

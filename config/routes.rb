@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
 
-  
 
+  resources :schools
+
+  resources :franchises
+
+  resources :accts
   
 
 
 devise_for :users
   get 'admin' => 'admin#index'
   get 'users/index'
- 
-   
+
   get 'accounts/index'
-  
   get 'accounts/show'
 
   resources :accounts do
@@ -20,39 +22,28 @@ devise_for :users
       post 'withdrawl', :action => :withdrawl
     end
   end
-  
+   
+   
 
-
-
-  #resources :accounts
-  
-  
-   resources :students
   #controller :sessions do
   #  get 'login' => :new
   #  post 'login' => :create
   #  delete 'logout' => :destroy
-  #end
-   
+  #end   
     root 'store#index', as: 'store'
 
-  
   #get 'sessions/create'
-
   #get 'sessions/destroy'
 
   #resources :users
-
   resources :orders
-
   resources :line_items
-
   resources :carts
-
   get 'store/index'
-
   resources :menus
   resources :users
+  
+   resources :students
 
   
   # The priority is based upon order of creation: first created -> highest priority.

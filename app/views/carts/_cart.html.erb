@@ -7,12 +7,13 @@
 
 <h2>Your Cart</h2>
 
-<table class="table table-striped"  style="width: 35%">
+<table class="table table-striped"  style="width: 70%">
 	<thead>
 		<tr>
-			<th class="col-md-1">student</th>
+			<th class="col-md-2">Student ID</th>
 	        <th class="col-md-4">Menu</th>
-	        <th class="col-md-4">date</th>
+	        <th class="col-md-2">comment</th>
+	        <th class="col-md-2">date</th>
 	        <th class="col-md-1">price</th>
 	       <th class="col-md-3">datefor</th>
 		</tr>
@@ -21,7 +22,7 @@
 		<%= render(cart.line_items) %>
 		
 		<tr class="total_line">
-			<td colspan="3">Total</td>
+			<td colspan="4">Total</td>
 			<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
 		</tr>
 	</tbody>

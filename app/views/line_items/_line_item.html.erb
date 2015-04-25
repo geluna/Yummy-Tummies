@@ -1,12 +1,12 @@
 
 		<tr>
-		<td><%= line_item.quantity %>&times;</td>
+		<td><%= line_item.student_id %><br>
+			<%= link_to 'edit', edit_line_item_path(line_item) %>
+		</td>
 		<td><%= line_item.menu.foodItem %></td>
-		<td><%= line_item.created_at %></td>
-		
-		<td>
-		<%= link_to 'edit', edit_line_item_path(line_item)%>
-		<%= %>
+		<td><%= line_item.comment %></td>
+		<td><%= line_item.datefor %><br>
+			<%= link_to 'Date Select', edit_line_item_path(line_item) %>
 		</td>
 		<td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
 		</tr>

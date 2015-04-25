@@ -4,20 +4,18 @@ class StudentsController < ApplicationController
   respond_to :html
 
   def index
-
     @students = Student.where(user_id:current_user.id)
-    
-
     @user = User.all
   end
 
   def show
-    respond_with(@student)
+    @schools = @student.name
+    respond_with(@student)    
   end
 
   def new
     @student = Student.new
-    
+    @shools = School.all
     respond_with(@student)
 
   end
@@ -26,11 +24,7 @@ class StudentsController < ApplicationController
   end
 
   def create
-
-    
-
-    @student = Student.new(student_params)
-   
+    @student = Student.new(student_params)   
     @student.update_attributes(user_id:current_user.id)
     respond_to do |format|
       if @student.save
@@ -44,6 +38,7 @@ class StudentsController < ApplicationController
   end
 
   def update
+    @shools = School.all
     @student.update(student_params)
     respond_with(@student)
   end
@@ -59,6 +54,6 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      params.require(:student).permit(:id, :fname, :lname, :school, :user_id)
+      params.require(:student).permit(:id, :fname, :lname, :school_id, :user_id)
     end
 end
