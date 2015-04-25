@@ -36,11 +36,16 @@ class AccountsController < ApplicationController
     #@account = Account.new(account_params)
    # @account.save
    # respond_with(@account)
-    #@previous_balance = Account.where('user_id = ?', current_user.id).order(:created_at).last.acctbal
+   
+    previous_balance = Account.previous_balance_for_user(current_user)
     @account = Account.new(account_params)
     @account.email = current_user.email
     @account.user_id = current_user.id
-   # @account.acctbal = account_params[:deposit] + @previous_balance
+    @account = Account.new(account_params.merge(
+               user_id: current_user.id,
+               email: current_user.email,
+               acctbal: previous_balance + account_params[:credit].to_f
+                ))  
     respond_to do |format|
       if @account.save
         format.html { redirect_to accounts_url, notice: 'Thank you and enjoy.' }
