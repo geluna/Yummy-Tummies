@@ -23,6 +23,11 @@ class StudentsController < ApplicationController
   def edit
   end
 
+  def add
+    @student = Student.all
+  end
+  
+
   def create
     @student = Student.new(student_params)   
     @student.update_attributes(user_id:current_user.id)
@@ -47,13 +52,19 @@ class StudentsController < ApplicationController
     @student.destroy
     respond_with(@student)
   end
+  
 
   private
     def set_student
       @student = Student.find(params[:id])
     end
 
+    def add
+    @student = Student.all
+  end
+
     def student_params
       params.require(:student).permit(:id, :fname, :lname, :school_id, :user_id)
     end
+    
 end

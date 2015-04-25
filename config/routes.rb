@@ -43,7 +43,12 @@ devise_for :users
   resources :menus
   resources :users
   
-   resources :students
+  resources :students do
+    collection do
+      get :add
+    end
+  end
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.
