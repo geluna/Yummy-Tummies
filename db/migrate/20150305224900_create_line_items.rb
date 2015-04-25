@@ -3,7 +3,8 @@ class CreateLineItems < ActiveRecord::Migration
     create_table :line_items do |t|
       t.references :menu, index: true
       t.belongs_to :cart, index: true
-
+      t.belongs_to :student, index: true
+      
       t.timestamps
     end
   end

@@ -6,7 +6,7 @@ class AccountsController < ApplicationController
   def index
     @accounts = Account.all
     #@accounts = Account.where(id:current_user.id)
-    respond_with(@accounts)
+    
   end
 
   def show

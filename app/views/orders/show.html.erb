@@ -1,65 +1,8 @@
 <html>
-	<head>
-		<script type="text/javascript">
-			function altRows(id)
-			{
-				if(document.getElementsByTagName)
-				{
-					var table = document.getElementById(id);	
-					var rows = table.getElementsByTagName("tr");
-					for(i = 0; i < rows.length; i++)
-					{
-						if(i % 2 == 0)
-						{
-							rows[i].className = "evenRowColor";
-						}
-						else
-						{
-							rows[i].className = "oddRowColor";
-						}
-					}
-				}
-			}
-			window.onload=function()
-			{
-			altRows('alternatecolor');
-			}
-
-</script>
-
-<style type="text/css">
-table.myTableClass {
-font-family: verdana,arial,sans-serif;
-font-size:11px;
-color:#333333;
-border-width: 12px;
-border-color: #a9c6c9;
-border-collapse: collapse;
-}
-table.myTableClass th {
-border-width: 1px;
-padding: 8px;
-border-style: solid;
-border-color: #a9c6c9;
-}
-table.myTableClass td {
-border-width: 1px;
-padding: 8px;
-border-style: solid;
-border-color: #a9c6c9;
-}
-.oddRowColor{
-background-color:#d2e3e2;
-}
-.evenRowColor{
-background-color:#c4dde1;
-}
-</style>
+	<head>	
 </head>
-
+<div class="container">
 <p id="notice"><%= notice %></p>
-
-
 <table class="table">
 	<h1>Purchaser information</h1>
 <p>
@@ -88,37 +31,32 @@ background-color:#c4dde1;
 <th>Name of Dish</th>
 <th>Image</th>
 <th>Price</th>
-<th>Qty</th>
 <th>Total Price</th>
 </tr>
 <tbody>
 <% @menus.each do |menu| %>
-	
 	<tr>
 		<td><%= menu.foodItem %></td>
 		<td><%= image_tag(menu.image_url, :width => 80) if menu.image_url.present? %></td>
 		<td><%= number_to_currency(menu.price) %></td>
 			
 		<% @order.line_items.each do |line_item|%>
-			<% if (menu.id == line_item.menu_id)%>
-				<td><%= line_item.quantity %></td>				
+			<% if (menu.id == line_item.menu_id)%>			
 				<td ><%= number_to_currency(line_item.total_price) %></td>				
 			<%end%>
 		<%end%>
 	</tr>
-
 <%end%>
   </body>
 </table>
 	<p>		
 	<b>Total Price: <%= number_to_currency(@order.total_price) %></b>
 	</p>
-</html>
 <br>
-
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
 
-
+</div>
 <br />
 <br />
+</html>

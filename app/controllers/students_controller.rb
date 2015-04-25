@@ -29,8 +29,7 @@ class StudentsController < ApplicationController
 
     
 
-    @student = Student.new(student_params)
-   
+    @student = Student.new(student_params)   
     @student.update_attributes(user_id:current_user.id)
     respond_to do |format|
       if @student.save

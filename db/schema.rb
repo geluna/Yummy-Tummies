@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422203230) do
+ActiveRecord::Schema.define(version: 20150424214601) do
 
   create_table "accounts", force: true do |t|
     t.datetime "created_at"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20150422203230) do
     t.float    "acctbal"
   end
 
+  create_table "accts", force: true do |t|
+    t.float    "credit"
+    t.float    "debit"
+    t.float    "balance"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accts", ["user_id"], name: "index_accts_on_user_id"
+
   create_table "carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -30,17 +41,18 @@ ActiveRecord::Schema.define(version: 20150422203230) do
   create_table "line_items", force: true do |t|
     t.integer  "menu_id"
     t.integer  "cart_id"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "quantity",    default: 1
     t.integer  "order_id"
     t.date     "datefor"
-    t.string   "dateordered"
+    t.string   "comment"
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
   add_index "line_items", ["menu_id"], name: "index_line_items_on_menu_id"
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
+  add_index "line_items", ["student_id"], name: "index_line_items_on_student_id"
 
   create_table "menus", force: true do |t|
     t.integer  "menuID"
@@ -59,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150422203230) do
     t.text     "address"
     t.string   "email"
     t.string   "pay_type"
+    t.date     "datefor"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "total"

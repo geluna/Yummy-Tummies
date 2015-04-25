@@ -12,13 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :menu_id %><br>
-    <%= f.text_field :menu_id %>
+    <%= f.label :student_id, "Student ID" %><br>
+    <%= f.text_field :student_id %>
   </div>
+
   <div class="field">
-    <%= f.label :cart_id %><br>
-    <%= f.text_field :cart_id %>
+<%= f.label :datefor %><br>
+<%= f.date_select(:datefor) %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
