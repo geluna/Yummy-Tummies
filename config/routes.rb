@@ -2,12 +2,21 @@ Rails.application.routes.draw do
 
 
   resources :accts
+  
+
 
 devise_for :users
   get 'admin' => 'admin#index'
   get 'users/index'
   #get 'accounts/index'
   #get 'accounts/show'
+  get 'accounts/index'
+ 
+  get 'accounts/show'
+
+  #get 'accounts/show'
+
+  
   #controller :sessions do
   #  get 'login' => :new
   #  post 'login' => :create
@@ -19,17 +28,21 @@ devise_for :users
   #get 'sessions/destroy'
 
   #resources :users
-  resources :students
   resources :orders
   resources :line_items
   resources :carts
   get 'store/index'
   resources :menus
   resources :users
-  resources :accounts
   
-  
-  
+   resources :students
+
+  resources :accounts do
+    collection do
+      post 'deposit', :action => :deposit
+      post 'withdrawl', :action => :withdrawl
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

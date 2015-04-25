@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Listing Accounts Inquiries</h1>
 
 <h2>Your Account information</h2>
@@ -9,29 +10,29 @@
 	        		<th>Credit</th>
 	        		<th>Debit</th>
 	        		<th>Account Balance</th>
-	        		<th>Add Funds</th>
 	      		</tr>
 	    </thead>
-			<tbody>
-			
-					<tr>
-						<td></td>
-						<td></td>		
-						<td></td>	
-						<td></td>
-						<td><%= link_to "Add Funds", new_account_path, method: :get, :class => "btn btn-primary btn-sm" %></td>				
+			<tbody>	     
+				 <% @accounts.each do |account| %>   
+				 	<tr>
+						<td><%= account.created_at %></td>
+						<td><b><font color="green"><%= number_to_currency(account.credit)%></b></td>		
+						<td><b><font color="red"><%= number_to_currency(account.debit)%></font></b></td>	
+						<td><b><%= number_to_currency(account.acctbal)%></b></td>		
 					</tr>
+					 <% end %>
 				<tbody>		
 		</table>
 	</table>
-
+<%= link_to "Add Funds", new_account_path, method: :post, :class => "btn btn-primary btn-sm" %>
+<!--<%= link_to "Add Funds", new_account_path, :controller => :accounts_controller, :action => :deposit, :class => "btn btn-primary btn-sm" %>-->
 <table>
   <thead>
     <tr>
       <th colspan="3"></th>
     </tr>
   </thead>
-
+<% if can? :manage, Users%>
   <tbody>
     <% @accounts.each do |account| %>
       <tr>
@@ -45,3 +46,5 @@
 
 <br>
 <%= link_to 'New Account', new_account_path %>
+</div>
+<% end %>

@@ -9,7 +9,7 @@ class AddAcctbalToAccounts < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :accounts, :float
+    remove_column :accounts, :acctbal
   end
   
 end
