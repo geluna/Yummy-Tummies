@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   #before_action :authorize
   before_filter :update_sanitized_params, if: :devise_controller?
   protect_from_forgery with: :exception
-  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 
 # ...
 def update_sanitized_params

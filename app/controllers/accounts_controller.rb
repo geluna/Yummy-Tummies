@@ -33,10 +33,6 @@ class AccountsController < ApplicationController
   end
 
   def create
-    #@account = Account.new(account_params)
-   # @account.save
-   # respond_with(@account)
-   
     previous_balance = Account.previous_balance_for_user(current_user)
     @account = Account.new(account_params)
     @account.email = current_user.email

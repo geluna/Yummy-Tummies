@@ -12,9 +12,6 @@
 	      		<tr>
 	        		<th>Menu</th>
 	        		<th>Ingredients</th>
-	        		<th>dateordered</th>
-	        		<th>Date</th>
-	        		<th>Student</th>
 	       			<% if can? :read, User%> <th>Price</th><% end %>
 	       			<% if can? :manage, User %> <th>Admin</th> <% end %>
 	      		</tr>
@@ -25,13 +22,7 @@
 					<tr>
 						<td><%= image_tag(menu.image_url, :size => "140x110") %><p><%=menu.foodItem %></p></td>
 						<td><%= sanitize(menu.description) %></td>
-						<% if can? :read, User%>
-							<td><%= text_field_tag(:dateordered) %></td>
-							<td><%= date_field_tag(:datefor, Date.today) %></td>
-							<td>
-								<%= select_tag :quantity, options_for_select([['0 Children', 0], ['1 Children', 1], ['2 Children', 2], ['3 Children', 3], ['4 Children', 4], ['5 Children', 5]], 1) %>
-							</td>
-								
+						<% if can? :read, User%>													
 							<td><span class="price"><%= number_to_currency(menu.price) %></span>
 								<%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %>
 							</td>
