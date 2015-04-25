@@ -9,8 +9,7 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @schools = @student.name
-    respond_with(@student)    
+    respond_with(@student)
   end
 
   def new
@@ -24,6 +23,7 @@ class StudentsController < ApplicationController
   end
 
   def create
+    @school = School.new
     @student = Student.new(student_params)   
     @student.update_attributes(user_id:current_user.id)
     respond_to do |format|
