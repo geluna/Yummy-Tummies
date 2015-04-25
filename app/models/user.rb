@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   has_many :accounts 
   has_many :menus
   has_many :orders
+  has_many :menus
   has_many :students, dependent: :destroy
+  has_many :schools, through: :students
 accepts_nested_attributes_for :students, :allow_destroy => true
 
   

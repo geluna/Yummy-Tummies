@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20150425021426) do
 
-ActiveRecord::Schema.define(version: 20150423001815) do
   create_table "accounts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150423001815) do
     t.string   "depotype"
   end
 
+  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
+
   create_table "accts", force: true do |t|
     t.float    "credit"
     t.float    "debit"
@@ -34,9 +36,15 @@ ActiveRecord::Schema.define(version: 20150423001815) do
   end
 
   add_index "accts", ["user_id"], name: "index_accts_on_user_id"
-  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
 
   create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "franchises", force: true do |t|
+    t.string   "name"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,12 +70,13 @@ ActiveRecord::Schema.define(version: 20150423001815) do
     t.string   "foodItem"
     t.text     "description"
     t.string   "image_url"
-    t.string   "school"
-    t.string   "franOwner"
-    t.decimal  "price",       precision: 8, scale: 2
+    t.decimal  "price",        precision: 8, scale: 2
+    t.integer  "franchise_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "menus", ["franchise_id"], name: "index_menus_on_franchise_id"
 
   create_table "orders", force: true do |t|
     t.string   "name"
@@ -80,15 +89,26 @@ ActiveRecord::Schema.define(version: 20150423001815) do
     t.float    "total"
   end
 
+  create_table "schools", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.integer  "frachise_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "schools", ["frachise_id"], name: "index_schools_on_frachise_id"
+
   create_table "students", force: true do |t|
     t.string   "fname"
     t.string   "lname"
-    t.string   "school"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "school_id"
     t.integer  "user_id"
   end
 
+  add_index "students", ["school_id"], name: "index_students_on_school_id"
   add_index "students", ["user_id"], name: "index_students_on_user_id"
 
   create_table "users", force: true do |t|

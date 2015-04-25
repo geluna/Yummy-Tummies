@@ -1,0 +1,124 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+</div>
+
+
+
+<div class="container">
+<div class="panel-group" id="accordion2">
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+	    <a class="accordion-toggle" data-toggle="collapse" href="#collapseOne">
+	      My Information
+	    </a>
+	  	</h4>
+	  </div>
+	  <div id="collapseOne" class="accordion-body collapse in">
+	    <div class="accordion-inner">
+	    	<div class="container">
+	    	<div class="panel-heading">
+    			<h1 class="panel-title"></h1>
+			</div>		
+			<h1>
+			  <%= @franchise.name %>
+			</h1>	
+			<h3>
+			  <%= @franchise.address %>
+			</h3>
+	    </div>
+	  </div>
+	  </div>
+	</div>
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	  	<h4 class="panel-title">
+	    <a class="accordion-toggle" data-toggle="collapse" href="#collapseTwo">
+	      My Schools
+	    </a>
+	    </h4>
+	  </div>
+	  <div id="collapseTwo" class="accordion-body collapse">
+	    <div class="accordion-inner">
+	    <div class="container">
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schools.each do |school| %>
+      <tr>
+        <td><%= school.name %></td>
+        <td><%= school.address %></td>
+        <td><%= link_to 'Show', school %>
+        <%= link_to 'Edit', edit_school_path(school) %>
+        <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+	    </div>
+	  	</div>
+	  </div>
+	</div>
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	  	<h4 class="panel-title">
+	    <a class="accordion-toggle" data-toggle="collapse" href="#collapseThree">
+	      My menu
+	    </a>
+	    </h4>
+	  </div>
+	  <div id="collapseThree" class="accordion-body collapse">
+	    <div class="accordion-inner">
+	    <div class="container">
+<h1>Listing Menu</h1>
+	<table border="3">
+		<table class="table table-striped" style="width: 96%">
+  			<thead>
+	      		<tr>
+	        		<th>Menu</th>
+	        		<th>Ingredients</th>
+	       			<th>Price</th>
+	       			<th>Edit</th>
+	      		</tr>
+	    	</thead>
+	    	
+			<tbody>
+				<% @menus.each do |menu| %>
+					<tr>
+						<td><%= image_tag(menu.image_url, :size => "80x65") %><p><%=menu.foodItem %></p></td>
+						<td><%= sanitize(menu.description) %></td>
+						<td><span class="price"><%= number_to_currency(menu.price) %></span></td>
+						<% if can? :read, User%>						
+						<% end %>
+						<td class="list_actions">
+							<%=link_to'Show', menu %><br/>
+							<%=link_to'Edit',edit_menu_path(menu)%><br/>
+							<%=link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</table>
+   	<% if can? :create, Menu %>
+		<br/><%= link_to 'New Menu', new_menu_path %>
+	<% end %>
+
+	    </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+	<%= link_to 'Edit', edit_franchise_path(@franchise) %> |
+	<%= link_to 'Back', franchises_path %>
+
+</div><!--container-->

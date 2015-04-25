@@ -3,9 +3,10 @@ class CreateStudents < ActiveRecord::Migration
     create_table :students do |t|
       t.string :fname
       t.string :lname
-      t.string :school
+      
 
       t.timestamps
+      t.belongs_to :school, index: true
       t.belongs_to :user, index: true
     end
   end

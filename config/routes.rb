@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  resources :schools
+
+  resources :franchises
+
   resources :accts
   
 

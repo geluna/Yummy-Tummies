@@ -5,10 +5,9 @@ class CreateMenus < ActiveRecord::Migration
       t.string :foodItem
       t.text :description
       t.string :image_url
-      t.string :school
-      t.string :franOwner
       t.decimal :price, precision: 8, scale: 2
 
+      t.belongs_to :franchise, index: true
       t.timestamps
     end
   end

@@ -9,6 +9,7 @@ class SchoolsController < ApplicationController
   end
 
   def show
+    @students = Student.all
     respond_with(@school)
   end
 
@@ -42,6 +43,6 @@ class SchoolsController < ApplicationController
     end
 
     def school_params
-      params.require(:school).permit(:student_id, :user_id)
+      params.require(:school).permit(:name, :address, :frachise_id)
     end
 end

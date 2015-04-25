@@ -8,7 +8,7 @@
       <th>Fname</th>
       <th>Lname</th>
       <th>School</th>
-      <th>Add</th>
+      <th>manage</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,9 +20,9 @@
         <td><%= student.fname %></td>
         <td><%= student.lname %></td>
         <td><%= student.school %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', student %>
+        <%= link_to 'Edit', edit_student_path(student) %>
+        <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
