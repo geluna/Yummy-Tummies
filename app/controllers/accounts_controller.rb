@@ -36,7 +36,20 @@ class AccountsController < ApplicationController
     #@account = Account.new(account_params)
    # @account.save
    # respond_with(@account)
-   
+    #@previous_balance = Account.where('user_id = ?', current_user.id).order(:created_at).last.acctbal
+    @account = Account.new(account_params)
+    @account.email = current_user.email
+    @account.user_id = current_user.id
+   # @account.acctbal = account_params[:deposit] + @previous_balance
+    respond_to do |format|
+      if @account.save
+        format.html { redirect_to accounts_url, notice: 'Thank you and enjoy.' }
+       format.json { render :show, status: :created, location: @account }
+      else
+        format.html { render :new }
+        format.json { render json: @account.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
@@ -54,22 +67,10 @@ class AccountsController < ApplicationController
     @account.email = current_user.email
     @account.user_id = current_user.id
     
+   
   end
   
-def deposit
-   @account = Account.new(account_params)
-    @account.email = current_user.email
-    @account.user_id = current_user.id
-    respond_to do |format|
-      if @account.save
-        format.html { redirect_to accounts_url, notice: 'Thank you and enjoy.' }
-       format.json { render :show, status: :created, location: @account }
-      else
-        format.html { render :new }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
-    end
-end 
+
 
 
  private
