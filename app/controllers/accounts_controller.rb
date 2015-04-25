@@ -37,6 +37,7 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
     @account.user_id = current_user.id
     @account.email = current_user.email
+    
     if @account.save
       redirect_to @account
     else 

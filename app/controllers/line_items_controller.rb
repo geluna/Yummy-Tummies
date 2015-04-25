@@ -29,7 +29,8 @@ class LineItemsController < ApplicationController
   def create
     menu = Menu.find(params[:menu_id])
     @line_item = @cart.add_menu(menu.id)
-    
+   
+   
 
     respond_to do |format|
       if @line_item.save

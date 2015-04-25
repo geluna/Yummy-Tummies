@@ -27,8 +27,9 @@
 						<td><%= sanitize(menu.description) %></td>
 						<% if can? :read, User%>
 							<td><%= text_field_tag(:dateordered) %></td>
-							<td><%= date_field_tag(:datefor, Date.today) %></td>
+							<td><%= date_select(:datefor,:create, order: [:month, :day, :year]) %></td>
 							<td>
+
 								<%= select_tag :quantity, options_for_select([['0 Children', 0], ['1 Children', 1], ['2 Children', 2], ['3 Children', 3], ['4 Children', 4], ['5 Children', 5]], 1) %>
 							</td>
 								
