@@ -29,13 +29,6 @@ class LineItemsController < ApplicationController
   def create
     menu = Menu.find(params[:menu_id])
     @line_item = @cart.add_menu(menu.id)
-<<<<<<< HEAD
-   
-   
-
-=======
-    #@line_item.update_attributes(datefor:menu.datefor)
->>>>>>> 8915a1f96edd684bfe484cd38e97f989c5edac19
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to menus_url }

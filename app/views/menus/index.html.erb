@@ -1,57 +1,56 @@
 <!DOCTYPE html>
-	<head>
-		<%= stylesheet_link_tag "menus", media: "all", "data-turbolinks-track" => true%>
-		<%= csrf_meta_tags %>	
-	</head>
+  <head>
+    <%= stylesheet_link_tag "menus", media: "all", "data-turbolinks-track" => true%>
+    <%= csrf_meta_tags %> 
+  </head>
 
 <div class="container">
-	<h1>Listing Menu</h1>
-	<table border="3">
-		<table class="table table-striped">
-  			<thead>
-	      		<tr>
-	        		<th>Menu</th>
-	        		<th>Ingredients</th>
-	       			<% if can? :read, User%> <th>Price</th><% end %>
-	       			<% if can? :manage, User %> <th>Admin</th> <% end %>
-	      		</tr>
-	    	</thead>
-	    	
-			<tbody>
-				<% @menus.each do |menu| %>
-					<tr>
-						<td><%= image_tag(menu.image_url, :size => "140x110") %><p><%=menu.foodItem %></p></td>
-						<td><%= sanitize(menu.description) %></td>
-
-						<% if can? :read, User%>
-							<td><span class="price"><%= number_to_currency(menu.price) %></span>
+  <h1>Listing Menu</h1>
+  <table border="3">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th>Menu</th>
+              <th>Ingredients</th>
+              <% if can? :read, User%> <th>Price</th><% end %>
+              <% if can? :manage, User %> <th>Admin</th> <% end %>
+            </tr>
+        </thead>
+        
+      <tbody>
+        <% @menus.each do |menu| %>
+          <tr>
+            <td><%= image_tag(menu.image_url, :size => "140x110") %><p><%=menu.foodItem %></p></td>
+            <td><%= sanitize(menu.description) %></td>
+            <% if can? :read, User%>                          
+              <td><span class="price"><%= number_to_currency(menu.price) %></span>
                 <%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %>
               </td>
-
-						<% if can? :manage, User %>
-						<td class="list_actions">
-							<%=link_to'Show', menu %><br/>
-							<%=link_to'Edit',edit_menu_path(menu)%><br/>
-							<%=link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
-						</td>
-						<% end %>
-					</tr>
-				<% end %>
-			</tbody>
-			<%= will_paginate @menus, 'data-no-turbolink' => true %>
-		</table>
-		<%= will_paginate @menus, 'data-no-turbolink' => true %>
-	</table>
-   	<% if can? :create, Menu %>
-		<br/><%= link_to 'New Menu', new_menu_path %>
-	<% end %>
+            <% end %>
+            <% if can? :manage, User %>
+            <td class="list_actions">
+              <%=link_to'Show', menu %><br/>
+              <%=link_to'Edit',edit_menu_path(menu)%><br/>
+              <%=link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
+            </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+      <%= will_paginate @menus, 'data-no-turbolink' => true %>
+    </table>
+    <%= will_paginate @menus, 'data-no-turbolink' => true %>
+  </table>
+    <% if can? :create, Menu %>
+    <br/><%= link_to 'New Menu', new_menu_path %>
+  <% end %>
 </div>
 
  
  
 
-	<br />
-	<script>
+  <br />
+  <script>
   $(document).ready(function(){
       // page is now ready, initialize the calendar...
       $('#new_event').click(function(event) {
@@ -76,7 +75,7 @@
           }
         });
       });
-	  
+    
       $('#calendar').fullCalendar({
           editable: true,
           header: {
@@ -102,12 +101,9 @@
           },
           
           eventResize: function(event, dayDelta, minuteDelta, revertFunc){
-//              if (confirm("Are you sure about this change?")) {
+
                   resizeEvent(event, dayDelta, minuteDelta);
-//              }
-//              else {
-//                  revertFunc();
-//              }
+
           },
           
           eventClick: function(event, jsEvent, view){
@@ -135,6 +131,3 @@
   </div>
 </div>
 </div>
-
-<br />
-<br />

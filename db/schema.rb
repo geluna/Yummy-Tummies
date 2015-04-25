@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20150425021426) do
     t.integer  "order_id"
     t.date     "datefor"
     t.string   "comment"
-
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
