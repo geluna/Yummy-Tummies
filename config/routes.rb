@@ -12,15 +12,19 @@ Rails.application.routes.draw do
 devise_for :users
   get 'admin' => 'admin#index'
   get 'users/index'
-  #get 'accounts/index'
-  #get 'accounts/show'
+
   get 'accounts/index'
- 
   get 'accounts/show'
 
-  #get 'accounts/show'
+  resources :accounts do
+    collection do
+      post 'deposit', :action => :deposit
+      post 'withdrawl', :action => :withdrawl
+    end
+  end
+   
+   
 
-  
   #controller :sessions do
   #  get 'login' => :new
   #  post 'login' => :create
@@ -39,14 +43,14 @@ devise_for :users
   resources :menus
   resources :users
   
-   resources :students
-
-  resources :accounts do
+  resources :students do
     collection do
-      post 'deposit', :action => :deposit
-      post 'withdrawl', :action => :withdrawl
+      get :add
     end
   end
+
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

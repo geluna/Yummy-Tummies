@@ -10,7 +10,8 @@ class AccountsController < ApplicationController
     if current_user.admin?
       @accounts = Account.all
     else
-      @accounts = Account.where(email:current_user.email)
+      @accounts = Account.where(user_id:current_user.id)
+      #@accounts = Account.where(email:current_user.email)
     end
     respond_with(@accounts)
   end
@@ -33,14 +34,28 @@ class AccountsController < ApplicationController
   end
 
   def create
-    #@account = Account.new(account_params)
-   # @account.save
+<<<<<<< HEAD
+    @account = Account.new(account_params)
+    @account.user_id = current_user.id
+    @account.email = current_user.email
+    
+    if @account.save
+      redirect_to @account
+    else 
+      render 'new'
+    end
    # respond_with(@account)
-    #@previous_balance = Account.where('user_id = ?', current_user.id).order(:created_at).last.acctbal
+   
+=======
+    previous_balance = Account.previous_balance_for_user(current_user)
     @account = Account.new(account_params)
     @account.email = current_user.email
     @account.user_id = current_user.id
-   # @account.acctbal = account_params[:deposit] + @previous_balance
+    @account = Account.new(account_params.merge(
+               user_id: current_user.id,
+               email: current_user.email,
+               acctbal: previous_balance + account_params[:credit].to_f
+                ))  
     respond_to do |format|
       if @account.save
         format.html { redirect_to accounts_url, notice: 'Thank you and enjoy.' }
@@ -50,6 +65,7 @@ class AccountsController < ApplicationController
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
+>>>>>>> 9346074db02e5e96138e36ad469424dc81e0ca14
   end
 
   def update
