@@ -12,7 +12,6 @@
     </div>
   <% end %>
   <div class="field">
-    
 	<%= f.collection_select(:school_id, School.all, :id, :name) %>
   </div>
   <div class="field">
@@ -32,4 +31,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-

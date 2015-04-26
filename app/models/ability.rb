@@ -8,7 +8,6 @@ class Ability
 
       elsif user.franchiseOwner? 
         can [:read], Menu
-        can [:read], Student
         can [:read], School
         can [:create, :read], User
         can [:create, :read], Franchise

@@ -12,17 +12,16 @@
 		<tr>
 			<th class="col-md-2">Student ID</th>
 	        <th class="col-md-4">Menu</th>
-	        <th class="col-md-2">comment</th>
 	        <th class="col-md-2">date</th>
 	        <th class="col-md-1">price</th>
-	       <th class="col-md-3">datefor</th>
+	       
 		</tr>
 	</thead>
 	<tbody>	
 		<%= render(cart.line_items) %>
 		
 		<tr class="total_line">
-			<td colspan="4">Total</td>
+			<td colspan="3">Total</td>
 			<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
 		</tr>
 	</tbody>

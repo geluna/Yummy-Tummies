@@ -1,12 +1,13 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :add_student, only: [:add, :update]
 
   respond_to :html
 
   def index
     if current_user.admin?
       @students = Student.all
-    elseif current_user.institution?
+    elsif current_user.institution?
       @students = Student.all
     else
       @students = Student.where(user_id:current_user.id)
@@ -15,31 +16,25 @@ class StudentsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     #@schools = @student.name
     respond_with(@student)    
-=======
-    respond_with(@student)
->>>>>>> 9346074db02e5e96138e36ad469424dc81e0ca14
   end
 
   def new
     @student = Student.new
-    @shools = School.all
     respond_with(@student)
-
   end
 
   def edit
   end
 
   def add
-    @student = Student.all
+    @school = School.new
+    @student = Student.new
   end
   
 
   def create
-    @school = School.new
     @student = Student.new(student_params)   
     @student.update_attributes(user_id:current_user.id)
     respond_to do |format|
@@ -66,13 +61,19 @@ class StudentsController < ApplicationController
   
 
   private
+    
     def set_student
       @student = Student.find(params[:id])
     end
 
-    def add
-    @student = Student.all
-  end
+    def add_student
+      @student = Student.all
+    end
+
+    def add_params
+      params.require(:student).permit(:user_id)
+    end
+    
 
     def student_params
       params.require(:student).permit(:id, :fname, :lname, :school_id, :user_id)

@@ -34,19 +34,6 @@ class AccountsController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
-    @account = Account.new(account_params)
-    @account.user_id = current_user.id
-    @account.email = current_user.email
-    
-    if @account.save
-      redirect_to @account
-    else 
-      render 'new'
-    end
-   # respond_with(@account)
-   
-=======
     previous_balance = Account.previous_balance_for_user(current_user)
     @account = Account.new(account_params)
     @account.email = current_user.email
@@ -65,7 +52,6 @@ class AccountsController < ApplicationController
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
->>>>>>> 9346074db02e5e96138e36ad469424dc81e0ca14
   end
 
   def update
