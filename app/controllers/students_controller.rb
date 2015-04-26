@@ -4,12 +4,18 @@ class StudentsController < ApplicationController
   respond_to :html
 
   def index
-    @students = Student.where(user_id:current_user.id)
-    @user = User.all
+    if current_user.admin?
+      @students = Student.all
+    elseif current_user.institution?
+      @students = Student.all
+    else
+      @students = Student.where(user_id:current_user.id)
+      @user = User.all
+    end
   end
 
   def show
-    @schools = @student.name
+    #@schools = @student.name
     respond_with(@student)    
   end
 

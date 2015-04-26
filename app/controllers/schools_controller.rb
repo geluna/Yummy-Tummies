@@ -9,7 +9,7 @@ class SchoolsController < ApplicationController
   end
 
   def show
-    @students = Student.all
+    @students = Student.where(school_id: params[:id])
     respond_with(@school)
   end
 
