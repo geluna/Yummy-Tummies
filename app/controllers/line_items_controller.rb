@@ -71,11 +71,7 @@ class LineItemsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def line_item_params
-<<<<<<< HEAD
-      params.require(:line_item).permit(:menu_id, :datefor)
-=======
-      params.require(:line_item).permit(:datefor, :comment, :student_id)
->>>>>>> 8915a1f96edd684bfe484cd38e97f989c5edac19
+    def line_item_params    
+      params.require(:line_item).permit(:datefor, :menu_id, :student_id)
     end
 end

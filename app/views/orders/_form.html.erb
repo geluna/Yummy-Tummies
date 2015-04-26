@@ -16,14 +16,9 @@
 	    <%= f.label :name %><br>
 	    <%= f.text_field :name, size: 40 %>
 	</div>
-	<div class="field">
-	    <%= f.label :pay_type %><br>
-	    <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
-  	</div>
-  	<div class="field">
-	    <%= f.label :datefor %><br>
-	    <%= f.date_select(:datefor) %>
-  	</div>
+
+
+
   	<div class="actions">
     	<%= f.submit 'Place Order' %>
   	</div>

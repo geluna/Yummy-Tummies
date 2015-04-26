@@ -7,27 +7,46 @@
 
 <h2>Your Cart</h2>
 
-<table class="table table-striped"  style="width: 70%">
+<table class="table table-striped"  style="width: 65%">
 	<thead>
 		<tr>
 			<th class="col-md-2">Student ID</th>
-	        <th class="col-md-4">Menu</th>
-	        <th class="col-md-2">comment</th>
+	        <th class="col-md-3">Menu</th>
 	        <th class="col-md-2">date</th>
-	        <th class="col-md-1">price</th>
-	       <th class="col-md-3">datefor</th>
+	        <th class="col-md-2">price</th>
 		</tr>
 	</thead>
 	<tbody>	
 		<%= render(cart.line_items) %>
 		
 		<tr class="total_line">
-			<td colspan="4">Total</td>
+			<td colspan="3">Total</td>
 			<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
 		</tr>
 	</tbody>
 </table>
+<h3>Your Account Balance</h3>
 
+<table class="table table-striped"  style="width: 65%">
+	<thead>
+		<tr>
+			<th class="col-md-2">Current Balance</th>
+	        <th class="col-md-3">Order Amount Deduction</th>
+	        <th class="col-md-2">New Balance</th>
+		</tr>
+	</thead>
+		<tbody>	     	   
+				 	<tr>
+				 		<% @accounts.each do |account| %> 			 		 
+						<td><b><font color="green"><%= number_to_currency(account.acctbal)%></font></b></td>
+						<% end %>		
+						<td><b><font color="red">-<%= number_to_currency(cart.total_price) %></font></b></td>	
+						
+						<td><b></b></td>
+							
+					</tr>		 
+				</tbody>		
+</table>
 <%= link_to "Checkout", new_order_path, method: :get, :class => "btn btn-primary btn-sm" %>
 
 <%= link_to 'Empty cart', cart, method: :delete, :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %>

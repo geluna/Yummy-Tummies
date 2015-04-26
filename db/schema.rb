@@ -52,36 +52,39 @@ ActiveRecord::Schema.define(version: 20150426165117) do
   create_table "line_items", force: true do |t|
     t.integer  "menu_id"
     t.integer  "cart_id"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "quantity",    default: 1
     t.integer  "order_id"
     t.date     "datefor"
-    t.string   "dateordered"
+    t.string   "comment"
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
   add_index "line_items", ["menu_id"], name: "index_line_items_on_menu_id"
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
+  add_index "line_items", ["student_id"], name: "index_line_items_on_student_id"
 
   create_table "menus", force: true do |t|
     t.integer  "menuID"
     t.string   "foodItem"
     t.text     "description"
     t.string   "image_url"
-    t.string   "school"
-    t.string   "franOwner"
-    t.decimal  "price",       precision: 8, scale: 2
+    t.decimal  "price",        precision: 8, scale: 2
+    t.integer  "franchise_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ingredients"
   end
+
+  add_index "menus", ["franchise_id"], name: "index_menus_on_franchise_id"
 
   create_table "orders", force: true do |t|
     t.string   "name"
     t.text     "address"
     t.string   "email"
     t.string   "pay_type"
+    t.date     "datefor"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "total"
@@ -100,12 +103,13 @@ ActiveRecord::Schema.define(version: 20150426165117) do
   create_table "students", force: true do |t|
     t.string   "fname"
     t.string   "lname"
-    t.string   "school"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "school_id"
     t.integer  "user_id"
   end
 
+  add_index "students", ["school_id"], name: "index_students_on_school_id"
   add_index "students", ["user_id"], name: "index_students_on_user_id"
 
   create_table "users", force: true do |t|

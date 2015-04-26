@@ -15,12 +15,8 @@ class StudentsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
-    #@schools = @student.name
-    respond_with(@student)    
-=======
     respond_with(@student)
->>>>>>> 9346074db02e5e96138e36ad469424dc81e0ca14
+
   end
 
   def new

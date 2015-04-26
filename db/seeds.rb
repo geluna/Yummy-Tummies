@@ -118,10 +118,10 @@ Student.create!(id:     4320, fname: 'Lois', lname: 'Lane')
 
 School.create!(id: 607, name: 'Valdosta High School', address: '3101 N. Forrest St, Valdosta, GA. 31601')
 School.create!(id: 792, name: 'Valdosta Middle School', address: 'Burton St, Valdosta, GA. 31602')
-School.create!(id: 792, name: 'Lowndes High School', address: '1606 Norman Dr. Valdosta, GA. 31601')
-School.create!(id: 792, name: 'Georgia Christian School', address: '4359 Dasher Rd. Valdosta, GA. 31601')
-School.create!(id: 792, name: 'Highland Christian Academy', address: '2206 E Hill Ave. Valdosta, GA. 31601')
-School.create!(id: 792, name: 'Eastside Christian Academy Inc', address: '110 S Fry St., Valdosta, GA. 31601')
+School.create!(id: 793, name: 'Lowndes High School', address: '1606 Norman Dr. Valdosta, GA. 31601')
+School.create!(id: 794, name: 'Georgia Christian School', address: '4359 Dasher Rd. Valdosta, GA. 31601')
+School.create!(id: 795, name: 'Highland Christian Academy', address: '2206 E Hill Ave. Valdosta, GA. 31601')
+School.create!(id: 796, name: 'Eastside Christian Academy Inc', address: '110 S Fry St., Valdosta, GA. 31601')
 
 
 
