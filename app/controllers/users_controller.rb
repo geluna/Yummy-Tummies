@@ -11,7 +11,7 @@ end
   	
   end
   def new
-    @user = User.new
+    @student = Student.new
   end
 
   def show

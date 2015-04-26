@@ -1,6 +1,7 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
-<table border="1" >
 <p>
   <strong>menuid:</strong>
   <%= @menu.menuID %>
@@ -20,14 +21,10 @@
   <strong>Image url:</strong>
   <%= @menu.image_url %>
 </p>
-<p>
-  <strong>School:</strong>
-  <%= @menu.school %>
-</p>
 
 <p>
   <strong>Franowner:</strong>
-  <%= @menu.franOwner %>
+  <%= @menu.franchise_id %>
 </p>
 
 <p>
@@ -35,6 +32,16 @@
   <%= @menu.price %>
 </p>
 
+<table class="table table-striped">
+<thead>
+<th>Order ID</th>
+<th>Name</th>
+<th>Address</th>
+<th>Email</th>
+<th>Pay Type</th>
+</thead>
+
+<tbody>
 <% @orders.each do |order| %>
   <tr>
     <td><%= order.id %></td>
@@ -44,12 +51,13 @@
     <td><%= order.pay_type %></td>
     <% order.line_items.each do |line_item|%>
       <% if (@menu.id == line_item.menu_id)%>
-        <td><%= line_item.quantity %></td>
+        
       <%end%>
     <%end%>
   </tr>
 <%end%>
-
+</tbody>
 </table>
 <%= link_to 'Edit', edit_menu_path(@menu) %> |
 <%= link_to 'Back', menus_path %>
+</div>

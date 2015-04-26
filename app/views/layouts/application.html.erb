@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 
-
 	<html>
 		<head>
 			<%= favicon_link_tag 'favicon.ico' %>
@@ -24,7 +23,7 @@
 			        	<li><%= link_to 'My Cart', cart_path(session[:cart_id]), style: "color:white"  %></li>
 			        	<li><%= link_to 'My Orders', orders_path, style: "color:white"  %></li>
 			        <% end %>
-		        	<% if can? :create, Student %>
+		        	<% if can? :read, Student %>
 				        <li><%= link_to 'My Students', students_path, style: "color:white"  %></li>
 		  	    	<% end %>
 		  	    	<% if can? :read, Franchise %>

@@ -8,20 +8,19 @@ class Ability
 
       elsif user.franchiseOwner? 
         can [:read], Menu
-        can [:read], Student
         can [:read], School
         can [:create, :read], User
         can [:create, :read], Franchise
 
       elsif user.institution?
         can [:read], Menu
-        can [:read], Student
+        can [:create, :read], Student
         can [:create, :read], School
         can [:create, :read], User
         
       elsif user.regularUser?
         can [:read], Menu
-        can [:create, :read], Student
+        can [:read], Student
         can [:create, :read], User
         can [:create, :read], Cart
         can [:create, :read], LineItem

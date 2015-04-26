@@ -52,7 +52,6 @@ class AccountsController < ApplicationController
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def update

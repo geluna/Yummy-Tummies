@@ -146,7 +146,11 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+<<<<<<< HEAD
     tzinfo-data (1.2015.1)
+=======
+    tzinfo-data (1.2015.2)
+>>>>>>> 8de6b3bbcd6e121efc647104b99f7cc5341a166f
       tzinfo (>= 1.0.0)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
