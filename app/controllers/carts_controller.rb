@@ -16,7 +16,9 @@ class CartsController < ApplicationController
   # GET /carts/1.json
   def show
       @accounts = Account.where(user_id:current_user.id)
-
+     @balance = Cart.balance_for_user(current_user)
+    @total = cart.total_price
+   @newBal= balance - total
     if @cart.id != session[:cart_id]
       flash[:notice] = "You can not access cart #{@cart.id}"
       redirect_to store_url 
