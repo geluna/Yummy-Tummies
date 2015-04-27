@@ -41,7 +41,10 @@ resources :accounts
   resources :carts
   get 'store/index'
   resources :menus
-  resources :users
+  
+  resources :users do
+    resources :franchises
+  end
   
   resources :students do
     collection do
