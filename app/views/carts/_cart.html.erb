@@ -39,9 +39,9 @@
 		<tbody>	     	   
 				 	<tr>
 				 		<% @accounts.each do |account| %> 			 		 
-						<td><b><font color="green"><%= number_to_currency(account.acctbal)%></font></b></td>
+						<td><b><font color="green"><%= number_to_currency(@previous_balance)%></font></b></td>
 						<% end %>		
-						<td><b><font color="red">-<%= number_to_currency(@total) %></font></b></td>	
+						<td><b><font color="red">-<%= number_to_currency(cart.total_price)%></font> </b></td>	
 						
 						<td><b></b></td>
 							
