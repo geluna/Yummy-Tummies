@@ -9,6 +9,7 @@ class FranchisesController < ApplicationController
   end
 
   def show
+    @franchises = Franchise.where(user_id:current_user.id)
     @schools = School.all
     @menus = Menu.all
     respond_with(@franchise)

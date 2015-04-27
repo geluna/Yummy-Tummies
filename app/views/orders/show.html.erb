@@ -30,6 +30,7 @@
 <tr>
 <th>Name of Dish</th>
 <th>Image</th>
+<th>Date</th>
 <th>Price</th>
 <th>Total Price</th>
 </tr>
@@ -37,7 +38,10 @@
 <% @menus.each do |menu| %>
 	<tr>
 		<td><%= menu.foodItem %></td>
-		<td><%= image_tag(menu.image_url, :width => 80) if menu.image_url.present? %></td>
+		<td><%= image_tag(menu.image_url, :width => 80) if menu.image_url.present? %></td>	
+		<% @line_items.each do |item| %>
+		<td><%= item.datefor %></td>
+		<%end%>
 		<td><%= number_to_currency(menu.price) %></td>
 			
 		<% @order.line_items.each do |line_item|%>
@@ -59,4 +63,3 @@
 </div>
 <br />
 <br />
-</html>

@@ -24,7 +24,9 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @accounts = Account.where(user_id:current_user.id)
     @menus = @order.menus
+    @line_items = @order.line_items
   end
 
   # GET /orders/new
