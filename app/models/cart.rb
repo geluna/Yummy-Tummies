@@ -1,5 +1,6 @@
 class Cart < ActiveRecord::Base
 has_many :line_items, dependent: :destroy
+#validates :acctbal, presence: true
 
 def add_menu(menu_id)
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :franchises
 
-  resources :accts
+  
   
 
 
@@ -16,15 +16,15 @@ devise_for :users
   get 'accounts/index'
   get 'accounts/show'
 
-  resources :accounts do
-    collection do
-      post 'deposit', :action => :deposit
-      post 'withdrawl', :action => :withdrawl
-    end
-  end
+ # resources :accounts do
+   # collection do
+  #    post 'deposit', :action => :deposit
+   #   post 'withdrawl', :action => :withdrawl
+ #   end
+ # end
    
    
-get 'franchises/show'
+resources :accounts
   #controller :sessions do
   #  get 'login' => :new
   #  post 'login' => :create

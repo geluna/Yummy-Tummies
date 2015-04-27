@@ -1,2 +1,0 @@
-module AcctsHelper
-end

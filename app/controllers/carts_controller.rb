@@ -8,11 +8,15 @@ class CartsController < ApplicationController
   
   def index
     @cart = Cart.all
+    
+ 
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
+      @accounts = Account.where(user_id:current_user.id)
+
     if @cart.id != session[:cart_id]
       flash[:notice] = "You can not access cart #{@cart.id}"
       redirect_to store_url 
@@ -31,8 +35,9 @@ class CartsController < ApplicationController
   # POST /carts
   # POST /carts.json
   def create
-    @cart = Cart.new(cart_params)
+  
 
+    @cart = Cart.new(cart_params)
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
@@ -47,6 +52,8 @@ class CartsController < ApplicationController
   # PATCH/PUT /carts/1
   # PATCH/PUT /carts/1.json
   def update
+    
+ 
     respond_to do |format|
       if @cart.update(cart_params)
         format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }

@@ -16,8 +16,7 @@ class StudentsController < ApplicationController
   end
 
   def show
-    #@schools = @student.name
-    respond_with(@student)    
+    respond_with(@student)
   end
 
   def new
