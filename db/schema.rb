@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425021426) do
+ActiveRecord::Schema.define(version: 20150426165117) do
 
   create_table "accounts", force: true do |t|
     t.datetime "created_at"
@@ -25,17 +25,6 @@ ActiveRecord::Schema.define(version: 20150425021426) do
   end
 
   add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
-
-  create_table "accts", force: true do |t|
-    t.float    "credit"
-    t.float    "debit"
-    t.float    "balance"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "accts", ["user_id"], name: "index_accts_on_user_id"
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -57,7 +46,6 @@ ActiveRecord::Schema.define(version: 20150425021426) do
     t.datetime "updated_at"
     t.integer  "order_id"
     t.date     "datefor"
-    t.string   "comment"
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
@@ -74,6 +62,7 @@ ActiveRecord::Schema.define(version: 20150425021426) do
     t.integer  "franchise_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ingredients"
   end
 
   add_index "menus", ["franchise_id"], name: "index_menus_on_franchise_id"
@@ -92,12 +81,12 @@ ActiveRecord::Schema.define(version: 20150425021426) do
   create_table "schools", force: true do |t|
     t.string   "name"
     t.string   "address"
-    t.integer  "frachise_id"
+    t.integer  "franchise_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "schools", ["frachise_id"], name: "index_schools_on_frachise_id"
+  add_index "schools", ["franchise_id"], name: "index_schools_on_franchise_id"
 
   create_table "students", force: true do |t|
     t.string   "fname"

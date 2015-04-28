@@ -11,8 +11,9 @@
         <thead>
             <tr>
               <th>Menu</th>
+              <th>Description</th>
               <th>Ingredients</th>
-              <% if can? :read, User%> <th>Price</th><% end %>
+              <th>Price</th>
               <% if can? :manage, User %> <th>Admin</th> <% end %>
             </tr>
         </thead>
@@ -22,11 +23,12 @@
           <tr>
             <td><%= image_tag(menu.image_url, :size => "140x110") %><p><%=menu.foodItem %></p></td>
             <td><%= sanitize(menu.description) %></td>
-            <% if can? :read, User%>                          
-              <td><span class="price"><%= number_to_currency(menu.price) %></span>
-                <%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %>
+            <td><%= sanitize(menu.ingredients) %></td>                    
+            <td><span class="price"><%= number_to_currency(menu.price) %></span>
+          <% if can? :read, Cart %><%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %><% end %>
               </td>
-            <% end %>
+        
+            
             <% if can? :manage, User %>
             <td class="list_actions">
               <%=link_to'Show', menu %><br/>
@@ -131,3 +133,4 @@
   </div>
 </div>
 </div>
+

@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-
 	<html>
 		<head>
 			<%= favicon_link_tag 'favicon.ico' %>
@@ -8,38 +6,49 @@
  			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
  			<%= csrf_meta_tags %>
  		</head>
-
 		<body>
 			<div class="navbar transparent navbar-inverse navbar-fixed-top">
 			<nav class="navbar navbar-inner">		
 		<div class="container-fluid">
     		<div class="navbar-header">
-      			<a class="navbar-brand" href="/store/index" style="margin-left: 10px;" ><%= t('.Yummy Tummies') %></a>
+      			<a class="navbar-brand" href="/store/index" style="margin-left: 10px;color:white;" >Yummy Tummies</a>
     		</div>
     		<div>
 				<ul class="nav navbar-nav">		
 					<li><%= link_to 'Menu', menus_url, style: "color:white"  %></li>
-			        <% if can? :read, User %>
+			        <% if can? :read, Cart %>
 			        	<li><%= link_to 'My Cart', cart_path(session[:cart_id]), style: "color:white"  %></li>
+			        <% end %>
+			        <% if can? :read, Order %>
 			        	<li><%= link_to 'My Orders', orders_path, style: "color:white"  %></li>
 			        <% end %>
 		        	<% if can? :read, Student %>
 				        <li><%= link_to 'My Students', students_path, style: "color:white"  %></li>
 		  	    	<% end %>
 		  	    	<% if can? :read, Franchise %>
-		  	    		<li><%= link_to 'Franchise', franchises_path, style: "color:white"  %></li>
+		  	    		<li><%= link_to 'Franchise', franchises_path, style: "color:white"%></li>
 		  	    	<% end %>
 		  	    	<% if can? :read, School %>
 		  	    		<li><%= link_to 'Shool', schools_path, style: "color:white"  %></li>
 		  	    	<% end %>
 		  	    	<li><%= link_to 'About', page_path('about'), style: "color:white"  %></li>
-		  	    	
 		  	    </ul>
 				<ul class="nav navbar-nav navbar-right">
 						<% if user_signed_in? %>
 						<li>
+							<% if can? :read, Cart %>
+								<span class="glyphicon glyphicon-user text-primary" aria-hidden="true" style="font-size:2.5em; margin-top: 9px;"></span>
+							<% end %>
+							<% if can? :read, Franchise %>
+								<span class="glyphicon glyphicon-leaf text-primary" aria-hidden="true" style="font-size:2.5em; margin-top: 9px;"></span>
+							<% end %>
+							<% if can? :read, School %>
+								<span class="glyphicon glyphicon-education text-primary" aria-hidden="true" style="font-size:2.5em; margin-top: 9px;"></span>
+							<% end %>
+						</li>
+						<li>
 							<button type="button" class="btn btn-link" style="margin-top: 9px;">
-							<%= link_to "logout", destroy_user_session_path, method: :delete %>
+							<%= link_to "logout", destroy_user_session_path, method: :delete, style: "color:white" %>
 							</button>
 						</li>
 						<li>&nbsp;&nbsp;</li>
@@ -47,21 +56,20 @@
 						<li><%= render 'devise/registrations/form' %></li>
 						<li>&nbsp;&nbsp;</li>
 						<li><%= render 'devise/sessions/new2' %> </li>
-						<li>&nbsp;&nbsp;</li>
-						
+						<li>&nbsp;&nbsp;</li>			
 						<% end %>
 						<% if user_signed_in? %>
 						<li>
 						<div class="dropdown" style="margin-top: 8px;">
 							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-								My Account
-								<span class="caret"></span>
+								<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
 							</button>
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 								<li><%= link_to 'Menu', menus_url %></li>
 								<li><%= link_to 'My profile', page_path('../users/index'), 'data-no-turbolink' => true %></li>
-								<li><%= link_to 'My Account Information', page_path('../accounts/index'), 'data-no-turbolink' => true %></li>
-								
+								<% if can? :read, Account %>
+								<li><%= link_to 'My Account Information', page_path('../accounts/index'), 'data-no-turbolink' => true %></li>				
+								<% end %>
 								<li class="divider"></li>
 							</ul>
 						</div>
@@ -72,9 +80,7 @@
 		    </div>
 		 </div>
 	</nav>
-
 	</div>
-
 	<div id="columns">
 		<div id="main">
 			<%= yield %>
