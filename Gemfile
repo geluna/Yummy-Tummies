@@ -19,7 +19,9 @@ gem 'quiet_assets'
 
 gem 'rails_layout'
 
-gem 'will_paginate', '~> 3.0.7' 
+#gem 'will_paginate', '~> 3.0.7' 
+
+gem 'bootstrap-will_paginate'
 
 gem 'cancancan', '~> 1.10'
 # Use SCSS for stylesheets
