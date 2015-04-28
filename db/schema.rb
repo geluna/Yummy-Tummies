@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150426165117) do
     t.datetime "updated_at"
     t.integer  "order_id"
     t.date     "datefor"
+    t.string   "comment"
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
@@ -81,12 +82,12 @@ ActiveRecord::Schema.define(version: 20150426165117) do
   create_table "schools", force: true do |t|
     t.string   "name"
     t.string   "address"
-    t.integer  "franchise_id"
+    t.integer  "frachise_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "schools", ["franchise_id"], name: "index_schools_on_franchise_id"
+  add_index "schools", ["frachise_id"], name: "index_schools_on_frachise_id"
 
   create_table "students", force: true do |t|
     t.string   "fname"
@@ -118,6 +119,8 @@ ActiveRecord::Schema.define(version: 20150426165117) do
     t.integer  "category"
     t.string   "fname"
     t.string   "lname"
+    t.string   "childfname"
+    t.string   "childlname"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
