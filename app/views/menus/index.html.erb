@@ -25,7 +25,7 @@
             <td><%= sanitize(menu.description) %></td>
             <td><%= sanitize(menu.ingredients) %></td>                    
             <td><span class="price"><%= number_to_currency(menu.price) %></span>
-          <% if can? :read, User %><%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %><% end %>
+          <% if can? :read, Cart %><%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %><% end %>
               </td>
         
             
