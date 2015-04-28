@@ -26,6 +26,7 @@ class Ability
         can [:create, :read], LineItem
         can [:create, :read], Account
         can [:create, :read], Order
+        can [:create, :read], Account
       end
     
 
