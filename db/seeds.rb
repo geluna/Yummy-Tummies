@@ -126,7 +126,7 @@ Student.create!(id:     4319, fname: 'Susan', lname: 'Grim', school_id: 792)
 Student.create!(id:     4320, fname: 'Lois', lname: 'Lane', school_id: 792)
 
 #User.delete_all
-#User.create!(id: 1, email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true, address: '1500 N. Patterson St, Valdosta, GA, 31601')
+User.create!(id: 1, email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true, address: '1500 N. Patterson St, Valdosta, GA, 31601')
 
 
 
