@@ -5,13 +5,14 @@ class FranchisesController < ApplicationController
 
   def index
     @franchises = Franchise.all
-    respond_with(@franchises)
+    #respond_with(@franchises)
   end
 
   def show
     @franchises = Franchise.where(user_id:current_user.id)
-    @schools = School.all
-    @menus = Menu.all
+    @schools = School.where(franchise_id:current_user.id)
+    @menus = Menu.where(franchise_id:current_user.id)
+    @orders = Order.all
     respond_with(@franchise)
   end
 
