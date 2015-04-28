@@ -45,7 +45,7 @@ class AccountsController < ApplicationController
                 ))  
     respond_to do |format|
       if @account.save
-        format.html { redirect_to accounts_url, notice: 'Thank you and enjoy.' }
+        format.html { redirect_to accounts_url }
        format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }

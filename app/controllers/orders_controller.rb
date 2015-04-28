@@ -35,7 +35,16 @@ def new
     redirect_to store_url, notice: "Your cart is empty"
     return
   end
-  @order = Order.new
+    @order = Order.new
+    @accounts = Account.where(user_id:current_user.id)
+    @previous_balance = Account.previous_balance_for_user(current_user)
+    @accounts = Account.new(
+               user_id: current_user.id,
+               email: current_user.email,
+               debit: @cart.total_price,
+               acctbal: @previous_balance - @cart.total_price
+                )
+   @accounts.save
 end
 
   # GET /orders/1/edit
@@ -50,6 +59,15 @@ end
     @order.email = current_user.email
     @order.address = current_user.address
     #@order.created at = @line_items.created_at
+     @accounts = Account.where(user_id:current_user.id)
+    @previous_balance = Account.previous_balance_for_user(current_user)
+    @accounts = Account.new(
+               user_id: current_user.id,
+               email: current_user.email,
+               debit: @cart.total_price,
+               acctbal: @previous_balance - @cart.total_price
+                )
+    @accounts.save
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
