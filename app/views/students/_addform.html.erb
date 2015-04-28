@@ -1,33 +1,22 @@
-
-<%= form_for(@student) do |f| %>
-  <% if @student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-      <ul>
-      <% @student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_tag(process_add_path) do |f| %>
+  
   <div class="field">
-	<%= f.collection_select(:school_id, School.all, :id, :name) %>
+  <%= select_tag :school_id, options_from_collection_for_select(School.all, "id", "name")%>
   </div>
   <div class="field">
-    <%= f.label :id %><br>
-    <%= f.text_field :id %>
+    <%= label_tag :id %><br>
+    <%= text_field_tag :id %>
   </div>
   <div class="field">
-    <%= f.label :fname %><br>
-    <%= f.text_field :fname %>
+    <%= label_tag :fname %><br>
+    <%= text_field_tag :fname %>
   </div>
   <div class="field">
-    <%= f.label :lname %><br>
-    <%= f.text_field :lname %>
+    <%= label_tag :lname %><br>
+    <%= text_field_tag :lname %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag %>
   </div>
 <% end %>

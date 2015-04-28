@@ -49,6 +49,10 @@ devise_for :users
     end
   end
 
+  post "/process_add/", :to => "students#process_add", :as => 'process_add'
+  get "/add/", :to => "students#add", :as => 'add'
+
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.
