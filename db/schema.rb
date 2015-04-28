@@ -118,8 +118,6 @@ ActiveRecord::Schema.define(version: 20150426165117) do
     t.integer  "category"
     t.string   "fname"
     t.string   "lname"
-    t.string   "childfname"
-    t.string   "childlname"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"

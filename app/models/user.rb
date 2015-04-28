@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :students, dependent: :destroy
   has_many :schools, through: :students
-  validates :email, :category, :password, presence: true
+  validates :email, :password, presence: true
 accepts_nested_attributes_for :students, :allow_destroy => true
 
   
