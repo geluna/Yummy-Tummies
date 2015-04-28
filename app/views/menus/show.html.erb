@@ -53,11 +53,9 @@
     <td><%= order.email %></td>
     <td><%= order.pay_type %></td>
     <% order.line_items.each do |line_item|%>
-      <% if (@menu.id == line_item.menu_id)%>
-        
+      <% if (@menu.id == line_item.menu_id)%>       
       <%end%>
     <%end%>
-    
   </tr>
 <%end%>
 </tbody>
