@@ -4,12 +4,7 @@ class Ability
   def initialize(user)
     user ||=User.new
       if user.admin?
-<<<<<<< HEAD
-         can :manage, :all
-=======
         can :manage, :all
->>>>>>> c06fd449b9f67ab1a220e9206a9f8b8cc3f9bc2b
-
       elsif user.franchiseOwner? 
         can [:create, :read], Menu
         can [:create, :read], User
