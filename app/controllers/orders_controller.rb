@@ -54,8 +54,10 @@ end
                created_at: DateTime.now,
                user_id: current_user.id,
                email: current_user.email,
+               credit: 0.00,
                debit: @cart.total_price,
-               acctbal: @previous_balance - @cart.total_price
+               acctbal: @previous_balance - @cart.total_price,
+               depotype: Purchase Order
                 )
    
     @order = Order.new(order_params)
@@ -66,7 +68,7 @@ end
     #@order.created at = @line_items.created_at
     @order.total = @cart.total_price
       if @order.save
-         @account.save
+         @account.save!
         
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
