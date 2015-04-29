@@ -4,16 +4,16 @@
   <%= select_tag :school_id, options_from_collection_for_select(School.all, "id", "name")%>
   </div>
   <div class="field">
-    <%= f.label :id,{:style=>'color:#FFFFFF;'} %><br>
-    <%= f.text_field :id %>
+    <%= label_tag :id %><br>
+    <%= text_field_tag :id %>
   </div>
   <div class="field">
-    <%= f.label :fname, {:style=>'color:#FFFFFF;'} %><br>
-    <%= f.text_field :fname %>
+    <%= label_tag :fname %><br>
+    <%= text_field_tag :fname %>
   </div>
   <div class="field">
-    <%= f.label :lname, {:style=>'color:#FFFFFF;'} %><br>
-    <%= f.text_field :lname %>
+    <%= label_tag :lname %><br>
+    <%= text_field_tag :lname %>
   </div>
 
   <div class="actions">

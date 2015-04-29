@@ -26,25 +26,22 @@ class StudentsController < ApplicationController
   end
 
   def edit
+
   end
 def add
 end
   
   def process_add
-   # @school = School.new
-    #@student = Student.new
     @found = Student.find_by_id(params[:id]) rescue nil
 
-
-    #@student = Student.find_by_id(:id => student.id)
-    #resque nil
     respond_to do |format|
-    if @student == nil
-      #@student.update(student_params[user_id:current_user.id])
-      #@student.user_id == current_user.id 
+    if @found == nil
+
       format.html { redirect_to orders_url, alert: 'Student does not exist for chosen school' }
     else
-      #@student.update(student_params)
+      
+      @found.update_attributes(user_id: current_user.id)
+     
       format.html { redirect_to students_url, notice: 'Student does not exist for chosen school' }
     end
 end

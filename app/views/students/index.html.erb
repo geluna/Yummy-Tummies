@@ -1,14 +1,14 @@
 <div class="container">
-<h1><font color="white"><b>My students</font></b></h1>
+<h1><font color="black"><b>My students</font></b></h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><font color="white"><b>Id</font></b></th>
-      <th><font color="white"><b>Fname</font></b></th>
-      <th><font color="white"><b>Lname</font></b></th>
-      <th><font color="white"><b>School</font></b></th>
-      <th><font color="white"><b>manage</font></b></th>
+      <th><font color="black"><b>Id</font></b></th>
+      <th><font color="black"><b>Fname</font></b></th>
+      <th><font color="black"><b>Lname</font></b></th>
+      <th><font color="black"><b>School</font></b></th>
+      <th><font color="black"><b>manage</font></b></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><font color="white"><b><%= student.id %></font></b></td>
-        <td><font color="white"><b><%= student.fname %></font></b></td>
-        <td><font color="white"><b><%= student.lname %></font></b></td>
-        <td><font color="white"><b><%= student.school.name%></font></b></td>
+        <td><font color="black"><b><%= student.id %></font></b></td>
+        <td><font color="black"><b><%= student.fname %></font></b></td>
+        <td><font color="black"><b><%= student.lname %></font></b></td>
+        <td><font color="black"><b><%= student.school.name%></font></b></td>
         <td><%= link_to 'Show', student %>
         <%= link_to 'Edit', edit_student_path(student) %>
         <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,5 +32,5 @@
 
 <%= link_to 'Add Student', add_path%><br/>
 
-<b> <%= link_to 'New Student', new_student_path, {:style=>'color:#FFFFFF;'} %></b>
+<b> <%= link_to 'New Student', new_student_path, {:style=>'color:#000000;'} %></b>
 </div>
