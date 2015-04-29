@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
   respond_to :html
 
   def index
+ 
     if current_user.admin?
       @students = Student.all
     elsif current_user.institution?
@@ -36,6 +37,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)   
     @student.update_attributes(user_id:current_user.id)
+     @student.user_id = current_user.id
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, notice: 'Product was successfully created.' }

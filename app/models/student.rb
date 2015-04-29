@@ -4,4 +4,7 @@ class Student < ActiveRecord::Base
   
   
   validates :fname, :lname,  presence: true
+  
+
+
 end

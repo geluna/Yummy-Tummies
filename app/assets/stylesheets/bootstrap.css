@@ -58,6 +58,7 @@ abbr[title] {
 b,
 strong {
   font-weight: bold;
+  font-color: white;
 }
 dfn {
   font-style: italic;

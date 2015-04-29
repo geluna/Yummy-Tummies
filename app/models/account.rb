@@ -1,5 +1,6 @@
 class Account < ActiveRecord::Base
    belongs_to :users
+   belongs_to :order
    validates :depotype, :credit, presence: true
   DEPOSIT_TYPES = [ "Check", "Credit card", "Purchase order" ]
   validates :depotype, inclusion: DEPOSIT_TYPES

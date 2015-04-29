@@ -5,15 +5,15 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h2>Your Cart</h2>
+<h2><font color='white'><b>Your Cart</b></font></h2>
 
 <table class="table table-striped"  style="width: 65%">
 	<thead>
 		<tr>
-			<th class="col-md-2">Student ID</th>
-	        <th class="col-md-3">Menu</th>
-	        <th class="col-md-2">date</th>
-	        <th class="col-md-2">price</th>
+			<th class="col-md-2"><font color="white"><b>Student ID</b></font></th>
+	        <th class="col-md-3"><font color="white"><b>Menu</b></font></th>
+	        <th class="col-md-2"><font color="white"><b>date</b></font></th>
+	        <th class="col-md-2"><font color="white"><b>price</b></font></th>
 
 		</tr>
 	</thead>
@@ -21,26 +21,26 @@
 		<%= render(cart.line_items) %>
 		
 		<tr class="total_line">
-			<td colspan="3">Total</td>
-			<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+			<td colspan="3"><font color="white"><b>Total</b></font></td>
+			<td class="total_cell"><font color="white"><b><%= number_to_currency(cart.total_price) %></font></b></td>
 		</tr>
 	</tbody>
 </table>
-<h3>Your Account Balance</h3>
+<h3><font color="white"><b>Your Account Balance</font></b></h3>
 
 <table class="table table-striped"  style="width: 65%">
 	<thead>
 		<tr>
-			<th class="col-md-2">Current Balance</th>
-	        <th class="col-md-3">Order Amount Deduction</th>
-	        <th class="col-md-2">New Balance</th>
+			<th class="col-md-2"><font color="white"><b>Current Balance</font</b></th>
+	        <th class="col-md-3"><font color="white"><b>Order Amount Deduction</font</b></th>
+	        <th class="col-md-2"><font color="white"><b>New Balance</font</b></th>
 		</tr>
 	</thead>
 		<tbody>	     	   
 				 	<tr> 		 
-						<td><b><font color="green"><%= number_to_currency(@previous_balance)%></font></b></td>
+						<td><b><font color="white"><%= number_to_currency(@previous_balance)%></font></b></td>
 				    	<td><b><font color="red">-<%= number_to_currency(cart.total_price)%></font> </b></td>	
-						<td><b><%= number_to_currency(@newBal) %></b></td>							
+						<td><font color="white"><b><%= number_to_currency(@newBal) %></b></font></td>							
 					</tr>		 
 				</tbody>		
 </table>

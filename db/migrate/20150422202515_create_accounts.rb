@@ -4,6 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
 
       t.timestamps
       t.belongs_to :user, index: true
+      t.belongs_to :order, index: true
     end
   end
 end

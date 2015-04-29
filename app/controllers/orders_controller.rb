@@ -36,15 +36,15 @@ def new
     return
   end
     @order = Order.new
-    @accounts = Account.where(user_id:current_user.id)
+    @account = Account.where(user_id:current_user.id)
     @previous_balance = Account.previous_balance_for_user(current_user)
-    @accounts = Account.new(
+    @account = Account.new(
                user_id: current_user.id,
                email: current_user.email,
                debit: @cart.total_price,
                acctbal: @previous_balance - @cart.total_price
                 )
-   @accounts.save
+   @account.save
 end
 
   # GET /orders/1/edit
@@ -59,16 +59,17 @@ end
     @order.email = current_user.email
     @order.address = current_user.address
     #@order.created at = @line_items.created_at
-     @accounts = Account.where(user_id:current_user.id)
+    @account = Account.where(user_id:current_user.id)
     @previous_balance = Account.previous_balance_for_user(current_user)
-    @accounts = Account.new(
+    @account = Account.new(
                user_id: current_user.id,
                email: current_user.email,
                debit: @cart.total_price,
                acctbal: @previous_balance - @cart.total_price
                 )
-    @accounts.save
+   @account.save
     respond_to do |format|
+       
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
