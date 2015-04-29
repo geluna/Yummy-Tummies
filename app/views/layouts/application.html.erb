@@ -5,6 +5,18 @@
   			<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
  			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
  			<%= csrf_meta_tags %>
+ 			<style>
+	 			.tooltip {
+	 				 width:100px;
+	 				 font-size:16px;
+				}
+ 			</style>
+ 			<script>
+	 			$(function () {
+  					$('[data-toggle="tooltip"]').tooltip()
+				})
+ 			</script>
+ 			
  		</head>
 		<body>
 			<div class="navbar transparent navbar-inverse navbar-fixed-top">
@@ -36,14 +48,18 @@
 				<ul class="nav navbar-nav navbar-right">
 						<% if user_signed_in? %>
 						<li>
-							<% if can? :read, Cart %>
-								<span class="glyphicon glyphicon-user text-primary" aria-hidden="true" style="font-size:2.5em; margin-top: 9px;"></span>
-							<% end %>
-							<% if can? :read, Franchise %>
-								<span class="glyphicon glyphicon-leaf text-primary" aria-hidden="true" style="font-size:2.5em; margin-top: 9px;"></span>
-							<% end %>
-							<% if can? :read, School %>
-								<span class="glyphicon glyphicon-education text-primary" aria-hidden="true" style="font-size:2.5em; margin-top: 9px;"></span>
+							<% if can? :mange, :all %>
+<span class="glyphicon glyphicon-exclamation-sign text-primary" data-toggle="tooltip" data-placement="bottom" 
+aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="Admin"></sapn>
+							<% elsif can? :read, Cart %>
+<span class="glyphicon glyphicon-user text-primary" data-toggle="tooltip" data-placement="bottom" 
+aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="Parent"></sapn>
+							<% elsif can? :read, Franchise %>
+<span class="glyphicon glyphicon-leaf text-primary" data-toggle="tooltip" data-placement="bottom" 
+aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="Franchise Owner"></sapn>
+							<% elsif can? :read, School %>
+<span class="glyphicon glyphicon-education text-primary" data-toggle="tooltip" data-placement="bottom" 
+aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="School"></sapn>
 							<% end %>
 						</li>
 						<li>

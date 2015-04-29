@@ -1,5 +1,12 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+User.delete_all
+User.create!(id: 100, email: 'admin@admin.com', 
+            password: 'adminadmin', 
+            password_confirmation: 'adminadmin', 
+            admin: true, 
+            )
+
 Menu.delete_all     
       Menu.create!(menuID: '1',
       foodItem: 'South American platter',

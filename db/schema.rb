@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150426165117) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "order_id"
     t.string   "email"
     t.float    "credit"
     t.float    "debit"
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150426165117) do
     t.string   "depotype"
   end
 
+  add_index "accounts", ["order_id"], name: "index_accounts_on_order_id"
   add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
 
   create_table "carts", force: true do |t|
@@ -75,8 +77,11 @@ ActiveRecord::Schema.define(version: 20150426165117) do
     t.date     "datefor"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
     t.float    "total"
   end
+
+  add_index "orders", ["account_id"], name: "index_orders_on_account_id"
 
   create_table "schools", force: true do |t|
     t.string   "name"

@@ -8,6 +8,7 @@ class CreateOrders < ActiveRecord::Migration
       t.date  :datefor
 
       t.timestamps
+      t.belongs_to :account, index: true
     end
   end
 end

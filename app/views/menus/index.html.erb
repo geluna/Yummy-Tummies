@@ -5,26 +5,27 @@
   </head>
 
 <div class="container">
-  <h1>Listing Menu</h1>
+<font color="white">
+  <h1><font color='red'><b>Listing Menu</b></font></h1>
   <table border="3">
     <table class="table table-striped">
         <thead>
-            <tr>
-              <th>Menu</th>
-              <th>Description</th>
-              <th>Ingredients</th>
-              <th>Price</th>
-              <% if can? :manage, User %> <th>Admin</th> <% end %>
+            <tr>         
+              <th><font color="red"><b>Menu</font></b></th>
+              <th><font color="red">Description</font></b></th>
+              <th><font color="red">Ingredients</font></b></th>
+              <th><font color="red">Price</font></b></th>
+              <% if can? :manage, User %> <th><font color="red">Admin</font></b></th> <% end %>      
             </tr>
         </thead>
         
       <tbody>
         <% @menus.each do |menu| %>
           <tr>
-            <td><%= image_tag(menu.image_url, :size => "140x110") %><p><%=menu.foodItem %></p></td>
-            <td><%= sanitize(menu.description) %></td>
-            <td><%= sanitize(menu.ingredients) %></td>                    
-            <td><span class="price"><%= number_to_currency(menu.price) %></span>
+            <td><%= image_tag(menu.image_url, :size => "140x110") %><p><font color="white"><b><%=menu.foodItem %></b></font></p></td>
+            <td><b><%= sanitize(menu.description) %></b></td>
+            <td><b><%= sanitize(menu.ingredients) %></b></td>                    
+            <td><b><span class="price"><%= number_to_currency(menu.price) %></span></b>
           <% if can? :read, Cart %><%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %><% end %>
               </td>
         
@@ -44,8 +45,9 @@
     <%= will_paginate @menus, 'data-no-turbolink' => true %>
   </table>
     <% if can? :create, Menu %>
-    <br/><%= link_to 'New Menu', new_menu_path %>
+    <br/><%= link_to 'New Menu', new_menu_path, :class => "btn btn-primary btn-sm" %>
   <% end %>
+  </font>
 </div>
 
  
