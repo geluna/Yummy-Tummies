@@ -28,34 +28,31 @@ class StudentsController < ApplicationController
   def edit
 
   end
-def add
-end
+  def add
+
+  end
   
   def process_add
     @found = Student.find_by_id(params[:id]) rescue nil
 
     respond_to do |format|
-    if @found == nil
+      if @found == nil
 
-      format.html { redirect_to orders_url, alert: 'Student does not exist for chosen school' }
-    else
-      
-      @found.update_attributes(user_id: current_user.id)
-     
-      format.html { redirect_to students_url, notice: 'Student does not exist for chosen school' }
-    end
-end
-   
+        format.html { redirect_to orders_url, alert: 'Student does not exist for chosen school' }
+      else
 
-    #@students = Student.where(school_id: params[:id])
-    #@students = Student.where(user_id: current_user.id)
+        @found.update_attributes(user_id: current_user.id)
+       
+        format.html { redirect_to students_url, notice: 'Student does not exist for chosen school' }
+      end
+    end   
   end
   
 
   def create
     @student = Student.new(student_params)   
     @student.update_attributes(user_id:current_user.id)
-     @student.user_id = current_user.id
+    @student.user_id = current_user.id
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, notice: 'Product was successfully created.' }
@@ -93,7 +90,6 @@ end
       params.require(:student).permit(:user_id)
     end
     
-
     def student_params
       params.require(:student).permit(:id, :fname, :lname, :school_id, :user_id)
     end
