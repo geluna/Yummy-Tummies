@@ -16,7 +16,7 @@
 				 <% @accounts.each do |account| %>   
 				 	<tr>
 				 		<td><font color='white'><b><%= account.created_at %></font></b></td>
-						<td><b><font color="green"><%= number_to_currency(account.credit)%></b></td>		
+						<td><b><font color= 32CD32><%= number_to_currency(account.credit)%></b></td>		
 						<td><b><font color="red"><%= number_to_currency(account.debit)%></font></b></td>	
 						<td><b><font color='white'><%= number_to_currency(account.acctbal) %></b></td>		
 					</tr>
@@ -24,7 +24,7 @@
 				</tbody>		
 		</table>
 	</table>
-<font color='white'> <%= link_to "Add Funds", new_account_path, method: :get, :class => "btn btn-primary btn-sm" %></font>
+<font color='white'> <%= link_to "Add Funds", new_account_path, :style=>'color:#FFFFFF',  method: :get, :class => "btn btn-primary btn-sm" %></font>
 
 <table>
   <thead>

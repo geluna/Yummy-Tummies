@@ -31,20 +31,15 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
 def new
-  if @cart.line_items.empty?
-    redirect_to store_url, notice: "Your cart is empty"
-    return
-  end
+
     @order = Order.new
-    @account = Account.where(user_id:current_user.id)
-    @previous_balance = Account.previous_balance_for_user(current_user)
-    @account = Account.new(
-               user_id: current_user.id,
-               email: current_user.email,
-               debit: @cart.total_price,
-               acctbal: @previous_balance - @cart.total_price
-                )
-   @account.save
+   # @account = Account.where(user_id:current_user.id)
+  # @account = Account.new(account_params)
+   
+     if @cart.line_items.empty?
+   redirect_to store_url, notice: "Your cart is empty"
+   return
+   end
 end
 
   # GET /orders/1/edit
@@ -54,23 +49,25 @@ end
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-    @order.add_line_items_from_cart(@cart)
-    @order.email = current_user.email
-    @order.address = current_user.address
-    #@order.created at = @line_items.created_at
-    @account = Account.where(user_id:current_user.id)
     @previous_balance = Account.previous_balance_for_user(current_user)
-    @account = Account.new(
+    @account = Account.new(     
+               created_at: DateTime.now,
                user_id: current_user.id,
                email: current_user.email,
                debit: @cart.total_price,
                acctbal: @previous_balance - @cart.total_price
                 )
-   @account.save
+   
+    @order = Order.new(order_params)
+    @order.add_line_items_from_cart(@cart)
     respond_to do |format|
-       
+    @order.email = current_user.email
+    @order.address = current_user.address
+    #@order.created at = @line_items.created_at
+    @order.total = @cart.total_price
       if @order.save
+         @account.save
+        
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
 
@@ -115,6 +112,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type, :datefor)
+      params.require(:order).permit(:name, :address, :email, :datefor)
     end
 end

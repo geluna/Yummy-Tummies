@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 20150426165117) do
     t.string   "name"
     t.text     "address"
     t.string   "email"
-    t.string   "pay_type"
     t.date     "datefor"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,5 +1,5 @@
 body {
-  background-image: image-url("Back.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), image-url("Back.jpg");
   
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;

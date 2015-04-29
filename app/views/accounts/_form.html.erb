@@ -16,16 +16,16 @@
 
 
   <div class="field">
-	<b>Deposit Amount</b><br>
+	<b><font color='white'>Deposit Amount</font></b><br>
 	<%= f.text_field :credit %>
   
   <div class="field">
-    <%= f.label :depotype, "Select Deposit Method" %><br>
-    <%= f.select :depotype, Account::DEPOSIT_TYPES, prompt: 'Select a deposit method' %>
+    <%= f.label :depotype, "Select Deposit Method", {:style=>'color:#FFFFFF;'}  %><br>
+    <%= f.select :depotype, Account::DEPOSIT_TYPES, prompt: 'Select a deposit method'  %>
   </div>
 
   <div class="actions">
-    <%= f.submit 'Deposit Funds' %>
+    <%= f.submit 'Deposit Funds', :style=>'color:#FFFFFF' %>
   </div>
   <% end %>
 
