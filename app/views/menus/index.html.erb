@@ -45,7 +45,7 @@
     <%= will_paginate @menus, 'data-no-turbolink' => true %>
   </table>
     <% if can? :create, Menu %>
-    <br/><%= link_to 'New Menu', new_menu_path %>
+    <br/><%= link_to 'New Menu', new_menu_path, :class => "btn btn-primary btn-sm" %>
   <% end %>
   </font>
 </div>
