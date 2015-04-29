@@ -43,6 +43,7 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params.merge(
                user_id: current_user.id,
                email: current_user.email,
+               debit: 0.00,
                acctbal: previous_balance + account_params[:credit].to_f
                 ))  
     respond_to do |format|

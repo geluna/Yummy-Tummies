@@ -50,6 +50,9 @@ end
   # POST /orders.json
   def create
     @previous_balance = Account.previous_balance_for_user(current_user)
+    @debit = @cart.total_price
+    @validation = @previous_balance - @debit
+    if @validation >=0
     @account = Account.new(     
                created_at: DateTime.now,
                user_id: current_user.id,
@@ -57,7 +60,7 @@ end
                credit: 0.00,
                debit: @cart.total_price,
                acctbal: @previous_balance - @cart.total_price,
-               depotype: Purchase Order
+               depotype: "Purchase Order"
                 )
    
     @order = Order.new(order_params)
@@ -80,8 +83,12 @@ end
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
-  end
-
+  
+  else
+    flash[:notice] = 'Please deposit more funds!'
+    redirect_to accounts_path
+   end
+end
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update

@@ -41,9 +41,11 @@
 		  	    		<li><%= link_to 'Franchise', franchises_path, style: "color:white"%></li>
 		  	    	<% end %>
 		  	    	<% if can? :read, School %>
-		  	    		<li><%= link_to 'Shool', schools_path, style: "color:white"  %></li>
+		  	    		<li><%= link_to 'School', schools_path, style: "color:white"  %></li>
 		  	    	<% end %>
 		  	    	<li><%= link_to 'About', page_path('about'), style: "color:white"  %></li>
+		  	    	
+		  	    	<li> <%= flash_messages %> </li>
 		  	    </ul>
 				<ul class="nav navbar-nav navbar-right">
 						<% if user_signed_in? %>
@@ -74,6 +76,8 @@ aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="School"></sa
 						<li><%= render 'devise/sessions/new2' %> </li>
 						<li>&nbsp;&nbsp;</li>			
 						<% end %>
+						
+   
 						<% if user_signed_in? %>
 						<li>
 						<div class="dropdown" style="margin-top: 8px;">
