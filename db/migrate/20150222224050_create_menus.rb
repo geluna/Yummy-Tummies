@@ -1,7 +1,7 @@
 class CreateMenus < ActiveRecord::Migration
   def change
     create_table :menus do |t|
-      #t.integer :menuID
+      t.integer :menuID
       t.string :foodItem
       t.text :description
       t.string :image_url
