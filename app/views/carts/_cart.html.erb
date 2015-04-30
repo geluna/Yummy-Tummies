@@ -31,7 +31,7 @@
 
 			<td colspan="3"><font color="539DC2"><b>Total</b></font></td>
 
-			<td class="total_cell"><font color="white"><b><%= number_to_currency(cart.total_price) %></font></b></td>
+			<td class="total_cell"><font color=""><b><%= number_to_currency(cart.total_price) %></font></b></td>
 		</tr>
 	</tbody>
 </table>
@@ -50,7 +50,7 @@
 		<tbody>	     	   
 				 	<tr> 		 
 
-						<td><font color="white"><b><%= number_to_currency(@previous_balance)%></b></font></td>
+						<td><font color=""><b><%= number_to_currency(@previous_balance)%></b></font></td>
 				    	<td><b><font color="red">-<%= number_to_currency(cart.total_price)%></font></b></td>	
 						<td>
 							<% if (@newBal < 0) %>

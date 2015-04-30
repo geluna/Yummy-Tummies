@@ -1,12 +1,12 @@
 
 		<tr>
 
-		<td><font color="white"><%= line_item.student_id %></font>
+		<td><font color=""><%= line_item.student_id %></font>
 			</td>
-		<td><font color='white'><b><%= line_item.menu.foodItem %></font></b></td>
-		<td><font color='white'>&nbsp;&nbsp;<%= line_item.datefor.try(:strftime, '%B %d %Y') %></font>
+		<td><font color=''><b><%= line_item.menu.foodItem %></font></b></td>
+		<td><font color=''>&nbsp;&nbsp;<%= line_item.datefor.try(:strftime, '%B %d %Y') %></font>
 			<%= link_to 'Date Selection', edit_line_item_path(line_item), :style=>'color:#FFFFFF', :class => 'btn btn-primary btn-sm'  %>
 		</td>
 
-		<td class="item_price"><font color="white"><%= number_to_currency(line_item.total_price) %></font></td>
+		<td class="item_price"><font color=""><%= number_to_currency(line_item.total_price) %></font></td>
 		</tr>
