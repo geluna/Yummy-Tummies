@@ -3,7 +3,9 @@
 
 <div class="panel panel-info" id="1">
 	<div class="panel-heading">
+
     	<h1 class="panel-title">School</h1>
+
 	</div>	
 	<div class="container">
 	<h2>Name: <%= @school.name %></h2>
@@ -36,7 +38,9 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><font color="white"><%= student.id %></font></td>
+
+        <@students.find>
+         <td><font color="white"><%= student.id %></font></td>
         <td><font color="white"><%= student.fname %></font></td>
         <td><font color="white"><%= student.lname %></font></td>
 
@@ -48,6 +52,7 @@
       </tr>
     <% end %>
   </tbody>
+  <td><%= link_to 'New Student', new_student_path, {:style=>'color:#000000;'}%></td>
 </table>
   </div>
 </div>

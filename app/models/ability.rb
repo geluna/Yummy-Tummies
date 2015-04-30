@@ -5,7 +5,6 @@ class Ability
     user ||=User.new
       if user.admin?
         can :manage, :all
-
       elsif user.franchiseOwner? 
         can [:create, :read], Menu
         can [:create, :read], User

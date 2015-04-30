@@ -4,8 +4,33 @@ class FranchisesController < ApplicationController
   respond_to :html
 
   def index
-    @franchises = Franchise.all
-    respond_with(@franchises)
+
+    #@franchises = Franchise.all
+    if current_user.admin?
+      @franchises = Franchise.all
+      #@schools = School.pending
+    else
+      @franchises = Franchise.approved
+    end
+    #respond_with(@franchises)
+
+  end
+
+  def fran_approve
+  end
+
+  def fran_process_approve
+    @fran_flag = Franchise.find_by(params[:id])
+    
+    respond_to do |format|
+      if @fran_flag.franchise_approve == false
+        @fran_flag.update_attributes(franchise_approve: true)
+        format.html { redirect_to franchises_url}
+      else
+        @fran_flag.update_attributes(franchise_approve: false)
+        format.html { redirect_to franchises_url}
+    end
+    end
 
   end
 

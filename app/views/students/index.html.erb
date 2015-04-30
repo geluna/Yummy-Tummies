@@ -2,10 +2,10 @@
 
 <h1><font color="539DC2"><b>My students</font></b></h1>
 
+
 <table class="table table-striped">
   <thead>
     <tr>
-
       <th><font color="539DC2"><b>Id</font></b></th>
       <th><font color="539DC2"><b>Fname</font></b></th>
       <th><font color="539DC2"><b>Lname</font></b></th>
@@ -18,12 +18,14 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
+
         <td><font color="white"><%= student.id %></font></td>
         <td><font color="white"><%= student.fname %></font></td>
         <td><font color="white"><%= student.lname %></font></td>
         <td><font color="white"><%= student.school.name %></font></td>
 		<td>
 			<!-- modal -->
+
 			<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#mystudent_<%=student.id%>">
 Detail
@@ -73,16 +75,17 @@ Detail
       	</td>
       	</tr>
 
-		
+
       
     <% end %>
   </tbody>
 </table>
-<% if can? :read, User %>
-<b><%= link_to 'Add Student', add_students_path(@student), :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b><br/><br/>
-<% elsif can? :all %>
+
+<% if current_user.admin? %>
 <b> <%= link_to 'New Student', new_student_path, :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b>
-<% else %>
+<% else%>
+<b><%= link_to 'Add Student', add_path, :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b><br/><br/>
 <% end %>
+
 </div>
 

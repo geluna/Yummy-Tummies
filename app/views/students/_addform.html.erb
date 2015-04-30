@@ -1,33 +1,24 @@
+<%= form_tag(process_add_path) do |f| %>
+  
+  <div class="field">
+  <%= select_tag :school_id, options_from_collection_for_select(School.all, "id", "name")%>
+  </div>
+  <div class="field">
 
-<%= form_for(@student) do |f| %>
-  <% if @student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-      <ul>
-      <% @student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-	<%= f.collection_select(:school_id, School.all, :id, :name) %>
+   <font color="539DC2"> <%= label_tag :id %></font><br>
+    <%= text_field_tag :id %>
   </div>
   <div class="field">
-   <font color="539DC2"> <%= f.label :id %></font><br>
-    <%= f.text_field :id %>
+   <font color="539DC2"> <%= label_tag :fname %></font><br>
+    <%= text_field_tag :fname %>
   </div>
   <div class="field">
-   <font color="539DC2"> <%= f.label :fname %></font><br>
-    <%= f.text_field :fname %>
-  </div>
-  <div class="field">
-   <font color="539DC2"> <%= f.label :lname %></font><br>
-    <%= f.text_field :lname %>
+   <font color="539DC2"> <%= label_tag :lname %></font><br>
+    <%= text_field_tag :lname %>
   </div>
 
   <div class="actions">
-    <%= f.submit :class => "btn btn-primary btn-sm" %>
+    <%= submit_tag %>
+
   </div>
 <% end %>

@@ -5,7 +5,7 @@ User.create!(id: 100, email: 'admin@admin.com',
             password: 'adminadmin', 
             address: '401 college st. valdosta, ga',
             password_confirmation: 'adminadmin', 
-            admin: true, 
+            admin: true
             )
 User.create!(id: 101, email: 'an@an.com', 
             password: 'asdasdasd', 
@@ -138,6 +138,9 @@ Student.create!(id:     4317, fname: 'Shet', lname: 'hitfan', school_id: 792)
 Student.create!(id:     4318, fname: 'Roger', lname: 'Willis', school_id: 792)
 Student.create!(id:     4319, fname: 'Susan', lname: 'Grim', school_id: 792)
 Student.create!(id:     4320, fname: 'Lois', lname: 'Lane', school_id: 792)
+
+#User.delete_all
+User.create!(id: 1, email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true, address: '1500 N. Patterson St, Valdosta, GA, 31601')
 
 
 

@@ -1,5 +1,7 @@
 <div class="container">
+
 <h1><font color="539DC2">Listing schools</font></h1>
+
 
 <table class="table table-striped">
   <thead>
@@ -11,19 +13,39 @@
   </thead>
 
   <tbody>
+
     <% @schools.each do |school| %>
-      <tr>
+        <tr>
+        <td><%if current_user.admin?%>
+            <%= check_box_tag 'completed', school.id , school.school_approve, :class => "task-check"%></td>
         <td><font color="white"><%= school.name %></font></td>
         <td><font color="white"><%= school.address %></font></td>
-        <td><%= link_to 'Show', school,  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %>
-        <%= link_to 'Edit', edit_school_path(school),  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %>
-        <%= link_to 'Destroy', school, method: :delete,  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= link_to "Approve", approve_path, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %></td>
+
+        <td><%= link_to 'Show', school,  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_school_path(school),  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Destroy', school, method: :delete,  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %></td>
+            
+          <%else%>
+          <td><font color="white"><%= school.name %></font></td>
+        <td><font color="white"><%= school.address %></font></td>
+       
+        <td><%= link_to 'Show', school,  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_school_path(school),  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Destroy', school, method: :delete,  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %></td>
+           
+        <%end%>
+
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
-<%= link_to 'New School', new_school_path,  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %>
+  <% if current_user.admin?%>
+      <%= link_to 'New School', new_school_path,  :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %>
+    <%else%>
+      <%= link_to 'Submit Form', new_school_path, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm"  %>
+  <%end%>
 </div>
