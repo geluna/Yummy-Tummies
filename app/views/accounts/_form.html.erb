@@ -16,11 +16,11 @@
 
 
   <div class="field">
-	<b><font color='539DC2'>Deposit Amount</font></b><br>
+	<b><font color=''>Deposit Amount</font></b><br>
 	<%= f.text_field :credit, :autocomplete => :off %>
   
   <div class="field">
-    <font color="539DC2"><%= f.label :depotype, "Select Deposit Method" %></font><br>
+    <font color=""><%= f.label :depotype, "Select Deposit Method" %></font><br>
     <%= f.select :depotype, Account::DEPOSIT_TYPES, prompt: 'Select a deposit method'  %>
   </div>
 

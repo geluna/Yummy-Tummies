@@ -19,8 +19,8 @@
       <td><%if current_user.admin?%>
             <%= check_box_tag 'approved', franchise.id , franchise.franchise_approve, :class => "task-check"%></td>
 
-        <td><font color="white"><%= franchise.name %></font></td>
-        <td><font color="white"><%= franchise.address %></font></td>
+        <td><font color=""><%= franchise.name %></font></td>
+        <td><font color=""><%= franchise.address %></font></td>
         <td><%= link_to "Approve", fran_approve_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF'%></td>
         <td><%= link_to 'Show', franchise, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
           <%= link_to 'Edit', edit_franchise_path(franchise), :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
@@ -28,8 +28,6 @@
         </td>
       
       <%else%>
-      <td><font color="white"><%= franchise.name %></font></td>
-        <td><font color="white"><%= franchise.address %></font></td>
         <td><%= link_to 'Show', franchise, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
           <%= link_to 'Edit', edit_franchise_path(franchise), :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
           <%= link_to 'Destroy', franchise, method: :delete, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF', data: { confirm: 'Are you sure?' } %>
