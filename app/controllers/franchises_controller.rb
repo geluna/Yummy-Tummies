@@ -5,14 +5,23 @@ class FranchisesController < ApplicationController
 
   def index
     @franchises = Franchise.all
-    #respond_with(@franchises)
+    respond_with(@franchises)
+
   end
 
   def show
-    @franchises = Franchise.where(user_id:current_user.id)
-    @schools = School.where(franchise_id:current_user.id)
-    @menus = Menu.where(franchise_id:current_user.id)
+    @franchises = Franchise.all
+    #@schools = School.where(franchise_id:current_user.id)
+    @schools = School.where(franchise_id: params[:id])
+    @menus = Menu.where(franchise_id:params[:id])
     @orders = Order.all
+    @users = User.all
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude  
+    end 
+
+    
     respond_with(@franchise)
   end
 
@@ -25,7 +34,9 @@ class FranchisesController < ApplicationController
   end
 
   def create
-    @franchise = Franchise.new(franchise_params)
+    @franchise = Franchise.new(franchise_params.merge(
+                user_id:  current_user.id
+                ))
     @franchise.save
     respond_with(@franchise)
   end

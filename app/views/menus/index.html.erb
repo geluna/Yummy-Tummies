@@ -5,24 +5,23 @@
   </head>
 
 <div class="container">
-<font color="white">
-  <h1><font color='red'><b>Listing Menu</b></font></h1>
+  <h1><b>Listing Menu</b></h1>
   <table border="3">
     <table class="table table-striped">
         <thead>
             <tr>         
-              <th><font color="red"><b>Menu</font></b></th>
-              <th><font color="red">Description</font></b></th>
-              <th><font color="red">Ingredients</font></b></th>
-              <th><font color="red">Price</font></b></th>
-              <% if can? :manage, User %> <th><font color="red">Admin</font></b></th> <% end %>      
+              <th><b>Menu</b></th>
+              <th>Description</b></th>
+              <th>Ingredients</b></th>
+              <th>Price</b></th>
+              <% if can? :manage, User %> <th>Admin</b></th> <% end %>      
             </tr>
         </thead>
         
       <tbody>
         <% @menus.each do |menu| %>
           <tr>
-            <td><%= image_tag(menu.image_url, :size => "140x110") %><p><font color="white"><b><%=menu.foodItem %></b></font></p></td>
+            <td><%= image_tag(menu.image_url, :size => "140x110") %><p><b><%=menu.foodItem %></b></p></td>
             <td><b><%= sanitize(menu.description) %></b></td>
             <td><b><%= sanitize(menu.ingredients) %></b></td>                    
             <td><b><span class="price"><%= number_to_currency(menu.price) %></span></b>
@@ -47,7 +46,6 @@
     <% if can? :create, Menu %>
     <br/><%= link_to 'New Menu', new_menu_path, :class => "btn btn-primary btn-sm" %>
   <% end %>
-  </font>
 </div>
 
  

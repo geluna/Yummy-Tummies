@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :accounts 
   has_many :menus
   has_many :orders
+  has_many :franchises
   has_many :students, dependent: :destroy
   has_many :schools, through: :students
   validates :email, :password, presence: true

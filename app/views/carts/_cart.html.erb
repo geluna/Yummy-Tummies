@@ -1,19 +1,23 @@
 
 <div class="container">
 
+<% if cart.total_price == 0%>
+<h1>Your Cart is Currently Empty</h1>
+<% else %>
+
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h2><font color='white'><b>Your Cart</b></font></h2>
+<h2><b>Your Cart</b></h2>
 
 <table class="table table-striped"  style="width: 65%">
 	<thead>
 		<tr>
-			<th class="col-md-2"><font color="white"><b>Student ID</b></font></th>
-	        <th class="col-md-3"><font color="white"><b>Menu</b></font></th>
-	        <th class="col-md-2"><font color="white"><b>date</b></font></th>
-	        <th class="col-md-2"><font color="white"><b>price</b></font></th>
+			<th class="col-md-2"><b>Student ID</b></th>
+	        <th class="col-md-3"><b>Menu</b></th>
+	        <th class="col-md-2"><b>date</b></th>
+	        <th class="col-md-2"><b>price</b></th>
 
 		</tr>
 	</thead>
@@ -21,7 +25,7 @@
 		<%= render(cart.line_items) %>
 		
 		<tr class="total_line">
-			<td colspan="3"><font color="white"><b>Total</b></font></td>
+			<td colspan="3"><b>Total</b></td>
 			<td class="total_cell"><font color="white"><b><%= number_to_currency(cart.total_price) %></font></b></td>
 		</tr>
 	</tbody>
@@ -31,21 +35,21 @@
 <table class="table table-striped"  style="width: 65%">
 	<thead>
 		<tr>
-			<th class="col-md-2"><font color="white"><b>Current Balance</font</b></th>
-	        <th class="col-md-3"><font color="white"><b>Order Amount Deduction</font</b></th>
-	        <th class="col-md-2"><font color="white"><b>New Balance</font</b></th>
+			<th class="col-md-2"><b>Current Balance</b></th>
+	        <th class="col-md-3"><b>Order Amount Deduction</b></th>
+	        <th class="col-md-2"><b>New Balance</b></th>
 		</tr>
 	</thead>
 		<tbody>	     	   
 				 	<tr> 		 
-						<td><b><font color="white"><%= number_to_currency(@previous_balance)%></font></b></td>
-				    	<td><b><font color="red">-<%= number_to_currency(cart.total_price)%></font> </b></td>	
-						<td><font color="white"><b><%= number_to_currency(@newBal) %></b></font></td>							
+						<td><b><%= number_to_currency(@previous_balance)%></b></td>
+				    	<td><b><font color="red">-<%= number_to_currency(cart.total_price)%></font></b></td>	
+						<td><b><%= number_to_currency(@newBal) %></b></td>							
 					</tr>		 
 				</tbody>		
 </table>
 <%= link_to "Checkout", new_order_path, method: :get, :class => "btn btn-primary btn-sm" %>
 
 <%= link_to 'Empty cart', cart, method: :delete, :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %>
-
+<% end %>
 </div>

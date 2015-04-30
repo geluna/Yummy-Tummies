@@ -3,8 +3,15 @@
 User.delete_all
 User.create!(id: 100, email: 'admin@admin.com', 
             password: 'adminadmin', 
+            address: '401 college st. valdosta, ga',
             password_confirmation: 'adminadmin', 
             admin: true, 
+            )
+User.create!(id: 101, email: 'an@an.com', 
+            password: 'asdasdasd', 
+            address: '1000 college st. valdosta, ga',
+            password_confirmation: 'asdasdasd', 
+            admin: false, 
             )
 
 Menu.delete_all     

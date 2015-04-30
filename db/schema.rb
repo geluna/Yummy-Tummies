@@ -36,9 +36,12 @@ ActiveRecord::Schema.define(version: 20150426165117) do
   create_table "franchises", force: true do |t|
     t.string   "name"
     t.string   "address"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "franchises", ["user_id"], name: "index_franchises_on_user_id"
 
   create_table "line_items", force: true do |t|
     t.integer  "menu_id"
@@ -86,6 +89,8 @@ ActiveRecord::Schema.define(version: 20150426165117) do
   create_table "schools", force: true do |t|
     t.string   "name"
     t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.integer  "franchise_id"
     t.datetime "created_at"
     t.datetime "updated_at"

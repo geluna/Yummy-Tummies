@@ -1,31 +1,30 @@
 <div class="container">
-<h1><font color='white'><b>Listing Accounts Inquiries</font></b></h1>
+<h1><font color=''><b>Listing Accounts Inquiries</font></b></h1>
 
-<h2><font color='white'><b>Your Account information</font></b></h2>
+<h2><font color=''><b>Your Account information</font></b></h2>
 <table border="3">
 		<table class="table table-striped">
   			<thead>
 	      		<tr>
-	        		<th><font color='white'><b>Date</th>
-	        		<th><font color='white'><b>Credit</th>
-	        		<th><font color='white'><b>Debit</font></b></th>
-	        		<th><font color='white'><b>Account Balance</font></b></th>
+	        		<th><font color=''><b>Date</th>
+	        		<th><font color=''><b>Credit</th>
+	        		<th><font color=''><b>Debit</font></b></th>
+	        		<th><font color=''><b>Account Balance</font></b></th>
 	      		</tr>
 	    </thead>
 			<tbody>	     
 				 <% @accounts.each do |account| %>   
 				 	<tr>
-				 		<td><font color='white'><b><%= account.created_at %></font></b></td>
+				 		<td><font color=''><b><%= account.created_at %></font></b></td>
 						<td><b><font color="green"><%= number_to_currency(account.credit)%></b></td>		
 						<td><b><font color="red"><%= number_to_currency(account.debit)%></font></b></td>	
-						<td><b><font color='white'><%= number_to_currency(account.acctbal) %></b></td>		
+						<td><b><font color=''><%= number_to_currency(account.acctbal) %></b></td>		
 					</tr>
 					 <% end %>
 				</tbody>		
 		</table>
 	</table>
 <font color='white'> <%= link_to "Add Funds", new_account_path, method: :get, :class => "btn btn-primary btn-sm" %></font>
-
 <table>
   <thead>
     <tr>

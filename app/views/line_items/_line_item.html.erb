@@ -1,11 +1,11 @@
 
 		<tr>
 		<td><%= line_item.student_id %><br>
-			<font color='white'><%= link_to 'edit', edit_line_item_path(line_item) %></font>
+			<%= link_to 'edit', edit_line_item_path(line_item) %>
 		</td>
-		<td><font color='white'><b><%= line_item.menu.foodItem %></font></b></td>
+		<td><b><%= line_item.menu.foodItem %></b></td>
 		<td><%= line_item.datefor %><br>
 			<%= link_to 'Date Select', edit_line_item_path(line_item) %>
 		</td>
-		<td class="item_price"><font color='white'><%= number_to_currency(line_item.total_price) %></font></td>
+		<td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
 		</tr>

@@ -1,14 +1,14 @@
 <div class="container">
-<h1><font color="white"><b>My students</font></b></h1>
+<h1><font color=""><b>My students</font></b></h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><font color="white"><b>Id</font></b></th>
-      <th><font color="white"><b>Fname</font></b></th>
-      <th><font color="white"><b>Lname</font></b></th>
-      <th><font color="white"><b>School</font></b></th>
-      <th><font color="white"><b>manage</font></b></th>
+      <th><b>Id</b></th>
+      <th><font color=""><b>Fname</font></b></th>
+      <th><font color=""><b>Lname</font></b></th>
+      <th><font color=""><b>School</font></b></th>
+      <th><font color=""><b>manage</font></b></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,21 +16,74 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><font color="white"><b><%= student.id %></font></b></td>
-        <td><font color="white"><b><%= student.fname %></font></b></td>
-        <td><font color="white"><b><%= student.lname %></font></b></td>
-        <td><font color="white"><b><%= student.school.name%></font></b></td>
-        <td><%= link_to 'Show', student %>
-        <%= link_to 'Edit', edit_student_path(student) %>
-        <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><font color=""><b><%= student.id %></font></b></td>
+        <td><font color=""><b><%= student.fname %></font></b></td>
+        <td><font color=""><b><%= student.lname %></font></b></td>
+        <td><font color=""><b><%= student.school.name %></font></b></td>
+        
+		<td><!-- modal -->
+
+			<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mystudent_<%=student.id%>">
+Detail
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="mystudent_<%=student.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= student.lname %> <%= student.fname %></h4>
+      </div>
+      <div class="modal-body">
+				 <div class="container">     	
+						<p>
+  <strong><font color=""><b>Id:</font></b></strong>
+ <font color=""><%= student.id %></font>
+</p>
+
+<p>
+  <strong><font color=""><b>Fname:</font></b></strong>
+  <font color=""><%= student.fname %></font>
+</p>
+
+<p>
+  <strong><font color=""><b>Lname:</font></b></strong>
+  <font color=""><%= student.lname %></font>
+</p>
+
+<p>
+  <strong><font color=""><b>School:</font></b></strong>
+  <font color=""><%= student.school.name %></font>
+</p>
+			</div>	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div><!-- modal end-->
+		
+		<%= link_to 'Edit', edit_student_path(student), :class => "btn btn-primary", style: "color:white" %>
+        <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary", style: "color:white" %>
+      
+      	</td>
+		<td>
+
+		</td>
+		
       </tr>
+      
+      
+      
+      
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<b><%= link_to 'Add Student', add_students_path(@student),{:style=>'color:#FFFFFF;'} %></b><br/>
-
-<b> <%= link_to 'New Student', new_student_path, {:style=>'color:#FFFFFF;'} %></b>
+<b><%= link_to 'Add Student', add_students_path(@student), :class => "btn btn-primary",style: "color:white" %></b>
+<b> <%= link_to 'New Student', new_student_path, :class => "btn btn-primary", style: "color:white" %></b>
 </div>
+

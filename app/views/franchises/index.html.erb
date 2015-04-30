@@ -1,3 +1,4 @@
+<% if can? :mange, :all %>
 <div class="container">
 <h1>Listing franchises</h1>
 
@@ -16,9 +17,10 @@
       <tr>
         <td><%= franchise.name %></td>
         <td><%= franchise.address %></td>
-        <td><%= link_to 'Show', franchise %>
-        <%= link_to 'Edit', edit_franchise_path(franchise) %>
-        <%= link_to 'Destroy', franchise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', franchise, 'data-no-turbolink' => true %>
+        	<%= link_to 'Edit', edit_franchise_path(franchise) %>
+        	<%= link_to 'Destroy', franchise, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -28,3 +30,14 @@
 
 <%= link_to 'New Franchise', new_franchise_path %>
 </div>
+<% else %>
+	<div class="container">	
+		<h1>Welcome! Register Franchise!</h1>
+		<div class="form-group">
+	<% @franchises.each do |franchise| %>
+		<%= link_to 'Enter', franchise, 'data-no-turbolink' => true, :class => "btn btn-primary btn-lg", :style => 'color:#FFFFFF' %>
+		<%= link_to 'Register', new_franchise_path, :class => "btn btn-primary btn-lg", :style => 'color:#FFFFFF' %>
+	<% end %>
+	</div>
+	</div>
+<% end %>
