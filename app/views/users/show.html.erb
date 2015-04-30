@@ -2,8 +2,8 @@
 <script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type="text/javascript"></script>
 
 
-
-<h3>Nearby franchise</h3>
+<div class= "container">
+<h3><b><font color='539DC2'>Nearby franchises</font></b></h3>
 <% @users.each do |user| %>
   <% user.nearbys(10).each do |near_user| %>
     <li><%= link_to near_user.address, near_user %> (<%= near_user.distance.round(2) %> miles)</li>
@@ -20,3 +20,4 @@
     handler.fitMapToBounds();
   });
 </script>
+</div>

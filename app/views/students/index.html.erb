@@ -20,9 +20,9 @@
         <td><font color="white"><b><%= student.fname %></font></b></td>
         <td><font color="white"><b><%= student.lname %></font></b></td>
         <td><font color="white"><b><%= student.school.name%></font></b></td>
-        <td><%= link_to 'Show', student %>
-        <%= link_to 'Edit', edit_student_path(student) %>
-        <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', student, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;' %>
+        <%= link_to 'Edit', edit_student_path(student), :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;' %>
+        <%= link_to 'Destroy', student, method: :delete, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;',data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
