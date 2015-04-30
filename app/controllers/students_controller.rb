@@ -40,7 +40,7 @@ class StudentsController < ApplicationController
      @student.user_id = current_user.id
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Product was successfully created.' }
+        format.html { redirect_to @student, notice: 'Your student was successfully added to your list.' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }

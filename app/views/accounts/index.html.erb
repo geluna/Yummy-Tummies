@@ -9,10 +9,10 @@
 		<table class="table table-striped">
   			<thead>
 	      		<tr>
-	        		<th><font color=''><b>Date</th>
-	        		<th><font color=''><b>Credit</th>
-	        		<th><font color=''><b>Debit</font></b></th>
-	        		<th><font color=''><b>Account Balance</font></b></th>
+	        		<th><font color='539DC2'><b>Date</th>
+	        		<th><font color='539DC2'><b>Credit</th>
+	        		<th><font color='539DC2'><b>Debit</font></b></th>
+	        		<th><font color='539DC2'><b>Account Balance</font></b></th>
 	      		</tr>
 	    </thead>
 			<tbody>	     
@@ -22,7 +22,7 @@
 				 		<td><font color='white'><b><%= account.created_at.strftime("%B %d %Y - %l:%M%P") %></font></b></td>
 						<td><b><font color= 32CD32><%= number_to_currency(account.credit)%></b></td>		
 						<td><b><font color="red"><%= number_to_currency(account.debit)%></font></b></td>	
-						<td><b><font color=''><%= number_to_currency(account.acctbal) %></b></td>		
+						<td><b><font color='white'><%= number_to_currency(account.acctbal) %></b></td>		
 					</tr>
 					 <% end %>
 				</tbody>		

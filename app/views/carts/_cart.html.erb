@@ -2,7 +2,7 @@
 <div class="container">
 
 <% if cart.total_price == 0%>
-<h1>Your Cart is Currently Empty</h1>
+<h1><font color="539DC2">Your Cart is Currently Empty</font></h1>
 <% else %>
 
 <% if notice %>
@@ -50,9 +50,9 @@
 		<tbody>	     	   
 				 	<tr> 		 
 
-						<td><b><%= number_to_currency(@previous_balance)%></b></td>
+						<td><b><font color="white"><%= number_to_currency(@previous_balance)%></font</b></td>
 				    	<td><b><font color="red">-<%= number_to_currency(cart.total_price)%></font></b></td>	
-						<td><b><%= number_to_currency(@newBal) %></b></td>							
+						<td><b><font color ="white"><%= number_to_currency(@newBal) %></font</b></td>							
 
 					</tr>		 
 				</tbody>		
