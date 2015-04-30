@@ -5,6 +5,18 @@
   			<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
  			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
  			<%= csrf_meta_tags %>
+ 			<style>
+	 			.tooltip {
+	 				 width:100px;
+	 				 font-size:16px;
+				}
+				
+ 			</style>
+ 			<script>
+	 			$(function () {
+  					$('[data-toggle="tooltip"]').tooltip()
+				})
+ 			</script>
  		</head>
 		<body>
 			<div class="navbar transparent navbar-inverse navbar-fixed-top">
@@ -35,11 +47,26 @@
 				<ul class="nav navbar-nav navbar-right">
 						<% if user_signed_in? %>
 						<li>
+							<% if can? :mange, :all %>
+<span class="glyphicon glyphicon-exclamation-sign text-primary" data-toggle="tooltip" data-placement="bottom" 
+aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="Admin"></sapn>
+							<% elsif can? :read, Cart %>
+<span class="glyphicon glyphicon-user text-primary" data-toggle="tooltip" data-placement="bottom" 
+aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="Parent"></sapn>
+							<% elsif can? :read, Franchise %>
+<span class="glyphicon glyphicon-leaf text-primary" data-toggle="tooltip" data-placement="bottom" 
+aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="Franchise Owner"></sapn>
+							<% elsif can? :read, School %>
+<span class="glyphicon glyphicon-education text-primary" data-toggle="tooltip" data-placement="bottom" 
+aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="School"></sapn>
+							<% end %>
+						</li>
+						<li>
 							<button type="button" class="btn btn-link" style="margin-top: 1px;">
-							<%= link_to "logout", destroy_user_session_path, :style=>'color:#FFFFFF', method: :delete, :class => "btn btn-primary"  %>
+							<%= link_to "logout", destroy_user_session_path, :style=>'color:#FFFFFF', method: :delete, :class => "btn btn-danger"  %>
 							</button>
 						</li>
-						<li>&nbsp;&nbsp;</li>
+						<li></li>
 						<% else %>
 						<li><%= render 'devise/registrations/form' %></li>
 						<li>&nbsp;&nbsp;</li>
@@ -49,10 +76,11 @@
 						<% if user_signed_in? %>
 						<li>
 						<div class="dropdown" style="margin-top: 8px;">
-							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-								My Account
+							<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+								<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+								
 								<span class="caret"></span>
-							</button>
+ 							</button>
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 								<li><%= link_to 'Menu', menus_url %></li>
 								<li><%= link_to 'My profile', page_path('../users/index'), 'data-no-turbolink' => true %></li>

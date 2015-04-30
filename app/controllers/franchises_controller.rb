@@ -20,7 +20,11 @@ class FranchisesController < ApplicationController
       marker.lat user.latitude
       marker.lng user.longitude  
     end 
-
+    
+    @hash1 = Gmaps4rails.build_markers(@schools) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude  
+    end 
     
     respond_with(@franchise)
   end
