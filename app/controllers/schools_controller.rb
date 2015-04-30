@@ -16,10 +16,19 @@ class SchoolsController < ApplicationController
   end
 
   def process_approve
-    @flag = School.all
-    #@flag = School.find_by(params[:id])
-    #@flag.update_attributes(school_approve: true)
-    #redirect_to school_path(@school)
+   
+    @flag = School.find_by(params[:id])
+    
+    respond_to do |format|
+      if @flag.school_approve == false
+        @flag.update_attributes(school_approve: true)
+        format.html { redirect_to schools_url}
+      else
+        @flag.update_attributes(school_approve: false)
+        format.html { redirect_to schools_url}
+    end
+    end
+    #format.html { redirect_to orders_url}
     #respond_to do |format|
       #if @flag = School.find(:conditions => {:school_approve => false})
         #format.html { redirect_to orders_url}
