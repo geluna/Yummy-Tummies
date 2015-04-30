@@ -4,32 +4,32 @@
 <body>
 	
 	<div class="container">
-<h1>Listing orders</h1>
+<h1><b><font color='539DC2'>Listing orders</font></b></h1>
 <table class="table table-striped">
 	<thead>
 	<tr>
-		<th>Name</th>
-		<th>Address</th>
-		<th>Email</th>
+		<th><b><font color='539DC2'>Name</font></b></th>
+		<th><b><font color='539DC2'>Address</font></b></th>
+		<th><b><font color='539DC2'>Email</font></b></th>
 		<th colspan="3"></th>
 	</tr>
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
 		<tr>    
-			<td><%= order.name %></td>
-      		<td><%= order.address %></td>
-			<td><%= order.email %></td>
-			<td><%= link_to 'Show', order %></td>
+			<td><font color='white'><%= order.name %></font></td>
+      		<td><font color='white'><%= order.address %></td>
+			<td><font color='white'><%= order.email %></td>
+			<td><%= link_to 'Show', order, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %></td>
 			<% if can? :manage, Users%>
-			<td><%= link_to 'Edit', edit_order_path(order) %></td>
-			<td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to 'Edit', edit_order_path(order), :class => "btn btn-primary btn-sm" %></td>
+			<td><%= link_to 'Destroy', order, method: :delete, :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %></td>
 			<% end %>
 		</tr>
 		<% end %>
 	</tbody>
 	</table>
-	<%= link_to 'New Order', new_order_path %>
+	<%= link_to 'New Order', new_order_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
     </div>
 </body>
 

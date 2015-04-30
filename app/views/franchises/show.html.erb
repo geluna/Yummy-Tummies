@@ -140,7 +140,7 @@ Map
 		</table>
 	</table>
    	<% if can? :create, Menu %>
-		<br/><%= link_to 'New Menu', new_menu_path %>
+		<br/><%= link_to 'New Menu', new_menu_path, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm"  %>
 	<% end %>
 
 	    </div>
@@ -177,10 +177,10 @@ Map
 			<td><%= order.name %></td>
       		<td><%= order.address %></td>
 			<td><%= order.email %></td>
-			<td><%= link_to 'Show', order %></td>
+			<td><%= link_to 'Show', order, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm"  %></td>
 			<% if can? :manage, Users%>
-			<td><%= link_to 'Edit', edit_order_path(order) %></td>
-			<td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to 'Edit', edit_order_path(order), :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm"  %></td>
+			<td><%= link_to 'Destroy', order, method: :delete, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %></td>
 			<% end %>
 		</tr>
 		<% end %>
@@ -216,8 +216,8 @@ Map
 </div>
 	<!-- end of accordion-->
 </div>
-	<%= link_to 'Edit', edit_franchise_path(@franchise) %> |
-	<%= link_to 'Back', franchises_path %>
+	<%= link_to 'Edit', edit_franchise_path(@franchise), :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm"  %> |
+	<%= link_to 'Back', franchises_path, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %>
 </div><!--container-->
 
 

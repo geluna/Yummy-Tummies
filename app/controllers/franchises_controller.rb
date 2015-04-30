@@ -16,7 +16,7 @@ class FranchisesController < ApplicationController
     @menus = Menu.where(franchise_id:params[:id])
     @orders = Order.all
     @users = User.all
-    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+    @hash = Gmaps4rails.build_markers(@schools) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude  
     end 

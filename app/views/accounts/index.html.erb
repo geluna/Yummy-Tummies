@@ -1,7 +1,10 @@
 <div class="container">
-<h1><font color=''><b>Listing Accounts Inquiries</font></b></h1>
 
-<h2><font color=''><b>Your Account information</font></b></h2>
+<h1><font color="539DC2"><b>Yummy Tummies Account History</font></b></h1>
+<% @users.each do |user| %> 
+<h3><font color='white'><b>Detailed Transactions for <%= user.email %></font></b></h3>
+<% end %>
+
 <table border="3">
 		<table class="table table-striped">
   			<thead>
@@ -15,8 +18,9 @@
 			<tbody>	     
 				 <% @accounts.each do |account| %>   
 				 	<tr>
-				 		<td><font color=''><b><%= account.created_at %></font></b></td>
-						<td><b><font color="green"><%= number_to_currency(account.credit)%></b></td>		
+
+				 		<td><font color='white'><b><%= account.created_at.strftime("%B %d %Y - %l:%M%P") %></font></b></td>
+						<td><b><font color= 32CD32><%= number_to_currency(account.credit)%></b></td>		
 						<td><b><font color="red"><%= number_to_currency(account.debit)%></font></b></td>	
 						<td><b><font color=''><%= number_to_currency(account.acctbal) %></b></td>		
 					</tr>
@@ -24,7 +28,9 @@
 				</tbody>		
 		</table>
 	</table>
-<font color='white'> <%= link_to "Add Funds", new_account_path, method: :get, :class => "btn btn-primary btn-sm" %></font>
+
+<font color='white'> <%= link_to "Add Funds", new_account_path, :style=>'color:#FFFFFF',  method: :get, :class => "btn btn-primary btn-sm" %></font>
+
 <table>
   <thead>
     <tr>
@@ -35,15 +41,15 @@
   <tbody>
     <% @accounts.each do |account| %>
       <tr>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', account, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_account_path(account), :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Destroy', account, method: :delete, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New Account', new_account_path %>
+<%= link_to 'New Account', new_account_path, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %>
 </div>
 <% end %>

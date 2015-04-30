@@ -16,16 +16,16 @@
 
 
   <div class="field">
-	<b>Deposit Amount</b><br>
-	<%= f.text_field :credit %>
+	<b><font color='white'>Deposit Amount</font></b><br>
+	<%= f.text_field :credit, :autocomplete => :off %>
   
   <div class="field">
-    <%= f.label :depotype, "Select Deposit Method" %><br>
-    <%= f.select :depotype, Account::DEPOSIT_TYPES, prompt: 'Select a deposit method' %>
+    <font color="white"><%= f.label :depotype, "Select Deposit Method" %></font><br>
+    <%= f.select :depotype, Account::DEPOSIT_TYPES, prompt: 'Select a deposit method'  %>
   </div>
 
   <div class="actions">
-    <%= f.submit 'Deposit Funds' %>
+  <%= f.submit 'Deposit Funds',:class => "btn btn-primary btn-sm" %>
   </div>
   <% end %>
 

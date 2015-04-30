@@ -5,16 +5,19 @@
   </head>
 
 <div class="container">
-  <h1><b>Listing Menu</b></h1>
+<font color="white">
+  <h1><font color='539DC2'><b>Listing Menu</b></font></h1>
   <table border="3">
     <table class="table table-striped">
         <thead>
             <tr>         
-              <th><b>Menu</b></th>
-              <th>Description</b></th>
-              <th>Ingredients</b></th>
-              <th>Price</b></th>
-              <% if can? :manage, User %> <th>Admin</b></th> <% end %>      
+
+              <th><font color='539DC2'><b>Menu</font></b></th>
+              <th><font color='539DC2'>Description</font></b></th>
+              <th><font color='539DC2'>Ingredients</font></b></th>
+              <th><font color='539DC2'>Price</font></b></th>
+              <% if can? :manage, User %> <th><font color="539DC2">Admin</font></b></th> <% end %>      
+
             </tr>
         </thead>
         
@@ -31,9 +34,9 @@
             
             <% if can? :manage, User %>
             <td class="list_actions">
-              <%=link_to'Show', menu %><br/>
-              <%=link_to'Edit',edit_menu_path(menu)%><br/>
-              <%=link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
+              <%=link_to'Show', menu, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %><br/><br/>
+              <%=link_to'Edit',edit_menu_path(menu), :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm"%><br/><br/>
+              <%=link_to'Destroy', menu, method: :delete, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm", data:{confirm:'Are you sure?'} %>
             </td>
             <% end %>
           </tr>

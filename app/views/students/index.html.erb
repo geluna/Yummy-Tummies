@@ -1,14 +1,16 @@
 <div class="container">
-<h1><font color=""><b>My students</font></b></h1>
+
+<h1><font color="539DC2"><b>My students</font></b></h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><b>Id</b></th>
-      <th><font color=""><b>Fname</font></b></th>
-      <th><font color=""><b>Lname</font></b></th>
-      <th><font color=""><b>School</font></b></th>
-      <th><font color=""><b>manage</font></b></th>
+
+      <th><font color="539DC2"><b>Id</font></b></th>
+      <th><font color="539DC2"><b>Fname</font></b></th>
+      <th><font color="539DC2"><b>Lname</font></b></th>
+      <th><font color="539DC2"><b>School</font></b></th>
+      <th><font color="539DC2"><b>manage</font></b></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,9 +22,7 @@
         <td><font color=""><b><%= student.fname %></font></b></td>
         <td><font color=""><b><%= student.lname %></font></b></td>
         <td><font color=""><b><%= student.school.name %></font></b></td>
-        
 		<td><!-- modal -->
-
 			<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mystudent_<%=student.id%>">
 Detail
@@ -70,10 +70,11 @@ Detail
         <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary", style: "color:white" %>
       
       	</td>
-		<td>
 
-		</td>
 		
+        <td><%= link_to 'Show', student, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;' %>
+        <%= link_to 'Edit', edit_student_path(student), :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;' %>
+        <%= link_to 'Destroy', student, method: :delete, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;',data: { confirm: 'Are you sure?' } %></td>
       </tr>
       
       
@@ -82,8 +83,9 @@ Detail
     <% end %>
   </tbody>
 </table>
-<br>
-<b><%= link_to 'Add Student', add_students_path(@student), :class => "btn btn-primary",style: "color:white" %></b>
-<b> <%= link_to 'New Student', new_student_path, :class => "btn btn-primary", style: "color:white" %></b>
+
+<b><%= link_to 'Add Student', add_students_path(@student), :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;' %></b><br/><br/>
+
+<b> <%= link_to 'New Student', new_student_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;' %></b>
 </div>
 
