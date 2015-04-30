@@ -38,7 +38,7 @@ class StudentsController < ApplicationController
     respond_to do |format|
       if @found == nil
 
-        format.html { redirect_to student, alert: 'Student does not exist for chosen school' }
+        format.html { redirect_to students_url, alert: 'Student does not exist for chosen school' }
       else
 
         @found.update_attributes(user_id: current_user.id)

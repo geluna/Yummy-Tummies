@@ -5,7 +5,7 @@
   </head>
 
 <div class="container">
-<font color="">
+
   <h1><font color='539DC2'><b>Listing Menu</b></font></h1>
 
   <table border="3">
@@ -13,7 +13,7 @@
         <thead>
             <tr>         
 
-              <th><font color='539DC2'><b>Menu</font></b></th>
+              <th><b><font color='539DC2'>Menu</font></b></th>
               <th><font color='539DC2'>Description</font></b></th>
               <th><font color='539DC2'>Ingredients</font></b></th>
               <th><font color='539DC2'>Price</font></b></th>
@@ -26,10 +26,10 @@
       <tbody>
         <% @menus.each do |menu| %>
           <tr>
-            <td><%= image_tag(menu.image_url, :size => "140x110") %><p><b><%=menu.foodItem %></b></p></td>
-            <td><%= sanitize(menu.description) %></td>
-            <td><%= sanitize(menu.ingredients) %></td>                    
-            <td><b><span class="price"><h4><%= number_to_currency(menu.price) %></h4></span></b>
+            <td><%= image_tag(menu.image_url, :size => "140x110") %><p><b><font color='white'><%=menu.foodItem %></font></b></p></td>
+            <td><font color='white'><%= sanitize(menu.description) %></font></td>
+            <td><font color='white'><%= sanitize(menu.ingredients) %></font></td>                    
+            <td><b><span class="price"><h4><font color='white'><%= number_to_currency(menu.price) %></font></h4></span></b>
           <% if can? :read, Cart %><%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-lg" %><% end %>
               </td>
         

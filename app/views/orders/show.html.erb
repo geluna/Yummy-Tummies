@@ -7,21 +7,21 @@
 	<h1><b><font color="539DC2">Purchaser information</font></b></h1>
 <p>
   <strong><font color="539DC2">Name:</font></strong>
- <font color=""> <%= @order.name %></font>
+ <font color="white"> <%= @order.name %></font>
 </p>
 
 <p>
   <strong><font color="539DC2">Address:</font></strong>
- <font color=""><%= @order.address %></font>
+ <font color="white"><%= @order.address %></font>
 </p>
 
 <p>
   <strong><font color="539DC2">Email:</font></strong>
-  <font color=""><%= @order.email %></font>
+  <font color="white"><%= @order.email %></font>
 </p>
 <p>
   <strong><font color="539DC2">Order Number:</font></strong>
-    <font color=""> <%= @order.id %></font>
+    <font color="white"> <%= @order.id %></font>
 </p>
 <body>
 <font color="539DC2"><h2>Listing items for selected purchase </h2></font>
@@ -37,16 +37,16 @@
 <tbody>
 <% @menus.each do |menu| %>
 	<tr>
-		<td><font color=""><%= menu.foodItem %></font></td>
+		<td><font color="white"><%= menu.foodItem %></font></td>
 		<td><%= image_tag(menu.image_url, :width => 80) if menu.image_url.present? %></td>	
 		<% @line_items.each do |item| %>
-		<td><font color=""><%= item.datefor %></font></td>
+		<td><font color="white"><%= item.datefor %></font></td>
 		<%end%>
-		<td><font color=""><%= number_to_currency(menu.price) %></font></td>
+		<td><font color="white"><%= number_to_currency(menu.price) %></font></td>
 			
 		<% @order.line_items.each do |line_item|%>
 			<% if (menu.id == line_item.menu_id)%>			
-				<td ><font color=""><%= number_to_currency(line_item.total_price) %></font></td>				
+				<td ><font color="white"><%= number_to_currency(line_item.total_price) %></font></td>				
 			<%end%>
 		<%end%>
 	</tr>
@@ -56,7 +56,7 @@
   </body>
 
 	<p>		
-	<b><font color="539DC2">Total Price:</font><font color=""> <%= number_to_currency(@order.total_price) %></font></b>
+	<b><font color="539DC2">Total Price:</font><font color="white"> <%= number_to_currency(@order.total_price) %></font></b>
 	</p>
 <br>
 <%= link_to 'Edit', edit_order_path(@order), :style=>'color:#539DC2' %> |

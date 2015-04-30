@@ -2,7 +2,7 @@
 
 <h1><font color="539DC2"><b>Yummy Tummies Account History</font></b></h1>
 <% @users.each do |user| %> 
-<h3><font color='539DC2'><b>Detailed Transactions for <%= user.email %></font></b></h3>
+<h3><font color='white'><b>Detailed Transactions for <%= user.email %></font></b></h3>
 <% end %>
 
 <table border="3">
@@ -19,10 +19,10 @@
 				 <% @accounts.each do |account| %>   
 				 	<tr>
 
-				 		<td><font color=''><b><%= account.created_at.strftime("%B %d %Y - %l:%M%P") %></font></b></td>
+				 		<td><font color='white'><b><%= account.created_at.strftime("%B %d %Y - %l:%M%P") %></font></b></td>
 						<td><b><font color='32CD32'><%= number_to_currency(account.credit)%></font></b></td>		
 						<td><b><font color="red"><%= number_to_currency(account.debit)%></font></b></td>	
-						<td><b><font color=''><%= number_to_currency(account.acctbal) %></font></b></td>		
+						<td><b><font color='white'><%= number_to_currency(account.acctbal) %></font></b></td>		
 					</tr>
 					 <% end %>
 				</tbody>		

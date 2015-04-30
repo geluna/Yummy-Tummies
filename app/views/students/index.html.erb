@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1><font color=""><b>My students</font></b></h1>
+<h1><font color="539DC2"><b>My students</font></b></h1>
 
 
 <table class="table table-striped">
@@ -19,10 +19,10 @@
     <% @students.each do |student| %>
       <tr>
 
-        <td><font color=""><%= student.id %></font></td>
-        <td><font color=""><%= student.fname %></font></td>
-        <td><font color=""><%= student.lname %></font></td>
-        <td><font color=""><%= student.school.name %></font></td>
+        <td><font color="white"><%= student.id %></font></td>
+        <td><font color="white"><%= student.fname %></font></td>
+        <td><font color="white"><%= student.lname %></font></td>
+        <td><font color="white"><%= student.school.name %></font></td>
 		<td>
 			<!-- modal -->
 
@@ -42,23 +42,23 @@ Detail
       <div class="modal-body">
 				 <div class="container">     	
 						<p>
-  <strong><font color=""><b>Id:</font></b></strong>
- <font color=""><%= student.id %></font>
+  <strong><font color="539DC2"><b>Id:</font></b></strong>
+ <font color="black"><%= student.id %></font>
 </p>
 
 <p>
   <strong><font color="539DC2"><b>Fname:</font></b></strong>
-  <font color=""><%= student.fname %></font>
+  <font color="black"><%= student.fname %></font>
 </p>
 
 <p>
   <strong><font color="539DC2"><b>Lname:</font></b></strong>
-  <font color=""><%= student.lname %></font>
+  <font color="black"><%= student.lname %></font>
 </p>
 
 <p>
   <strong><font color="539DC2"><b>School:</font></b></strong>
-  <font color=""><%= student.school.name %></font>
+  <font color="black"><%= student.school.name %></font>
 </p>
 			</div>	
       </div>

@@ -6,7 +6,7 @@
 <h3><b><font color='539DC2'>Nearby franchises</font></b></h3>
 <% @users.each do |user| %>
   <% user.nearbys(10).each do |near_user| %>
-    <li><%= link_to near_user.address, near_user %> (<%= near_user.distance.round(2) %> miles)</li>
+    <li><font color='white'><%= link_to near_user.address, near_user %> (<%= near_user.distance.round(2) %> miles)</font></li>
   <% end %>
 <% end %>
 <div style='width: 800px;'>
