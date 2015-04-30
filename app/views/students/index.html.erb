@@ -81,11 +81,10 @@ Detail
   </tbody>
 </table>
 
-<% if can? :read, User %>
-<b><%= link_to 'Add Student', add_path, :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b><br/><br/>
-<% elsif can? :all %>
+<% if current_user.admin? %>
 <b> <%= link_to 'New Student', new_student_path, :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b>
-<% else %>
+<% else%>
+<b><%= link_to 'Add Student', add_path, :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b><br/><br/>
 <% end %>
 
 </div>
