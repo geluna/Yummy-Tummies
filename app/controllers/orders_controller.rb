@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.where(email:current_user.email)
-    @menus = @orders.menus
+    #@menus = @orders.menus
   end
 
   # GET /orders/1
