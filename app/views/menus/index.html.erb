@@ -28,9 +28,9 @@
         <% @menus.each do |menu| %>
           <tr>
             <td><%= image_tag(menu.image_url, :size => "140x110") %><p><b><%=menu.foodItem %></b></p></td>
-            <td><b><%= sanitize(menu.description) %></b></td>
-            <td><b><%= sanitize(menu.ingredients) %></b></td>                    
-            <td><b><span class="price"><%= number_to_currency(menu.price) %></span></b>
+            <td><%= sanitize(menu.description) %></td>
+            <td><%= sanitize(menu.ingredients) %></td>                    
+            <td><b><span class="price"><h4><%= number_to_currency(menu.price) %></h4></span></b>
           <% if can? :read, Cart %><%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-lg" %><% end %>
               </td>
         

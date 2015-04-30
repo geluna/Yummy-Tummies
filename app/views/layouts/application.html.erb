@@ -28,12 +28,13 @@
     		<div>
 				<ul class="nav navbar-nav">		
 					<li><%= link_to 'Menu', menus_url, style: "color:white"  %></li>
-			        <% if can? :read, User %>
+			        <% if can? :mange, :all %>
+			        <% elsif can? :read, Cart %>
 			        	<li><%= link_to 'My Cart', cart_path(session[:cart_id]), style: "color:white"  %></li>
 			        	<li><%= link_to 'My Orders', orders_path, style: "color:white"  %></li>
 			        <% end %>
 		        	<% if can? :read, Student %>
-				        <li><%= link_to 'My Students', students_path, style: "color:white"  %></li>
+				        <li><%= link_to 'Students', students_path, style: "color:white"  %></li>
 		  	    	<% end %>
 		  	    	<% if can? :read, Franchise %>
 		  	    		<li><%= link_to 'Franchise', franchises_path(@franchises), style: "color:white"%></li>
@@ -41,7 +42,10 @@
 		  	    	<% if can? :read, School %>
 		  	    		<li><%= link_to 'School', schools_path, style: "color:white"  %></li>
 		  	    	<% end %>
+		  	    	<% if can? :mange, :all %>
+		  	    	<% else %>
 		  	    	<li><%= link_to 'About', page_path('about'), style: "color:white"  %></li>
+		  	    	<% end %>
 		  	    	<li><%= flash_messages %></li>
 		  	    </ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -76,7 +80,7 @@ aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="School"></sa
 						<% if user_signed_in? %>
 						<li>
 						<div class="dropdown" style="margin-top: 8px;">
-							<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 								<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
 								
 								<span class="caret"></span>

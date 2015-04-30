@@ -19,13 +19,15 @@
     <% @students.each do |student| %>
       <tr>
 
-        <td><font color=""><b><%= student.id %></font></b></td>
-        <td><font color=""><b><%= student.fname %></font></b></td>
-        <td><font color=""><b><%= student.lname %></font></b></td>
-        <td><font color=""><b><%= student.school.name %></font></b></td>
-		<td><!-- modal -->
+        <td><font color="white"><%= student.id %></font></td>
+        <td><font color="white"><%= student.fname %></font></td>
+        <td><font color="white"><%= student.lname %></font></td>
+        <td><font color="white"><%= student.school.name %></font></td>
+		<td>
+			<!-- modal -->
+
 			<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mystudent_<%=student.id%>">
+<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#mystudent_<%=student.id%>">
 Detail
 </button>
 
@@ -67,22 +69,24 @@ Detail
   </div>
 </div><!-- modal end-->
 		
-		<%= link_to 'Edit', edit_student_path(student), :class => "btn btn-primary", style: "color:white" %>
-        <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary", style: "color:white" %>
+		<%= link_to 'Edit', edit_student_path(student), :class => "btn btn-primary btn-xs", style: "color:white" %>
+        <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary btn-xs", style: "color:white" %>
       
       	</td>
+      	</tr>
 
 
-      </tr>
-            
       
     <% end %>
   </tbody>
 </table>
 
-<b><%= link_to 'Add Student', add_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;' %></b><br/><br/>
-
-<b> <%= link_to 'New Student', new_student_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF;' %></b>
+<% if can? :read, User %>
+<b><%= link_to 'Add Student', add_path, :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b><br/><br/>
+<% elsif can? :all %>
+<b> <%= link_to 'New Student', new_student_path, :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b>
+<% else %>
+<% end %>
 
 </div>
 

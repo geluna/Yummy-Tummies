@@ -44,11 +44,13 @@
 
 <br>
 
+
 <% if current_user.admin?%>
       <%= link_to 'New Franchise', new_franchise_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
 
     <%else%>
       <%= link_to 'Submit Form', new_franchise_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF'  %>
+
 
 	<% end %>
 	</div>
