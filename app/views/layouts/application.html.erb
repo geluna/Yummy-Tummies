@@ -28,12 +28,13 @@
     		<div>
 				<ul class="nav navbar-nav">		
 					<li><%= link_to 'Menu', menus_url, style: "color:white"  %></li>
-			        <% if can? :read, User %>
+			        <% if can? :mange, :all %>
+			        <% elsif can? :read, Cart %>
 			        	<li><%= link_to 'My Cart', cart_path(session[:cart_id]), style: "color:white"  %></li>
 			        	<li><%= link_to 'My Orders', orders_path, style: "color:white"  %></li>
 			        <% end %>
 		        	<% if can? :read, Student %>
-				        <li><%= link_to 'My Students', students_path, style: "color:white"  %></li>
+				        <li><%= link_to 'Students', students_path, style: "color:white"  %></li>
 		  	    	<% end %>
 		  	    	<% if can? :read, Franchise %>
 		  	    		<li><%= link_to 'Franchise', franchises_path(@franchises), style: "color:white"%></li>
@@ -41,7 +42,10 @@
 		  	    	<% if can? :read, School %>
 		  	    		<li><%= link_to 'School', schools_path, style: "color:white"  %></li>
 		  	    	<% end %>
+		  	    	<% if can? :mange, :all %>
+		  	    	<% else %>
 		  	    	<li><%= link_to 'About', page_path('about'), style: "color:white"  %></li>
+		  	    	<% end %>
 		  	    	<li><%= flash_messages %></li>
 		  	    </ul>
 				<ul class="nav navbar-nav navbar-right">

@@ -36,7 +36,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)   
-    @student.update_attributes(user_id:current_user.id)
+    #@student.update_attributes(user_id:current_user.id)
      @student.user_id = current_user.id
     respond_to do |format|
       if @student.save

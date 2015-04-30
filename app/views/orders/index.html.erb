@@ -25,7 +25,7 @@
 			<%= link_to 'Show', order, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
 			<!-- modal -->
 			<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#mystudent_<%=order.id%>">
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mystudent_<%=order.id%>">
 Detail
 </button>
 
@@ -42,21 +42,21 @@ Detail
 				<h1><b><font color="539DC2">Purchaser information</font></b></h1>
 <p>
   <strong><font color="539DC2">Name:</font></strong>
- <font color="white"> <%= order.name %></font>
+ <font color=""> <%= order.name %></font>
 </p>
 
 <p>
   <strong><font color="539DC2">Address:</font></strong>
- <font color="white"><%= order.address %></font>
+ <font color=""><%= order.address %></font>
 </p>
 
 <p>
   <strong><font color="539DC2">Email:</font></strong>
-  <font color="white"><%= order.email %></font>
+  <font color=""><%= order.email %></font>
 </p>
 <p>
   <strong><font color="539DC2">Order Number:</font></strong>
-    <font color="white"> <%= order.id %></font>
+    <font color=""> <%= order.id %></font>
 </p>
 
 
