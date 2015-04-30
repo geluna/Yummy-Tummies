@@ -58,13 +58,14 @@ end
                acctbal: @previous_balance - @cart.total_price
                 )
    
-    @order = Order.new(order_params)
-    @order.add_line_items_from_cart(@cart)
+      @order = Order.new(order_params)
+      @order.add_line_items_from_cart(@cart)
     respond_to do |format|
-    @order.email = current_user.email
-    @order.address = current_user.address
-    #@order.created at = @line_items.created_at
-    @order.total = @cart.total_price
+      
+      @order.email = current_user.email
+      @order.address = current_user.address
+      #@order.created at = @line_items.created_at
+      @order.total = @cart.total_price
       if @order.save
          @account.save
         

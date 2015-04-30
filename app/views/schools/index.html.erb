@@ -1,6 +1,5 @@
 <div class="container">
-<h1>Listing schools</h1>
-
+<h1>Listings schools</h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -13,10 +12,15 @@
 
   <tbody>
     <% @schools.each do |school| %>
-      <tr>
+        <td>
+          <%= check_box_tag 'completed', school.id , school.school_approve, :class => "task-check"%>
+        </td>
         <td><%= school.name %></td>
         <td><%= school.address %></td>
         <td><%= school.franchise_id %></td>
+        <td><%= link_to "Approve", approve_path %></td>
+            
+
         <td><%= link_to 'Show', school %></td>
         <td><%= link_to 'Edit', edit_school_path(school) %></td>
         <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,9 +28,10 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'New School', new_school_path %>
-<%= link_to 'Submit', new_school_path %>
+  <% if current_user.admin?%>
+      <%= link_to 'New School', new_school_path %>
+    <%else%>
+      <%= link_to 'Submit Form', new_school_path %>
+  <%end%>
 </div>

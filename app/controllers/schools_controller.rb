@@ -10,27 +10,31 @@ class SchoolsController < ApplicationController
     else
       @schools = School.approved
     end
+  end
 
+  def approve
   end
 
   def process_approve
-    @school = School.find_by_id(params[:school_approve])
-
-      respond_to do |format|
-        if @school == true
-          @school == School.all
-          format.html { redirect_to schools_url}
-        else
-          format.html { redirect_to students_url}
-        end
-      end
-    #espond_with(@schools)
+    @flag = School.all
+    #@flag = School.find_by(params[:id])
+    #@flag.update_attributes(school_approve: true)
+    #redirect_to school_path(@school)
+    #respond_to do |format|
+      #if @flag = School.find(:conditions => {:school_approve => false})
+        #format.html { redirect_to orders_url}
+        #@flag.update_attributes(school_approve: true)
+      #else
+        #format.html { redirect_to students_url}
+        #@flag.update_attribute(:school_approve, false)
+      #end  
+    #end
+    
   end
 
   def show
       @students = Student.where(school_id: params[:id])
-   
-    #respond_with(@school)
+       #respond_with(@school)
          
   end
 

@@ -55,6 +55,13 @@ resources :accounts
   post "/process_add/", :to => "students#process_add", :as => 'process_add'
   get "/add/", :to => "students#add", :as => 'add'
 
+  resources :schools do
+    collection do
+      get :approve
+    end
+  end
+  post "/process_approve/", :to => "schools#process_approve", :as => 'process_approve'
+  get "/approve/", :to => "schools#approve", :as => 'approve'
 
 
   
