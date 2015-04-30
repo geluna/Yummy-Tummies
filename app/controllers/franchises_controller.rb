@@ -13,19 +13,20 @@ class FranchisesController < ApplicationController
     end
     #respond_with(@franchises)
   end
+
   def fran_approve
   end
 
-  def fran_proccess_approve
+  def fran_process_approve
     @fran_flag = Franchise.find_by(params[:id])
     
     respond_to do |format|
-      if @fan_flag.franchise_approve == false
+      if @fran_flag.franchise_approve == false
         @fran_flag.update_attributes(franchise_approve: true)
-        format.html { redirect_to franchise_url}
+        format.html { redirect_to franchises_url}
       else
-        @flag.update_attributes(franchise_approve: false)
-        format.html { redirect_to franchise_url}
+        @fran_flag.update_attributes(franchise_approve: false)
+        format.html { redirect_to franchises_url}
     end
     end
 

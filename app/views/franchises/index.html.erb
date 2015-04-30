@@ -14,8 +14,8 @@
   <tbody>
     <% @franchises.each do |franchise| %>
       <tr>
-      <%if current_user.admin?%>
-            <%= check_box_tag 'approved', franchise.id , franchise.franchise_approve, :class => "task-check"%>
+      <td><%if current_user.admin?%>
+            <%= check_box_tag 'approved', franchise.id , franchise.franchise_approve, :class => "task-check"%></td>
         <td><%= franchise.name %></td>
         <td><%= franchise.address %></td>
 
