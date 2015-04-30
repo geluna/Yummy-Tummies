@@ -15,57 +15,41 @@
   <tbody>
     <% @franchises.each do |franchise| %>
       <tr>
-<<<<<<< HEAD
+
       <td><%if current_user.admin?%>
             <%= check_box_tag 'approved', franchise.id , franchise.franchise_approve, :class => "task-check"%></td>
-        <td><%= franchise.name %></td>
-        <td><%= franchise.address %></td>
 
-        <td><%= link_to "Approve", fran_approve_path %></td>
-        <td><%= link_to 'Show', franchise %>
-        <%= link_to 'Edit', edit_franchise_path(franchise) %>
-        <%= link_to 'Destroy', franchise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <%else%>
-        <td><%= franchise.name %></td>
-        <td><%= franchise.address %></td>  
-        <td><%= link_to 'Show', franchise %>
-        <%= link_to 'Edit', edit_franchise_path(franchise) %>
-        <%= link_to 'Destroy', franchise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
-=======
         <td><font color="white"><%= franchise.name %></font></td>
         <td><font color="white"><%= franchise.address %></font></td>
+        <td><%= link_to "Approve", fran_approve_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF'%></td>
         <td><%= link_to 'Show', franchise, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
-        	<%= link_to 'Edit', edit_franchise_path(franchise), :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
-        	<%= link_to 'Destroy', franchise, method: :delete, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF', data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Edit', edit_franchise_path(franchise), :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
+          <%= link_to 'Destroy', franchise, method: :delete, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF', data: { confirm: 'Are you sure?' } %>
         </td>
->>>>>>> 82100c4e49860928a04758f17f63fcfd59953040
+      
+      <%else%>
+      <td><font color="white"><%= franchise.name %></font></td>
+        <td><font color="white"><%= franchise.address %></font></td>
+        <td><%= link_to 'Show', franchise, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
+          <%= link_to 'Edit', edit_franchise_path(franchise), :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
+          <%= link_to 'Destroy', franchise, method: :delete, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF', data: { confirm: 'Are you sure?' } %>
+        </td>
+      
+        <%end%>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<<<<<<< HEAD
+
 <% if current_user.admin?%>
-      <%= link_to 'New Franchise', new_franchise_path %>
+      <%= link_to 'New Franchise', new_franchise_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
+
     <%else%>
-      <%= link_to 'Submit Form', new_franchise_path %>
-  <%end%>
-=======
+      <%= link_to 'Submit Form', new_franchise_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF'  %>
 
-<%= link_to 'New Franchise', new_franchise_path, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
->>>>>>> 82100c4e49860928a04758f17f63fcfd59953040
-</div>
-
-<% elsif can? :read, Franchise %>
-	<div class="container">	
-		<h1>Welcome! Register Franchise!</h1>
-		<td><%= link_to 'Register', new_franchise_path, :class => "btn btn-primary btn-lg", :style => 'color:#FFFFFF' %><td>
-	<% @franchises.each do |franchise| %>
-	<tr>
-		<td><%= link_to 'Enter', franchise, 'data-no-turbolink' => true, :class => "btn btn-primary btn-lg", :style => 'color:#FFFFFF' %><td>
-	</tr>
 	<% end %>
 	</div>
 <% end %>
