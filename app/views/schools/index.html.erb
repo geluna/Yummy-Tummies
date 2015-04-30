@@ -14,11 +14,12 @@
   </thead>
 
   <tbody>
-    <% @schools.each do |school| %>
 
+    <% @schools.each do |school| %>
+        <tr>
         <td><%if current_user.admin?%>
-            <%= check_box_tag 'completed', school.id , school.school_approve, :class => "task-check"%>
-            <td><font color="white"><%= school.name %></font></td>
+            <%= check_box_tag 'completed', school.id , school.school_approve, :class => "task-check"%></td>
+        <td><font color="white"><%= school.name %></font></td>
         <td><font color="white"><%= school.address %></font></td>
         <td><font color="white"><%= school.franchise_id %></font></td>
         <td><%= link_to "Approve", approve_path, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %></td>
