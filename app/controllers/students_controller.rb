@@ -38,12 +38,12 @@ class StudentsController < ApplicationController
     respond_to do |format|
       if @found == nil
 
-        format.html { redirect_to students_url, alert: 'Student does not exist for chosen school' }
+        format.html { redirect_to student, alert: 'Student does not exist for chosen school' }
       else
 
         @found.update_attributes(user_id: current_user.id)
        
-        format.html { redirect_to students_url, notice: 'Student does not exist for chosen school' }
+        format.html { redirect_to students_url}
       end
     end   
   end
@@ -57,7 +57,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Your student was successfully added to your list.' }
+        format.html { redirect_to students_url }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }

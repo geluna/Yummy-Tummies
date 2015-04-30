@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1><font color="539DC2"><b>My students</font></b></h1>
+<h1><font color=""><b>My students</font></b></h1>
 
 
 <table class="table table-striped">
@@ -19,10 +19,10 @@
     <% @students.each do |student| %>
       <tr>
 
-        <td><font color="white"><%= student.id %></font></td>
-        <td><font color="white"><%= student.fname %></font></td>
-        <td><font color="white"><%= student.lname %></font></td>
-        <td><font color="white"><%= student.school.name %></font></td>
+        <td><font color=""><%= student.id %></font></td>
+        <td><font color=""><%= student.fname %></font></td>
+        <td><font color=""><%= student.lname %></font></td>
+        <td><font color=""><%= student.school.name %></font></td>
 		<td>
 			<!-- modal -->
 
@@ -43,22 +43,22 @@ Detail
 				 <div class="container">     	
 						<p>
   <strong><font color=""><b>Id:</font></b></strong>
- <font color="white"><%= student.id %></font>
+ <font color=""><%= student.id %></font>
 </p>
 
 <p>
   <strong><font color="539DC2"><b>Fname:</font></b></strong>
-  <font color="white"><%= student.fname %></font>
+  <font color=""><%= student.fname %></font>
 </p>
 
 <p>
   <strong><font color="539DC2"><b>Lname:</font></b></strong>
-  <font color="white"><%= student.lname %></font>
+  <font color=""><%= student.lname %></font>
 </p>
 
 <p>
   <strong><font color="539DC2"><b>School:</font></b></strong>
-  <font color="white"><%= student.school.name %></font>
+  <font color=""><%= student.school.name %></font>
 </p>
 			</div>	
       </div>
@@ -82,9 +82,9 @@ Detail
 </table>
 
 <% if current_user.admin? %>
-<b> <%= link_to 'New Student', new_student_path, :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b>
+<b> <%= link_to 'New Student', new_student_path, :class => "btn btn-primary pull-right", :style=>'color:#000000;' %></b>
 <% else%>
-<b><%= link_to 'Add Student', add_path, :class => "btn btn-primary pull-right", :style=>'color:#FFFFFF;' %></b><br/><br/>
+<b><%= link_to 'Add Student', add_path, :class => "btn btn-primary pull-right", :style=>'color:#000000;' %></b><br/><br/>
 <% end %>
 
 </div>
