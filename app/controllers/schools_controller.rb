@@ -4,6 +4,7 @@ class SchoolsController < ApplicationController
   respond_to :html
 
   def index
+<<<<<<< HEAD
     if current_user.admin?
       @schools = School.all
       #@schools = School.pending
@@ -39,6 +40,15 @@ class SchoolsController < ApplicationController
       #end  
     #end
     
+=======
+    @schools = School.all
+    @users = School.where(id: params[:id]) 
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude      
+    end
+    respond_with(@schools)
+>>>>>>> 82100c4e49860928a04758f17f63fcfd59953040
   end
 
   def show

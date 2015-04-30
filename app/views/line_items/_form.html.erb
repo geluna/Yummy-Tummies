@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :student_id, "Student ID" %><br>
+    <%= f.label :student_id, "Student ID", :style=>'color:#FFFFFF' %><br>
     <%= f.text_field :student_id %>
   </div>
 
   <div class="field">
-	<%= f.label :datefor %><br>
-	<%= f.date_select(:datefor) %>
+	<%= f.label :datefor, :style=>'color:#FFFFFF' %><br>
+	<%= f.date_select(:datefor)%>
   </div>
   <div class="actions">
     <%= f.submit 'Update', :class => 'btn btn-primary btn-lg' %>

@@ -1,26 +1,25 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   def index
-    @users = User.where(id:current_user.id)
-    
+    @users = User.where(id:current_user.id)  
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
       marker.lat user.latitude
-      marker.lng user.longitude
-          
-end
-  	
+      marker.lng user.longitude      
+    end
   end
+  
   def new
     @student = Student.new
   end
 
   def show
-      @users = User.where(id:current_user.id)
+  @users = User.where(id:current_user.id)
       @hash = Gmaps4rails.build_markers(@users) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude
-      end
   end
+  end
+  
   def create
     @user = User.new(user_params)
 

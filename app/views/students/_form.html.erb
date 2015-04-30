@@ -16,20 +16,20 @@
 	<%= f.collection_select(:school_id, School.all, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :id %><br>
-    <%= f.text_field :id %>
+   <font color="539DC2"> <%= f.label :id %></font><br>
+    <%= f.text_field :id, :autocomplete => :off %>
   </div>
   <div class="field">
-    <%= f.label :fname %><br>
-    <%= f.text_field :fname %>
+   <font color="539DC2"> <%= f.label :fname %></font><br>
+    <%= f.text_field :fname, :autocomplete => :off  %>
   </div>
   <div class="field">
-    <%= f.label :lname %><br>
-    <%= f.text_field :lname %>
+  <font color="539DC2">  <%= f.label :lname %></font><br>
+    <%= f.text_field :lname, :autocomplete => :off  %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary btn-sm" %>
   </div>
 <% end %>
 

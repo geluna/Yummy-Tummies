@@ -4,6 +4,7 @@ class FranchisesController < ApplicationController
   respond_to :html
 
   def index
+<<<<<<< HEAD
     #@franchises = Franchise.all
     if current_user.admin?
       @franchises = Franchise.all
@@ -12,6 +13,11 @@ class FranchisesController < ApplicationController
       @franchises = Franchise.approved
     end
     #respond_with(@franchises)
+=======
+    @franchises = Franchise.all
+    respond_with(@franchises)
+
+>>>>>>> 82100c4e49860928a04758f17f63fcfd59953040
   end
 
   def fran_approve
@@ -33,10 +39,22 @@ class FranchisesController < ApplicationController
   end
 
   def show
-    @franchises = Franchise.where(user_id:current_user.id)
-    @schools = School.where(franchise_id:current_user.id)
-    @menus = Menu.where(franchise_id:current_user.id)
+    @franchises = Franchise.all
+    #@schools = School.where(franchise_id:current_user.id)
+    @schools = School.where(franchise_id: params[:id])
+    @menus = Menu.where(franchise_id:params[:id])
     @orders = Order.all
+    @users = User.all
+    @hash = Gmaps4rails.build_markers(@schools) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude  
+    end 
+    
+    @hash1 = Gmaps4rails.build_markers(@schools) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude  
+    end 
+    
     respond_with(@franchise)
   end
 
@@ -49,7 +67,9 @@ class FranchisesController < ApplicationController
   end
 
   def create
-    @franchise = Franchise.new(franchise_params)
+    @franchise = Franchise.new(franchise_params.merge(
+                user_id:  current_user.id
+                ))
     @franchise.save
     respond_with(@franchise)
   end

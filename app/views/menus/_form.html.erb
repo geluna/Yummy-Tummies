@@ -13,25 +13,25 @@
 
 
   <div class="field">
-    <%= f.label :foodItem, "Food Item" %><br>
+    <font color="539DC2"><%= f.label :foodItem, "Food Item" %></font><br>
     <%= f.text_field :foodItem %>
   </div>
   <div class="field">
-    <%= f.label :description, "Description" %><br>
+   <font color="539DC2"> <%= f.label :description, "Description" %></font><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :image_url, "Image URL" %><br>
+    <font color="539DC2"><%= f.label :image_url, "Image URL" %></font><br>
     <%= f.text_field :image_url %>
   </div>
 
 
   <div class="field">
-    <%= f.label :price %><br>
+    <font color="539DC2"><%= f.label :price %></font><br>
     <%= f.text_field :price %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary btn-sm"%>
   </div>
 <% end %>

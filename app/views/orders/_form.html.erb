@@ -12,13 +12,13 @@
   <% end %>
 
 
-	<div class="field"><font color='white'>
-	    <%= f.label :name %><br>
-	    <%= f.text_field :name, size: 40 %></font>
+	<div class="field">
+	   <font color="white"> <%= f.label :"Please Enter Name for the Order" %><br></font>
+	    <%= f.text_field :name, :autocomplete => :off, size: 40 %>
 	</div>
 
   	<div class="actions">
-    	<%= f.submit 'Place Order' %>
+    	<%= f.submit 'Place Order',:class => "btn btn-primary btn-sm"  %>
   	</div>
 <% end %>
 

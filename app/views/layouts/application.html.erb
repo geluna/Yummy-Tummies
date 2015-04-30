@@ -10,13 +10,13 @@
 	 				 width:100px;
 	 				 font-size:16px;
 				}
+				
  			</style>
  			<script>
 	 			$(function () {
   					$('[data-toggle="tooltip"]').tooltip()
 				})
  			</script>
- 			
  		</head>
 		<body>
 			<div class="navbar transparent navbar-inverse navbar-fixed-top">
@@ -28,22 +28,21 @@
     		<div>
 				<ul class="nav navbar-nav">		
 					<li><%= link_to 'Menu', menus_url, style: "color:white"  %></li>
-			        <% if can? :read, Cart %>
+			        <% if can? :read, User %>
 			        	<li><%= link_to 'My Cart', cart_path(session[:cart_id]), style: "color:white"  %></li>
-			        <% end %>
-			        <% if can? :read, Order %>
 			        	<li><%= link_to 'My Orders', orders_path, style: "color:white"  %></li>
 			        <% end %>
 		        	<% if can? :read, Student %>
 				        <li><%= link_to 'My Students', students_path, style: "color:white"  %></li>
 		  	    	<% end %>
 		  	    	<% if can? :read, Franchise %>
-		  	    		<li><%= link_to 'Franchise', franchises_path, style: "color:white"%></li>
+		  	    		<li><%= link_to 'Franchise', franchises_path(@franchises), style: "color:white"%></li>
 		  	    	<% end %>
 		  	    	<% if can? :read, School %>
 		  	    		<li><%= link_to 'School', schools_path, style: "color:white"  %></li>
 		  	    	<% end %>
 		  	    	<li><%= link_to 'About', page_path('about'), style: "color:white"  %></li>
+		  	    	<li><%= flash_messages %></li>
 		  	    </ul>
 				<ul class="nav navbar-nav navbar-right">
 						<% if user_signed_in? %>
@@ -63,11 +62,11 @@ aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="School"></sa
 							<% end %>
 						</li>
 						<li>
-							<button type="button" class="btn btn-link" style="margin-top: 9px;">
-							<%= link_to "logout", destroy_user_session_path, method: :delete, style: "color:white" %>
+							<button type="button" class="btn btn-link" style="margin-top: 1px;">
+							<%= link_to "logout", destroy_user_session_path, :style=>'color:#FFFFFF', method: :delete, :class => "btn btn-danger"  %>
 							</button>
 						</li>
-						<li>&nbsp;&nbsp;</li>
+						<li></li>
 						<% else %>
 						<li><%= render 'devise/registrations/form' %></li>
 						<li>&nbsp;&nbsp;</li>
@@ -77,15 +76,15 @@ aria-hidden="true" style="font-size:2.5em; margin-top: 9px;" title="School"></sa
 						<% if user_signed_in? %>
 						<li>
 						<div class="dropdown" style="margin-top: 8px;">
-							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+							<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 								<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-							</button>
+								
+								<span class="caret"></span>
+ 							</button>
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 								<li><%= link_to 'Menu', menus_url %></li>
 								<li><%= link_to 'My profile', page_path('../users/index'), 'data-no-turbolink' => true %></li>
-								<% if can? :read, Account %>
 								<li><%= link_to 'My Account Information', page_path('../accounts/index'), 'data-no-turbolink' => true %></li>				
-								<% end %>
 								<li class="divider"></li>
 							</ul>
 						</div>

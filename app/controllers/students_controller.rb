@@ -65,7 +65,7 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @shools = School.all
+    @schools = School.all
     @student.update(student_params)
     respond_with(@student)
   end

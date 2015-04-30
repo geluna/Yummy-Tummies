@@ -7,10 +7,12 @@ class AccountsController < ApplicationController
   def index
    # @accounts = Account.all
     #@accounts = Account.where(id:current_user.id)
+    @users = User.where(id:current_user.id)
     if current_user.admin?
       @accounts = Account.all
     else
       @accounts = Account.where(user_id:current_user.id)
+     
       #@accounts = Account.where(email:current_user.email)
     end
     respond_with(@accounts)
@@ -41,6 +43,7 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params.merge(
                user_id: current_user.id,
                email: current_user.email,
+               debit: 0.00,
                acctbal: previous_balance + account_params[:credit].to_f
                 ))  
     respond_to do |format|

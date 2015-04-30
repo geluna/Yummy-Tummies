@@ -2,26 +2,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><font color="black"><b>Id:</font></b></strong>
  <font color="white"><%= @student.id %></font>
 </p>
 
 <p>
-  <strong><font color="black"><b>Fname:</font></b></strong>
   <font color="white"><%= @student.fname %></font>
 </p>
 
 <p>
-  <strong><font color="black"><b>Lname:</font></b></strong>
   <font color="white"><%= @student.lname %></font>
 </p>
 
 <p>
-  <strong><font color="black"><b>School:</font></b></strong>
+  <strong><font color="539DC2"><b>School:</font></b></strong>
   <font color="white"><%= @student.school.name %></font>
 </p>
 
-<%= link_to 'Edit', edit_student_path(@student), {:style=>'color:#000000;'}  %> |
-<%= link_to 'Back', students_path, {:style=>'color:#000000;'}  %>
+<%= link_to 'Edit', edit_student_path(@student), {:style=>'color:#539DC2;'}  %>
+<%= link_to 'Back', students_path, {:style=>'color:#539DC2;'}  %>
+
 
 </div>

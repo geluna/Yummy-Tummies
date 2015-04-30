@@ -5,36 +5,51 @@
   </head>
 
 <div class="container">
+<<<<<<< HEAD
 <font color="black">
   <h1><font color='black'><b>Listing Menu</b></font></h1>
+=======
+<font color="white">
+  <h1><font color='539DC2'><b>Listing Menu</b></font></h1>
+>>>>>>> 82100c4e49860928a04758f17f63fcfd59953040
   <table border="3">
     <table class="table table-striped">
         <thead>
             <tr>         
+<<<<<<< HEAD
               <th><font color="black"><b>Menu</font></b></th>
               <th><font color="black">Description</font></b></th>
               <th><font color="black">Ingredients</font></b></th>
               <th><font color="black">Price</font></b></th>
               <% if can? :manage, User %> <th><font color="black">Admin</font></b></th> <% end %>      
+=======
+
+              <th><font color='539DC2'><b>Menu</font></b></th>
+              <th><font color='539DC2'>Description</font></b></th>
+              <th><font color='539DC2'>Ingredients</font></b></th>
+              <th><font color='539DC2'>Price</font></b></th>
+              <% if can? :manage, User %> <th><font color="539DC2">Admin</font></b></th> <% end %>      
+
+>>>>>>> 82100c4e49860928a04758f17f63fcfd59953040
             </tr>
         </thead>
         
       <tbody>
         <% @menus.each do |menu| %>
           <tr>
-            <td><%= image_tag(menu.image_url, :size => "140x110") %><p><font color="white"><b><%=menu.foodItem %></b></font></p></td>
+            <td><%= image_tag(menu.image_url, :size => "140x110") %><p><b><%=menu.foodItem %></b></p></td>
             <td><b><%= sanitize(menu.description) %></b></td>
             <td><b><%= sanitize(menu.ingredients) %></b></td>                    
             <td><b><span class="price"><%= number_to_currency(menu.price) %></span></b>
-          <% if can? :read, Cart %><%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-sm" %><% end %>
+          <% if can? :read, Cart %><%= button_to 'Add to Cart', line_items_path(menu_id: menu), :class => "btn btn-primary btn-lg" %><% end %>
               </td>
         
             
             <% if can? :manage, User %>
             <td class="list_actions">
-              <%=link_to'Show', menu %><br/>
-              <%=link_to'Edit',edit_menu_path(menu)%><br/>
-              <%=link_to'Destroy', menu, method: :delete, data:{confirm:'Are you sure?'} %>
+              <%=link_to'Show', menu, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm" %><br/><br/>
+              <%=link_to'Edit',edit_menu_path(menu), :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm"%><br/><br/>
+              <%=link_to'Destroy', menu, method: :delete, :style=>'color:#FFFFFF', :class => "btn btn-primary btn-sm", data:{confirm:'Are you sure?'} %>
             </td>
             <% end %>
           </tr>
@@ -47,7 +62,6 @@
     <% if can? :create, Menu %>
     <br/><%= link_to 'New Menu', new_menu_path, :class => "btn btn-primary btn-sm" %>
   <% end %>
-  </font>
 </div>
 
  

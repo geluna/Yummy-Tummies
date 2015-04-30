@@ -1,0 +1,27 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><font color=""><b>Id:</font></b></strong>
+ <font color=""><%= @student.id %></font>
+</p>
+
+<p>
+  <strong><font color=""><b>Fname:</font></b></strong>
+  <font color=""><%= @student.fname %></font>
+</p>
+
+<p>
+  <strong><font color=""><b>Lname:</font></b></strong>
+  <font color=""><%= @student.lname %></font>
+</p>
+
+<p>
+  <strong><font color=""><b>School:</font></b></strong>
+  <font color=""><%= @student.school.name %></font>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student)  %> |
+<%= link_to 'Back', students_path  %>
+
+</div>
