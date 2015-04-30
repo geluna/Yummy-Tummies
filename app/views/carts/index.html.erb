@@ -1,4 +1,4 @@
-<h1>Listing carts</h1>
+<h1><font color="539DC2">Listing carts</font></h1>
 
 <table>
   <thead>
@@ -10,9 +10,9 @@
   <tbody>
     <% @cart.each do |cart| %>
       <tr>
-        <td><%= link_to 'Show', cart %></td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', cart, carts_path, :style=>'color:#FFFFFF',:class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_cart_path(cart), carts_path, :style=>'color:#FFFFFF',:class => "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Destroy', cart, method: :delete, carts_path, :style=>'color:#FFFFFF',:class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -20,4 +20,4 @@
 
 <br>
 
-<%= link_to 'New Cart', new_cart_path %>
+<%= link_to 'New Cart', new_cart_path, carts_path, :style=>'color:#FFFFFF',:class => "btn btn-primary btn-sm" %>
