@@ -20,7 +20,58 @@
 			<td><font color='white'><%= order.name %></font></td>
       		<td><font color='white'><%= order.address %></td>
 			<td><font color='white'><%= order.email %></td>
-			<td><%= link_to 'Show', order, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %></td>
+			<td>
+			
+			<%= link_to 'Show', order, :class => "btn btn-primary btn-sm", :style=>'color:#FFFFFF' %>
+			<!-- modal -->
+			<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#mystudent_<%=order.id%>">
+Detail
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="mystudent_<%=order.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= order.name %></h4>
+      </div>
+      <div class="modal-body">
+			<div class="container">     	
+				<h1><b><font color="539DC2">Purchaser information</font></b></h1>
+<p>
+  <strong><font color="539DC2">Name:</font></strong>
+ <font color="white"> <%= order.name %></font>
+</p>
+
+<p>
+  <strong><font color="539DC2">Address:</font></strong>
+ <font color="white"><%= order.address %></font>
+</p>
+
+<p>
+  <strong><font color="539DC2">Email:</font></strong>
+  <font color="white"><%= order.email %></font>
+</p>
+<p>
+  <strong><font color="539DC2">Order Number:</font></strong>
+    <font color="white"> <%= order.id %></font>
+</p>
+
+
+			</div> <!-- content -->	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div><!-- modal end-->
+
+			
+			
+			</td>
 			<% if can? :manage, Users%>
 			<td><%= link_to 'Edit', edit_order_path(order), :class => "btn btn-primary btn-sm" %></td>
 			<td><%= link_to 'Destroy', order, method: :delete, :class => "btn btn-primary btn-sm", data: { confirm: 'Are you sure?' } %></td>
