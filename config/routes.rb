@@ -63,7 +63,13 @@ resources :accounts
   post "/process_approve/", :to => "schools#process_approve", :as => 'process_approve'
   get "/approve/", :to => "schools#approve", :as => 'approve'
 
-
+  resources :franchises do
+    collection do
+      get :fan_approve
+    end
+  end
+  post "/fran_process_approve/", :to => "franchises#fran_process_approve", :as => 'fran_process_approve'
+  get "/fran_approve/", :to => "franchises#fan_approve", :as => 'fran_approve'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

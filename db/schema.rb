@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150430130110) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "franchise_approve"
+    t.boolean  "franchise_approve", default: false
   end
 
   create_table "line_items", force: true do |t|

@@ -4,7 +4,13 @@ class FranchisesController < ApplicationController
   respond_to :html
 
   def index
-    @franchises = Franchise.all
+    #@franchises = Franchise.all
+    if current_user.admin?
+      @franchises = Franchise.all
+      #@schools = School.pending
+    else
+      @franchises = Franchise.approved
+    end
     #respond_with(@franchises)
   end
   def fran_approve
