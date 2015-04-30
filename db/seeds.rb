@@ -4,7 +4,7 @@ User.delete_all
 User.create!(id: 100, email: 'admin@admin.com', 
             password: 'adminadmin', 
             password_confirmation: 'adminadmin', 
-            admin: true, 
+            admin: true
             )
 
 Menu.delete_all     

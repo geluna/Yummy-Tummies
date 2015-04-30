@@ -4,13 +4,34 @@ class SchoolsController < ApplicationController
   respond_to :html
 
   def index
-    @schools = School.all
-    respond_with(@schools)
+    if current_user.admin?
+      @schools = School.all
+      #@schools = School.pending
+    else
+      @schools = School.approved
+    end
+
+  end
+
+  def process_approve
+    @school = School.find_by_id(params[:school_approve])
+
+      respond_to do |format|
+        if @school == true
+          @school == School.all
+          format.html { redirect_to schools_url}
+        else
+          format.html { redirect_to students_url}
+        end
+      end
+    #espond_with(@schools)
   end
 
   def show
-    @students = Student.where(school_id: params[:id])
-    respond_with(@school)
+      @students = Student.where(school_id: params[:id])
+   
+    #respond_with(@school)
+         
   end
 
   def new
@@ -43,6 +64,6 @@ class SchoolsController < ApplicationController
     end
 
     def school_params
-      params.require(:school).permit(:name, :address, :frachise_id)
+      params.require(:school).permit(:name, :address, :frachise_id, :school_approve)
     end
 end
