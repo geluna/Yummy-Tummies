@@ -8,9 +8,11 @@ Bundler.require(*Rails.groups)
 
 module Yt
   class Application < Rails::Application
-    config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    config.assets.paths << "#{Rails}/vendor/assets/stylesheets"
     config.assets.precompile += %w( *.svg *.eot *.woff *.ttf )
     config.assets.precompile += %w( menus )
+    
+   # config.serve_static_assets = true
 
     #config.assets.initialize_on_precompile = false
     # Settings in config/environments/* take precedence over those specified here.

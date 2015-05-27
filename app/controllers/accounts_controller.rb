@@ -47,6 +47,7 @@ class AccountsController < ApplicationController
                acctbal: previous_balance + account_params[:credit].to_f
                 ))  
     respond_to do |format|
+     
       if @account.save
         format.html { redirect_to accounts_url }
        format.json { render :show, status: :created, location: @account }

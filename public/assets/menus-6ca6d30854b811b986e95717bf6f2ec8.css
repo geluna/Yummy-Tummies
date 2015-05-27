@@ -1,0 +1,84 @@
+/* line 4, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+table.myTableClass {
+  font-family: verdana,arial,sans-serif;
+  font-size: 11px;
+  color: #333333;
+  border-width: 12px;
+  border-color: #a9c6c9;
+  border-collapse: collapse;
+}
+
+/* line 12, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+table.myTableClass th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9c6c9;
+}
+
+/* line 18, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+table.myTableClass td {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9c6c9;
+}
+
+/* line 24, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.oddRowColor {
+  background-color: #d2e3e2;
+}
+
+/* line 27, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.evenRowColor {
+  background-color: #c4dde1;
+}
+
+/* line 36, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus table {
+  border-collapse: collapse;
+}
+/* line 43, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus table
+tr
+td {
+  padding: 5px;
+  vertical-align: top;
+}
+/* line 50, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus .list_image {
+  width: 60px;
+  height: 70px;
+}
+/* line 55, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus .list_description {
+  width: 60%;
+}
+/* line 59, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus .list_description dl {
+  margin: 0;
+}
+/* line 64, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus .list_description dt {
+  color: #244;
+  font-weight: bold;
+  font-size: larger;
+}
+/* line 71, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus .list_description dd {
+  margin: 0;
+}
+/* line 75, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus .list_actions {
+  font-size: x-small;
+  text-align: right;
+  padding-left: 1em;
+}
+/* line 81, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus .list_line_even {
+  background: #e0f8f8;
+}
+/* line 84, c:/Users/Geluna/Documents/Aptana Studio 3 Workspace/Luna-Kim-Kashkin/app/assets/stylesheets/menus.css.scss */
+.menus .list_line_odd {
+  background: #f8b0f8;
+}
